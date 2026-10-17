@@ -9,7 +9,7 @@ export type Project={id:string;title:string;latest_accepted_revision_id:string;l
 export type Artifact={artifact_id:string;kind:string;relative_path:string;definition_id:string|null};
 export type Construction={status:string;recipe_id:string|null;recipe_version:string|null;physical_review:string;findings:string[]};
 export type Manifest=SceneManifest & {revision_id:string;revision_number:number;artifact_set_id:string;artifacts:Artifact[];capabilities:string[];construction:Construction;validation:{geometry:string;documents:string;stock_layout:string}};
-export type Job={id:string;revision_id?:string;kind?:string;state:string;stage:string;idempotency_key?:string;started_at?:string|null;finished_at?:string|null;diagnostic_code?:string|null;result_artifact_set_id?:string|null;result_artifact_id?:string|null};
+export type Job={id:string;revision_id?:string;kind?:string;state:string;stage:string;idempotency_key?:string;source_artifact_set_id?:string|null;started_at?:string|null;finished_at?:string|null;diagnostic_code?:string|null;result_artifact_set_id?:string|null;result_artifact_id?:string|null};
 export type RecipeOption={id:string;version:string;title:string;required_tools:string[];modeling_bounds?:Record<string,[string,string]>};
 export type Template={id:string;version:string;default_spec:ProjectSpec;recipes:RecipeOption[]};
 export const terminal=(state:string)=>['succeeded','failed','cancelled','interrupted'].includes(state);

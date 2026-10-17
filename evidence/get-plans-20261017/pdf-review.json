@@ -1,0 +1,37 @@
+{
+  "source_zip_sha256": "5736a1634b6cc2b0c4690ae46d6e5ca425ff01c3dfd48051ff3eff45b29c2efd",
+  "rendered_pages": [
+    {
+      "pdf": "design-packet.pdf",
+      "page": 1,
+      "pdf_sha256": "7ab68dadda28edeab65843bbd63b3ef87e1ade160d9294b3b13f75e80bca6922",
+      "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\overview.png",
+      "evidence_image": "evidence/get-plans-20261017/pdf-review/overview.png"
+    },
+    {
+      "pdf": "design-packet.pdf",
+      "page": 3,
+      "pdf_sha256": "7ab68dadda28edeab65843bbd63b3ef87e1ade160d9294b3b13f75e80bca6922",
+      "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\grouped-cuts.png",
+      "evidence_image": "evidence/get-plans-20261017/pdf-review/grouped-cuts.png"
+    },
+    {
+      "pdf": "stock-layout.pdf",
+      "page": 2,
+      "pdf_sha256": "5b35346d81d579004c97bcd0ca264506e4f5e7931afe05f6efc30bf329d205bb",
+      "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\stock-layout.png",
+      "evidence_image": "evidence/get-plans-20261017/pdf-review/stock-layout.png"
+    },
+    {
+      "pdf": "drawings/panel_horizontal-metric.pdf",
+      "page": 1,
+      "pdf_sha256": "5b74da5fc31efa989ea95e2b43d87183e5612dc091e28f48e8189caa39a41d32",
+      "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\horizontal-native.png",
+      "evidence_image": "evidence/get-plans-20261017/pdf-review/horizontal-native.png"
+    }
+  ],
+  "visual_review": "passed",
+  "scope": "Four targeted pages inspected: design overview, grouped cuts, first main-sheet layout and native horizontal drawing. All 18 PDF pages were parsed; the other 14 were not separately visually inspected.",
+  "findings": "Labels and dimensions agree with revision 2; no clipping or overlap found in the inspected pages.",
+  "render_command": "pdftoppm -f PAGE -l PAGE -singlefile -r 110 -png INPUT_PDF OUTPUT_PREFIX"
+}

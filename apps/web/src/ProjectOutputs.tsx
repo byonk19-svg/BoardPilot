@@ -1,5 +1,6 @@
 import {useEffect,useState} from 'react';
 import {api,artifactUrl,requestKey,terminal,type Job,type Manifest,type Revision} from './api';
+import {Plans} from './Plans';
 
 const labels:Record<string,string>={documents:'Measured design packet',stock:'Stock layout and cost',package:'Project ZIP'};
 const stages:Record<string,string>={queued:'Queued',generating_documents:'Generating measured drawings',verifying_documents:'Checking document consistency',planning_stock:'Planning stock',packaging:'Packaging this artifact set',publishing:'Saving verified outputs'};
@@ -11,6 +12,7 @@ export function ProjectOutputs({revision,manifest,disabled,onCompleted}:{revisio
   const [zip,setZip]=useState<string|null>(null);
   const [error,setError]=useState('');
   const [busy,setBusy]=useState(false);
+  const [plansActive,setPlansActive]=useState(false);
   const [stockSummary,setStockSummary]=useState<StockRecord|null>(null);
   const active=!!job&&!terminal(job.state);
   useEffect(()=>{setJob(null);setZip(null);setError('');},[revision.id]);
@@ -49,7 +51,8 @@ export function ProjectOutputs({revision,manifest,disabled,onCompleted}:{revisio
     <div className="section-heading"><h2>Project packet <small>revision {revision.number}</small></h2><span className="output-state">{manifest.construction.status==='complete'?'Technical fabrication method complete':manifest.construction.status==='recipe_unselected'?'Construction method unselected':'Construction '+manifest.construction.status}</span></div>
     <p className="help">Drawings and packages use this saved revision. Physical construction review and site installation remain separate from dimensional checks.</p>
     {manifest.construction.recipe_id&&<p className="help">This template models nominal panel blanks. Planned jig drilling and fastening references are in the recipe packet; they are not machined holes in the CAD files.</p>}
-    <div className="button-row"><button disabled={disabled||busy||active} onClick={()=>void queue('documents')}>Generate measured PDF · revision {revision.number}</button><button disabled={disabled||busy||active} onClick={()=>void queue('stock')}>Plan stock and cost · revision {revision.number}</button><button disabled={disabled||busy||active} onClick={()=>void queue('package')}>Export project ZIP · revision {revision.number}</button></div>
+    <Plans revision={revision} manifest={manifest} disabled={disabled||busy||active} onActiveChange={setPlansActive} onCompleted={onCompleted}/>
+    <details className="individual-outputs"><summary>Individual output tools</summary><div className="button-row"><button disabled={disabled||busy||active||plansActive} onClick={()=>void queue('documents')}>Generate measured PDF · revision {revision.number}</button><button disabled={disabled||busy||active||plansActive} onClick={()=>void queue('stock')}>Plan stock and cost · revision {revision.number}</button><button disabled={disabled||busy||active||plansActive} onClick={()=>void queue('package')}>Export project ZIP · revision {revision.number}</button></div></details>
     {error&&<p className="error" role="alert">{error}</p>}
     {job&&<div className="output-job" role="status"><span>{labels[job.kind||'']||'Outputs'}: {active?stages[job.stage]||'Working':job.state==='succeeded'?'complete':job.state==='failed'?'failed; prior outputs preserved':job.state}</span>{active&&<button disabled={job.state==='cancelling'} onClick={()=>void cancel()}>Cancel output job</button>}</div>}
     <div className="button-row output-links">{pdf&&<a href={artifactUrl(pdf.artifact_id)} download>Measured design PDF · revision {revision.number}</a>}{zip&&<a data-testid="project-zip" href={artifactUrl(zip)} download>Download project ZIP · revision {revision.number}</a>}{stockPdf&&<a href={artifactUrl(stockPdf.artifact_id)} download>Stock layout and cut sequence PDF · revision {revision.number}</a>}{stock&&<a href={artifactUrl(stock.artifact_id)} download>Stock layout data</a>}{cost&&<a href={artifactUrl(cost.artifact_id)} download>Cost estimate data</a>}</div>

@@ -147,6 +147,7 @@ test('genuine width height depth edits and cancel retry keep CAD CSV and stock o
     const horizontal=record.revision.resolved.part_definitions.find((d:{definition_id:string})=>d.definition_id==='panel_horizontal');
     expect(csv).toContain(','+horizontal.finished_mm.length_mm+','+horizontal.finished_mm.width_mm+',');
     const queued=page.waitForResponse(response=>response.request().method()==='POST'&&response.url().endsWith('/api/v1/revisions/'+record.revision.id+'/jobs'));
+    if(await page.locator('details.individual-outputs').getAttribute('open')===null)await page.getByText('Individual output tools',{exact:true}).click();
     await page.getByRole('button',{name:'Plan stock and cost · revision '+revisionNumber,exact:true}).click();
     const {job:stockJob}=await (await queued).json();
     // A prior same-revision PDF stays usable during a retry. Wait for this job,

@@ -1,0 +1,476 @@
+{
+  "stats": {
+    "startTime": "2026-10-17T19:37:34.589Z",
+    "duration": 803490.1329999999,
+    "expected": 42,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "project-list refresh failure does not detach the opened project from generation",
+      "file": "checkpoint-regressions.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2377
+        }
+      ]
+    },
+    {
+      "title": "manual editing and generation remain available when browser storage is disabled",
+      "file": "checkpoint-regressions.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1645
+        }
+      ]
+    },
+    {
+      "title": "basic measurements stay visible while specialist controls are disclosed on demand",
+      "file": "editor-usability.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2118
+        }
+      ]
+    },
+    {
+      "title": "invalid measurements remain recoverable and errors in Advanced reveal their controls",
+      "file": "editor-usability.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6701
+        }
+      ]
+    },
+    {
+      "title": "a recovered draft uses its own precision without relabeling the saved cut list",
+      "file": "editor-usability.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4320
+        }
+      ]
+    },
+    {
+      "title": "display units preserve a pending measurement while the model and cut list retain their saved dimensions",
+      "file": "editor-usability.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5247
+        }
+      ]
+    },
+    {
+      "title": "the basic editor creates coherent genuine CAD and reaches the model and cut list on narrow screens",
+      "file": "editor-usability.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 24655
+        }
+      ]
+    },
+    {
+      "title": "shared genuine GLB copies can be selected independently",
+      "file": "m0.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1946
+        }
+      ]
+    },
+    {
+      "title": "manual design, genuine selection, coherent revision edits and persisted reopening",
+      "file": "m2.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 125776
+        }
+      ]
+    },
+    {
+      "title": "canonical dimensions survive display switching, keyboard errors and narrow layouts",
+      "file": "m2.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3814
+        }
+      ]
+    },
+    {
+      "title": "saved draft reopens and cancelling a genuine worker preserves prior downloads",
+      "file": "m2.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7617
+        }
+      ]
+    },
+    {
+      "title": "authored method, genuine PDF, offline incompatible recipe, proposals and ZIP import rebuild",
+      "file": "m3-m6.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 188134
+        }
+      ]
+    },
+    {
+      "title": "hostile proposal text is inert and a stale review cannot apply",
+      "file": "m3-m6.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 52972
+        }
+      ]
+    },
+    {
+      "title": "stale draft recovery preserves edits and explicit choices survive immediate reload",
+      "file": "m3-m6.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4752
+        }
+      ]
+    },
+    {
+      "title": "production port serves coherent PDF and stock outputs at desktop and narrow widths",
+      "file": "m3-m6.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 45278
+        }
+      ]
+    },
+    {
+      "title": "914.4 mm is displayed as 36 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5
+        }
+      ]
+    },
+    {
+      "title": "25.4 mm is displayed as 1 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4
+        }
+      ]
+    },
+    {
+      "title": "0 mm is displayed as 0 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3
+        }
+      ]
+    },
+    {
+      "title": "878.4 mm is displayed as approx. 34 37/64 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4
+        }
+      ]
+    },
+    {
+      "title": "18 mm is displayed as approx. 45/64 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2
+        }
+      ]
+    },
+    {
+      "title": "298.8 mm is displayed as approx. 11 3/4 in at 16ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2
+        }
+      ]
+    },
+    {
+      "title": "25.400000000001 mm is displayed as approx. 1 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2
+        }
+      ]
+    },
+    {
+      "title": "0.1984375 mm is displayed as approx. 0 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2
+        }
+      ]
+    },
+    {
+      "title": "0.5953125 mm is displayed as approx. 1/32 in at 64ths",
+      "file": "measurements.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4
+        }
+      ]
+    },
+    {
+      "title": "Get plans is the primary packet action and individual tools remain available",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1768
+        }
+      ]
+    },
+    {
+      "title": "Get plans retries the failed stock step and packages its exact cumulative result",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2286
+        }
+      ]
+    },
+    {
+      "title": "reload resumes the same run without duplicating drawings or switching source sets",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3491
+        }
+      ]
+    },
+    {
+      "title": "a job for another revision cannot advance the plans workflow",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1787
+        }
+      ]
+    },
+    {
+      "title": "an incomplete stock layout is reported before any ready package is offered",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1909
+        }
+      ]
+    },
+    {
+      "title": "retry after a failed recovery lookup reconnects to the existing run",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3038
+        }
+      ]
+    },
+    {
+      "title": "retry waits for a cancelling job before restarting only that step",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4471
+        }
+      ]
+    },
+    {
+      "title": "leaving the displayed revision suspends subsequent plans steps",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3252
+        }
+      ]
+    },
+    {
+      "title": "cancel intent pauses advancement while its acknowledgement is delayed",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3594
+        }
+      ]
+    },
+    {
+      "title": "an unconfirmed cancellation stays paused until an explicit reconnect",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3208
+        }
+      ]
+    },
+    {
+      "title": "offline measurements to Update design to Get plans survives reload and lost acknowledgement with genuine files",
+      "file": "plans.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 100965
+        }
+      ]
+    },
+    {
+      "title": "timeout retry clears stale failure, shows live stages and preserves prior files",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6008
+        }
+      ]
+    },
+    {
+      "title": "temporary polling failure reconnects without reporting a failed generation",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7418
+        }
+      ]
+    },
+    {
+      "title": "retry after a lost submission response reuses the same request identity",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1543
+        }
+      ]
+    },
+    {
+      "title": "lost submission acknowledgement reconnects to the running job",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1326
+        }
+      ]
+    },
+    {
+      "title": "lost submission acknowledgement reconnects to the succeeded job",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1724
+        }
+      ]
+    },
+    {
+      "title": "a structured runtime refusal retains its setup guidance",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1043
+        }
+      ]
+    },
+    {
+      "title": "genuine width height depth edits and cancel retry keep CAD CSV and stock on one revision",
+      "file": "regeneration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 165406
+        }
+      ]
+    }
+  ],
+  "bundle": "index-DdMHmrUF.js",
+  "css": "index-BevTvlUp.css"
+}

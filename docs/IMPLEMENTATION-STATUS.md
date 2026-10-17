@@ -1,5 +1,32 @@
 # Implementation status
 
+## 2026-10-17 Get plans workflow
+
+Completed and verified against `.scratch/get-plans/PRD.md`. Get plans now prepares
+drawings -> stock -> ZIP with progress, retry, cancellation and reload recovery.
+Every job receives an explicit source from the previous successful result. Bundle
+downloads use the same saved revision and exact packaged cumulative artifact set.
+Individual output tools remain available. Incomplete stock is reported before
+offering a complete package. Offline/local behavior and pinned CAD are unchanged.
+
+- Canonical backend: **258 passed, 22 explicit native opt-in skips**, two known
+  warnings, 83.16 seconds. Strict TypeScript/production build passed (`index-DdMHmrUF.js`).
+- Final full frontend: **42 passed, zero failed/skipped/flaky in 803.490
+  seconds**, including genuine CAD and five-build regeneration.
+- New real workflow: update to 36 x 42 x 14 inches, three shelves, actual 19/6 mm,
+  eight parts; reload during drawings and recover a deliberately lost stock ACK.
+  Exactly three successful output jobs produced a ZIP with
+  25 independently hashed/revision-checked payloads.
+- Independent Standards/Spec reviews complete. Delayed-cancellation P2 reproduced,
+  fixed and rechecked; failed recovery lookup and cancelling retry regressions pass.
+- Original sample revision 2, raw draft, saved set/manifest and all 19 payloads
+  unchanged. Pre-existing document-corpus follow-up remains preserved separately.
+
+Exact commands, use/launch instructions and browser-coordination behavior:
+`docs/GET-PLANS.md`. Evidence: `evidence/get-plans-20261017/`. No push, paid call,
+cloud change, database migration or new dependency. Physical/human accessibility/
+release approval remains separate; earlier native corpora retain dated evidence.
+
 ## 2026-10-17 simpler manual editor
 
 Completed and verified against the six requirements in

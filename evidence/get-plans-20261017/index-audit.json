@@ -1,0 +1,214 @@
+{
+  "status": "passed",
+  "baseline": "9ed8678",
+  "branch": "codex/woodworking-platform",
+  "remote_count": 0,
+  "files": [
+    {
+      "path": ".scratch/get-plans/PLAN.md",
+      "size_bytes": 1268,
+      "sha256": "3d5b6dc51452c1c3b03d344bdb70a5ace2e7bc8295b74a9cc54b177dbe7eff2f"
+    },
+    {
+      "path": ".scratch/get-plans/PRD.md",
+      "size_bytes": 2027,
+      "sha256": "8fb7ac8e30950e99194cfb899856e9d115a77819b788f161383355481878d68c"
+    },
+    {
+      "path": "apps/web/src/Plans.tsx",
+      "size_bytes": 6349,
+      "sha256": "649a2234cb2ec4431ea8410f7269eb6d7f9cb4e75ba7cd149c0c7356d0b58dd1"
+    },
+    {
+      "path": "apps/web/src/ProjectOutputs.tsx",
+      "size_bytes": 9324,
+      "sha256": "817e24d685e914dd331fc8cdb9ed0862cd12a4cfa09aaa499d8d3f8f48fc97d8"
+    },
+    {
+      "path": "apps/web/src/api.ts",
+      "size_bytes": 4204,
+      "sha256": "27f05343dd1f84dad507d2975f8bd67faee3f07a5e60011154a1c6e9ec648133"
+    },
+    {
+      "path": "apps/web/src/planWorkflow.ts",
+      "size_bytes": 5618,
+      "sha256": "8fa987280d8bf474057ee6aa5b11385ebe90bf63737f6946b2940a2915650893"
+    },
+    {
+      "path": "apps/web/src/style.css",
+      "size_bytes": 12423,
+      "sha256": "da6a100cd5682e379217941fc6f948fa8940cc78cff05fd4720b7b809f3167f8"
+    },
+    {
+      "path": "apps/web/tests/m3-m6.spec.ts",
+      "size_bytes": 16644,
+      "sha256": "a05b0bef5c0400c85472a76969c29209b08b5b4e654bca43daac89fb43c82a58"
+    },
+    {
+      "path": "apps/web/tests/plans.spec.ts",
+      "size_bytes": 20231,
+      "sha256": "00a49276a367e47a421eec0feabaf35c3ebd56854c6784ca445902accf8f66b3"
+    },
+    {
+      "path": "apps/web/tests/regeneration.spec.ts",
+      "size_bytes": 15958,
+      "sha256": "0c53ac7fd446e6fe6228f6a2cd76b443ad475f9b161b31870e132d0dfd8583d4"
+    },
+    {
+      "path": "docs/GET-PLANS.md",
+      "size_bytes": 7944,
+      "sha256": "37f154763846c6712c659e0ee0cd718dee39660b63953f6063a5005ffd1ae6fc"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-STATUS.md",
+      "size_bytes": 46218,
+      "sha256": "4719784e63bf2b708be8d7e07ab4119f901c89e65d5ad77e7b59b8ffe86de5e6"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-results.json",
+      "size_bytes": 11682,
+      "sha256": "b4ee370ca14e00279072b92b694cab83b83ed62f5d0844c91da771a5eab8bd21"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/get-plans-acceptance.json",
+      "size_bytes": 3701,
+      "sha256": "2863640cf52911ced7a101594899e44d3ba0c329b973ecb57c65c8c70a9e12ff"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/get-plans-desktop.png",
+      "size_bytes": 204887,
+      "sha256": "31533c983e3d4f98d9d806a2a6001ed48a7d5b553976423936d763f49958cc28"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/get-plans-narrow.png",
+      "size_bytes": 181284,
+      "sha256": "c607b2effa584e9c118158326535ad5877fef37c5137eb94d8fa6410a3469aea"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/m2-cancel-preserves-model.png",
+      "size_bytes": 160594,
+      "sha256": "a5347e6f8ee411ade42df1394dd89d7562e9c80954d63a6c7f6c190b9682c13b"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/m2-manual-workflow.png",
+      "size_bytes": 157918,
+      "sha256": "6b6995cc32ed74455db88a9698f8d8d781f01b07cd76503ee753084707e62433"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/m2-narrow-saved-project.png",
+      "size_bytes": 140954,
+      "sha256": "f3f28ef51fcde42dfbe4500ca9d4725adf3952b022170bf2d60d633b5acb20f5"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/m2-narrow-workspace.png",
+      "size_bytes": 70955,
+      "sha256": "3e460a9f8fc5dd334e7a1b2566f7e091adc1e9a9f9dfb7a27fea5a7dc12101eb"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/m3-m6-imported-rebuilt.png",
+      "size_bytes": 174578,
+      "sha256": "7462c2ed735b098d0562ef80763f61ca5d50b568606c92f6bd79499c23848b13"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/m5-inert-stale-narrow.png",
+      "size_bytes": 162076,
+      "sha256": "2d419553f0314f3f90ce027ef0e9d6df3ba3fccfd1384ba64941d587938fa0d7"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/production-outputs-desktop.png",
+      "size_bytes": 199125,
+      "sha256": "bc7d3b0db60aeb65f73cf04ce48a565b41021cfc9a0cc0428079c5e810212098"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/production-outputs-narrow.png",
+      "size_bytes": 173375,
+      "sha256": "c4113292c50b4c33a92f7949591bb5e55afef710c206da96056a0eb1f5396ad8"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/regeneration-acceptance.json",
+      "size_bytes": 3911,
+      "sha256": "33a3789c5ac23627d5c82d7ce8ff274bb42b9162b051c00b3e01514a6a6f7a6f"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/regeneration-cancel.json",
+      "size_bytes": 128,
+      "sha256": "93f139f9c91d23845ed9f83c1f2020eadd687aa4a6ddc8501380b4bd65a042d4"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/regeneration-final.png",
+      "size_bytes": 187198,
+      "sha256": "9a61907b5e4635c525180cff2ba351254a4d0617b13fd5f1a459574f347939b0"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/regeneration-progress.png",
+      "size_bytes": 68933,
+      "sha256": "1a3154c3dbdf1c1e74edd3b6ae2592f53bf57d62d459d39e80d64a0de20045e8"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/regeneration-timeout.png",
+      "size_bytes": 64068,
+      "sha256": "3bf905c6073b2926cd94c4cbd1416de0b9835bd3c0d22ad1b7d13e34b506953e"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/simple-editor-desktop.png",
+      "size_bytes": 165173,
+      "sha256": "c37d4a34eb057dba55297e1c207dd05f67a8b7b6ac8276017ff8bedf1b5d670c"
+    },
+    {
+      "path": "evidence/get-plans-20261017/browser-run/tests/evidence/simple-editor-narrow.png",
+      "size_bytes": 143908,
+      "sha256": "85c047fd6bc2bdc5e4d56b58f1a0ee19ef8bf29d8d5693f7f168f2f194a8d037"
+    },
+    {
+      "path": "evidence/get-plans-20261017/get-plans-panel.png",
+      "size_bytes": 35597,
+      "sha256": "9f0e140158f53030251991cbc758e9a54169abe2fbc2baa1374a4518d7936974"
+    },
+    {
+      "path": "evidence/get-plans-20261017/keyboard-download.json",
+      "size_bytes": 263,
+      "sha256": "8b52fb616eec4a9ce2f0a271b65b71ff7bdabdf55348cdb3117270af682e4f98"
+    },
+    {
+      "path": "evidence/get-plans-20261017/pdf-review.json",
+      "size_bytes": 2186,
+      "sha256": "a234e14fe97673e3f80bf38779acdc9d39787f1ea915d87cac9de62699e45d18"
+    },
+    {
+      "path": "evidence/get-plans-20261017/pdf-review/grouped-cuts.png",
+      "size_bytes": 148263,
+      "sha256": "857bc479f274227e08dbc10dfb7e350c6cc1fbacb1486a2199eb75956fe44cda"
+    },
+    {
+      "path": "evidence/get-plans-20261017/pdf-review/horizontal-native.png",
+      "size_bytes": 61324,
+      "sha256": "67ad2af79d01d338bf5c5c39d1d5780ee294b5f6fad5d1dd17ad9fa8e142ef21"
+    },
+    {
+      "path": "evidence/get-plans-20261017/pdf-review/overview.png",
+      "size_bytes": 94557,
+      "sha256": "446cce67b66ac74970c0483788ee58c37abf03b32e8d335e2cd7522e2f83e05a"
+    },
+    {
+      "path": "evidence/get-plans-20261017/pdf-review/stock-layout.png",
+      "size_bytes": 92466,
+      "sha256": "7b184985420687f1bd7d2fe9184d234633779fcc1bf8560ad5082234aa7e08b3"
+    },
+    {
+      "path": "evidence/get-plans-20261017/preserved-walkthrough.json",
+      "size_bytes": 849,
+      "sha256": "58db4cf95468c63071736cc8c654f2a93438ecde7b3925c2556d652f3d9b63ba"
+    },
+    {
+      "path": "evidence/get-plans-20261017/verification.json",
+      "size_bytes": 9605,
+      "sha256": "21fb0f3c191a98866b431b96273bf8a5fd76786fa1f34b426eb6b3d7e84fd4b4"
+    }
+  ],
+  "audit_self_hash_excluded": true,
+  "source_matches_tested_hashes": true,
+  "preexisting_followup_preserved_and_excluded": true,
+  "whitespace": "passed",
+  "credential_pattern_check": "passed",
+  "backend_schema_pins_runtimes_and_user_store_excluded": true
+}

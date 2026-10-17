@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "read_only_database": true,
+  "checks": {
+    "project_unchanged": true,
+    "draft_raw_unchanged": true,
+    "draft_base_unchanged": true,
+    "preferred_set_unchanged": true,
+    "manifest_unchanged": true,
+    "all_saved_payloads_match": true,
+    "preexisting_review_and_corpus_files_unchanged": true
+  },
+  "artifact_count": 19,
+  "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+  "revision_id": "rev_d607e963a700410e945ea0de72025316",
+  "revision_number": 2,
+  "dimensions_mm": {
+    "fixed_shelf_count": 2,
+    "outside_depth_mm": "304.8",
+    "outside_height_mm": "914.4",
+    "outside_width_mm": "914.4"
+  },
+  "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+  "manifest_sha256": "9a9cff3eeff7a761c5ea0d988573250aab13d8cc49a35a0e845975db5133408e",
+  "current_production_bundle_served": true
+}

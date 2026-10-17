@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-17",
+  "baseline": "9ed8678c66eb6dba2b62dadf395601e61d33d505",
+  "scope": "Get plans, local/offline, no push; no backend/schema/dependency/pin changes.",
+  "backend": {
+    "tests": 280,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 22,
+    "passed": 258,
+    "seconds": 83.144
+  },
+  "backend_warnings": [
+    "Existing anyio BlockingPortal deprecation.",
+    "Intentional duplicate ZIP member in adversarial rejection test."
+  ],
+  "build": {
+    "status": "passed",
+    "strict_typescript": "passed",
+    "js": "index-DdMHmrUF.js",
+    "css": "index-BevTvlUp.css",
+    "advisory": "Existing large frontend chunk advisory."
+  },
+  "frontend": {
+    "startTime": "2026-10-17T19:37:34.589Z",
+    "duration": 803490.1329999999,
+    "expected": 42,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "acceptance": {
+    "project_id": "project_29d49a0aa1da471a8fb8790ae7e2c4a6",
+    "revision_id": "rev_ad2697e5b7a64f0295a63b19afc5950f",
+    "jobs": [
+      {
+        "id": "job_7cf994be8a8c4438beb81d748ff988e2",
+        "revision_id": "rev_ad2697e5b7a64f0295a63b19afc5950f",
+        "kind": "package",
+        "state": "succeeded",
+        "stage": "publishing",
+        "attempt": 1,
+        "idempotency_key": "plans:e08738a1-545b-4bd9-bc69-ccf183eddbc8:package:0",
+        "request_sha256": "c10401c8b62941095a599844bcd33f056ebe77d2e546cc0667bfdea3cd1e4839",
+        "source_artifact_set_id": "set_ac59479f27ff427f9d570063b9e17b49",
+        "owner_session": "session_8aa0b403a0d24cb384f44b9f4cf6ae8f",
+        "created_at": "2026-10-17T19:47:35.652996+00:00",
+        "started_at": "2026-10-17T19:47:35.669774+00:00",
+        "finished_at": "2026-10-17T19:47:38.311328+00:00",
+        "diagnostic_code": null,
+        "result_artifact_set_id": null,
+        "result_artifact_id": "artifact_ed62fa38c753488cacc66698fa45a913",
+        "metrics": {
+          "elapsed_seconds": 2.5095878999854904,
+          "peak_sampled_process_tree_rss_bytes": 71028736
+        }
+      },
+      {
+        "id": "job_da0d08fd1dea46b68804cdef5dcdf5ba",
+        "revision_id": "rev_ad2697e5b7a64f0295a63b19afc5950f",
+        "kind": "stock",
+        "state": "succeeded",
+        "stage": "publishing",
+        "attempt": 1,
+        "idempotency_key": "plans:e08738a1-545b-4bd9-bc69-ccf183eddbc8:stock:0",
+        "request_sha256": "7a91b458d12c279056834cad5eefed270cc2bde183c8440007a3dcd5683dd7b4",
+        "source_artifact_set_id": "set_4360790fad6b45a89f55890aeb7a1f3b",
+        "owner_session": "session_8aa0b403a0d24cb384f44b9f4cf6ae8f",
+        "created_at": "2026-10-17T19:47:28.341545+00:00",
+        "started_at": "2026-10-17T19:47:28.355134+00:00",
+        "finished_at": "2026-10-17T19:47:33.704516+00:00",
+        "diagnostic_code": null,
+        "result_artifact_set_id": "set_ac59479f27ff427f9d570063b9e17b49",
+        "result_artifact_id": null,
+        "metrics": {
+          "elapsed_seconds": 3.82783210001071,
+          "peak_sampled_process_tree_rss_bytes": 72359936
+        }
+      },
+      {
+        "id": "job_a7d369b95dd64d6891a5f3019889aaab",
+        "revision_id": "rev_ad2697e5b7a64f0295a63b19afc5950f",
+        "kind": "documents",
+        "state": "succeeded",
+        "stage": "publishing",
+        "attempt": 1,
+        "idempotency_key": "plans:e08738a1-545b-4bd9-bc69-ccf183eddbc8:documents:0",
+        "request_sha256": "489b37e04553033baf180c7e5f231dce4964b0f59efbc3d4ebf387428f5201a3",
+        "source_artifact_set_id": "set_b78e5c148ee847d8847ba7b391412409",
+        "owner_session": "session_8aa0b403a0d24cb384f44b9f4cf6ae8f",
+        "created_at": "2026-10-17T19:46:55.209138+00:00",
+        "started_at": "2026-10-17T19:46:55.248478+00:00",
+        "finished_at": "2026-10-17T19:47:26.097405+00:00",
+        "diagnostic_code": null,
+        "result_artifact_set_id": "set_4360790fad6b45a89f55890aeb7a1f3b",
+        "result_artifact_id": null,
+        "metrics": {
+          "elapsed_seconds": 29.381850000005215,
+          "peak_sampled_process_tree_rss_bytes": 473636864
+        }
+      }
+    ],
+    "inspection": {
+      "status": "passed",
+      "revision_id": "rev_ad2697e5b7a64f0295a63b19afc5950f",
+      "artifact_set_id": "set_ac59479f27ff427f9d570063b9e17b49",
+      "payload_count": 25,
+      "zip_sha256": "5736a1634b6cc2b0c4690ae46d6e5ca425ff01c3dfd48051ff3eff45b29c2efd",
+      "pdf_pages": {
+        "design-packet.pdf": 7,
+        "drawings/panel_back-metric.pdf": 1,
+        "drawings/panel_horizontal-metric.pdf": 1,
+        "drawings/panel_side-metric.pdf": 1,
+        "stock-layout.pdf": 8
+      },
+      "every_payload_hash_and_revision_checked": true
+    },
+    "reload_during_drawings": true,
+    "lost_stock_acknowledgement_recovered": true
+  },
+  "original_sample": {
+    "status": "passed",
+    "read_only_database": true,
+    "checks": {
+      "project_unchanged": true,
+      "draft_raw_unchanged": true,
+      "draft_base_unchanged": true,
+      "preferred_set_unchanged": true,
+      "manifest_unchanged": true,
+      "all_saved_payloads_match": true,
+      "preexisting_review_and_corpus_files_unchanged": true
+    },
+    "artifact_count": 19,
+    "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+    "revision_id": "rev_d607e963a700410e945ea0de72025316",
+    "revision_number": 2,
+    "dimensions_mm": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "914.4"
+    },
+    "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+    "manifest_sha256": "9a9cff3eeff7a761c5ea0d988573250aab13d8cc49a35a0e845975db5133408e",
+    "current_production_bundle_served": true
+  },
+  "reviews": {
+    "standards": "No hard documented-standard violation or actionable smell. Cancellation P2 fixed and re-reviewed.",
+    "spec": "One P2 delayed-cancellation finding fixed; re-review approved with no remaining concrete issue."
+  },
+  "repairs": [
+    "Retry a failed recovery lookup by discovering the existing run before creating another.",
+    "Wait for a cancelling job before retrying its step.",
+    "Pause immediately on cancel intent, lock Retry until request/controller settle, and retain an explicit uncertain outcome.",
+    "Create the test-owned evidence parent folder before writing native acceptance JSON."
+  ],
+  "red_green": "Missing primary button, duplicate recovery work, cancelling retry and delayed cancellation were observed failing before their fixes; corresponding cases pass in the final suite.",
+  "visual_review": "Desktop and 390 px captures inspected; no document-wide overflow. A separate real in-app-browser Enter download matched the independently checked ZIP hash.",
+  "keyboard_download": {
+    "status": "passed",
+    "keyboard_action": "Enter on Download plans ZIP revision 2 in the in-app browser",
+    "zip_sha256": "5736a1634b6cc2b0c4690ae46d6e5ca425ff01c3dfd48051ff3eff45b29c2efd",
+    "size_bytes": 431595,
+    "matches_independently_checked_zip": true
+  },
+  "pdf_review": {
+    "source_zip_sha256": "5736a1634b6cc2b0c4690ae46d6e5ca425ff01c3dfd48051ff3eff45b29c2efd",
+    "rendered_pages": [
+      {
+        "pdf": "design-packet.pdf",
+        "page": 1,
+        "pdf_sha256": "7ab68dadda28edeab65843bbd63b3ef87e1ade160d9294b3b13f75e80bca6922",
+        "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\overview.png",
+        "evidence_image": "evidence/get-plans-20261017/pdf-review/overview.png"
+      },
+      {
+        "pdf": "design-packet.pdf",
+        "page": 3,
+        "pdf_sha256": "7ab68dadda28edeab65843bbd63b3ef87e1ade160d9294b3b13f75e80bca6922",
+        "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\grouped-cuts.png",
+        "evidence_image": "evidence/get-plans-20261017/pdf-review/grouped-cuts.png"
+      },
+      {
+        "pdf": "stock-layout.pdf",
+        "page": 2,
+        "pdf_sha256": "5b35346d81d579004c97bcd0ca264506e4f5e7931afe05f6efc30bf329d205bb",
+        "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\stock-layout.png",
+        "evidence_image": "evidence/get-plans-20261017/pdf-review/stock-layout.png"
+      },
+      {
+        "pdf": "drawings/panel_horizontal-metric.pdf",
+        "page": 1,
+        "pdf_sha256": "5b74da5fc31efa989ea95e2b43d87183e5612dc091e28f48e8189caa39a41d32",
+        "image": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\get-plans-20261017\\pdf-review\\horizontal-native.png",
+        "evidence_image": "evidence/get-plans-20261017/pdf-review/horizontal-native.png"
+      }
+    ],
+    "visual_review": "passed",
+    "scope": "Four targeted pages inspected: design overview, grouped cuts, first main-sheet layout and native horizontal drawing. All 18 PDF pages were parsed; the other 14 were not separately visually inspected.",
+    "findings": "Labels and dimensions agree with revision 2; no clipping or overlap found in the inspected pages.",
+    "render_command": "pdftoppm -f PAGE -l PAGE -singlefile -r 110 -png INPUT_PDF OUTPUT_PREFIX"
+  },
+  "limits": [
+    "A worker already submitted keeps running if this view closes; subsequent steps resume from the ledger when this revision is reopened.",
+    "Human accessibility and physical fabrication/load/site-installation approval remain separate.",
+    "Live AI remains disabled. Native opt-in CAD/document corpora retain their separately dated evidence."
+  ]
+}

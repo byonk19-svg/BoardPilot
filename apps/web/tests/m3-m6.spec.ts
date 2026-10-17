@@ -49,6 +49,7 @@ async function showAuthored(page:Page,projectId:string){
   await expect(page.getByTestId('draft-summary')).toBeVisible();
   await expect(page.getByTestId('draft-summary')).toContainText('Accepted design');
   await expect(page.getByText('Changes not applied',{exact:true})).toHaveCount(0);
+  if(await page.locator('details.individual-outputs').getAttribute('open')===null)await page.getByText('Individual output tools',{exact:true}).click();
 }
 
 test('authored method, genuine PDF, offline incompatible recipe, proposals and ZIP import rebuild',async({page})=>{
@@ -83,6 +84,7 @@ test('authored method, genuine PDF, offline incompatible recipe, proposals and Z
   await expect(page.getByTestId('model-revision')).toContainText('revision 1',{timeout:150_000});
   await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
   await expect(page.getByText('Construction incompatible',{exact:true})).toBeVisible();
+  await page.getByText('Individual output tools',{exact:true}).click();
   await page.getByRole('button',{name:/^Generate measured PDF/}).click();
   await expect(page.getByRole('link',{name:/^Measured design PDF/})).toBeVisible({timeout:60_000});
   await expect(page.getByRole('link',{name:/^Measured design PDF/})).toHaveAttribute('href',/\/artifacts\//);
@@ -187,6 +189,7 @@ test('production port serves coherent PDF and stock outputs at desktop and narro
   await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
   await expect(page.getByTestId('model-revision')).toContainText('revision 2');
   const pdf=page.getByRole('link',{name:/^Measured design PDF/});
+  await page.getByText('Individual output tools',{exact:true}).click();
   if(!await pdf.count())await page.getByRole('button',{name:/^Generate measured PDF/}).click();
   await expect(pdf).toBeVisible({timeout:60_000});
   if(!await page.getByTestId('sheet-subtotal').count())await page.getByRole('button',{name:/^Plan stock and cost/}).click();
