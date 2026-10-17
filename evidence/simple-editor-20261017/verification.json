@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-17",
+  "baseline": "dece1036c732243c8c24da78ced64dfe64f468c5",
+  "scope": "Approved simple editor; local only, no push or paid providers.",
+  "backend": {
+    "command": "./scripts/verify.ps1",
+    "passed": 258,
+    "skipped": 22,
+    "warnings": 2,
+    "seconds": 134.67,
+    "native_corpora": "Separate dated evidence; not rerun for this frontend-only change."
+  },
+  "build": {
+    "command": "npm.cmd run build",
+    "status": "passed",
+    "strict_typescript": "passed",
+    "vite_seconds": 16.21,
+    "js": "index-CgspSzIv.js",
+    "css": "index-CX6p0r1k.css",
+    "advisory": "Existing 1.19 MB bundle chunk advisory."
+  },
+  "browser": {
+    "startTime": "2026-10-17T18:09:42.615Z",
+    "duration": 822266.45,
+    "expected": 31,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "genuine_basic_editor": {
+    "project_id": "project_4eba130aeab5437fb57ad18ff95c18a7",
+    "title": "Simple editor acceptance 1792260629469",
+    "revision_id": "rev_8cd58cacfa3a4a7587905916c165ff51",
+    "generation_job_id": "job_70673c33e4ca4100bd054a0b19cfada1",
+    "result_artifact_set_id": "set_1c88a42694c7493ea878a1e9f42e1f9d",
+    "state": "succeeded",
+    "dimensions_mm": {
+      "fixed_shelf_count": 3,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "main_thickness_mm": "19",
+    "part_instance_count": 8,
+    "horizontal_finished_mm": {
+      "length_mm": "876.4",
+      "thickness_mm": "19",
+      "width_mm": "349.6"
+    },
+    "generation_seconds": 52.24970759998541
+  },
+  "genuine_regeneration": {
+    "successful_builds": 5,
+    "generation_seconds": [
+      22.403504099987913,
+      14.85232299999916,
+      27.705746599996928,
+      29.653534500015667,
+      39.790102999977535
+    ],
+    "stock_revision_binding": "passed",
+    "cancellation_ms": 1275
+  },
+  "review": {
+    "standards": "No actionable documented-standard violation or smell; final fixes re-reviewed.",
+    "spec": "Two P2 findings reproduced and fixed; re-review found no remaining concrete finding.",
+    "resolved_findings": [
+      "Assembly guidance disappeared during invalid drafts.",
+      "Saved measurement labels used draft fraction precision.",
+      "Primary hover inherited a pale background under white text."
+    ]
+  },
+  "visual_review": {
+    "desktop": "Passed; enabled primary hovered, basic fields and model visible.",
+    "narrow": "Passed at 535 and 390 px; section links keyboard-activated, no document-wide overflow.",
+    "remaining_behavior": "Narrow cut-list table scrolls horizontally inside its labelled region.",
+    "human_accessibility": "Not certified by these automated/agent checks."
+  },
+  "red_green": {
+    "readiness": "Missing recipe-state reproduced before fix; both selected and unselected invalid drafts now pass.",
+    "saved_precision": "Recovered16ths draft changed saved64ths labels before fix; saved cut-list/details and draft summary now retain separate precision.",
+    "helper_repair": "A failed invalid-input case left a draft. The sample helper now reverts a draft before requiring a valid submission button; no product assertion removed."
+  },
+  "preservation": {
+    "status": "passed",
+    "read_only_database": true,
+    "checks": {
+      "project_unchanged": true,
+      "draft_raw_unchanged": true,
+      "draft_base_unchanged": true,
+      "preferred_set_unchanged": true,
+      "manifest_unchanged": true,
+      "all_saved_payloads_match": true,
+      "preexisting_review_and_corpus_files_unchanged": true
+    },
+    "artifact_count": 19,
+    "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+    "revision_id": "rev_d607e963a700410e945ea0de72025316",
+    "revision_number": 2,
+    "dimensions_mm": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "914.4"
+    },
+    "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+    "manifest_sha256": "9a9cff3eeff7a761c5ea0d988573250aab13d8cc49a35a0e845975db5133408e",
+    "current_production_bundle_served": true
+  },
+  "limitations": [
+    "Physical fabrication, load and site-installation approval remain separate.",
+    "Combined Get plans is deferred from this bounded editor pass.",
+    "Live AI remains disabled."
+  ]
+}

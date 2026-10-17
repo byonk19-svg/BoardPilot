@@ -129,7 +129,7 @@ test('genuine width height depth edits and cancel retry keep CAD CSV and stock o
   });
   await page.goto('/');await page.getByRole('button',{name:'New bookcase',exact:true}).click();
   await page.getByLabel('Project name').fill('Regeneration acceptance '+Date.now());
-  await page.getByRole('button',{name:'Create and generate',exact:true}).click();
+  await page.getByRole('button',{name:'Create design',exact:true}).click();
   async function verified(revisionNumber:number){
     await expect(page.getByTestId('model-revision')).toContainText('revision '+revisionNumber,{timeout:120000});
     await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
@@ -179,12 +179,12 @@ test('genuine width height depth edits and cancel retry keep CAD CSV and stock o
     await page.getByLabel(field,{exact:true}).fill(value);
     await expect(page.getByTestId('draft-summary')).toContainText(expected);
     if(field==='Outside width')await expect(page.getByTestId('draft-summary')).toContainText('Applied back width');
-    await page.getByRole('button',{name:'Apply and generate',exact:true}).click();
+    await page.getByRole('button',{name:'Update design',exact:true}).click();
     await verified(index+2);
   }
   const priorCsv=await (await page.request.get((await page.getByRole('link',{name:/Download cut list/}).getAttribute('href'))!)).text();
   const priorStock=await page.getByRole('link',{name:/Stock layout and cut sequence PDF/}).getAttribute('href');
-  await page.getByRole('button',{name:'Generate revision 4',exact:true}).click();
+  await page.getByRole('button',{name:'Update design',exact:true}).click();
   await expect(page.getByText('Building side panels',{exact:true})).toBeVisible({timeout:30000});
   const cancellationStarted=Date.now();
   await page.getByRole('button',{name:'Cancel generation',exact:true}).click();

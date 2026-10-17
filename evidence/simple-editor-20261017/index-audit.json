@@ -1,0 +1,195 @@
+{
+  "status": "passed",
+  "branch": "codex/woodworking-platform",
+  "baseline": "dece1036",
+  "remotes": [],
+  "feature_paths": [
+    {
+      "path": ".scratch/simple-editor/PRD.md",
+      "size_bytes": 2734,
+      "sha256": "236caea5725635aee802e48e282c6407b36f6d559471d13e8a8ec954cc8d4c0a"
+    },
+    {
+      "path": "AGENTS.md",
+      "size_bytes": 764,
+      "sha256": "09fb6d77bc38984cb4c778f1bc6b65ef7d1f82755028352fe7690a73a64730b4"
+    },
+    {
+      "path": "CONTEXT.md",
+      "size_bytes": 827,
+      "sha256": "04fd6fa07b334b7503fa81a68cc278bba035f050395eb858499d93404ed5c6a9"
+    },
+    {
+      "path": "apps/web/src/App.tsx",
+      "size_bytes": 36875,
+      "sha256": "fcbd142a47846d85c63f68183162fe44441ddffb5f7036d41d6b9f4fe5cff690"
+    },
+    {
+      "path": "apps/web/src/forms.ts",
+      "size_bytes": 7506,
+      "sha256": "7e40fd21695f7717956f312daf4159f4275b19afed28abc338133184ede7bd20"
+    },
+    {
+      "path": "apps/web/src/measurements.ts",
+      "size_bytes": 1489,
+      "sha256": "728a1c2323c80c0fba35578e8e64973ce6f6d1808b1d4c0d848e2421023410c9"
+    },
+    {
+      "path": "apps/web/src/style.css",
+      "size_bytes": 11901,
+      "sha256": "5aa4af34851bdf3765badd4a7ac493d666c4940636f03cc71b01996e107f19ed"
+    },
+    {
+      "path": "apps/web/tests/checkpoint-regressions.spec.ts",
+      "size_bytes": 2874,
+      "sha256": "90a256aa7c50941bbfecb5ac836ac2f0aa2ff04b276b1bdb74b4efa2567a86c6"
+    },
+    {
+      "path": "apps/web/tests/editor-usability.spec.ts",
+      "size_bytes": 10421,
+      "sha256": "f426d813d66b5ecdeb2cd0c0afda9e275e866f20862650d9b718fe70d9a53087"
+    },
+    {
+      "path": "apps/web/tests/m2.spec.ts",
+      "size_bytes": 8703,
+      "sha256": "95c371bf89508e12ca34c9584d088cd67fc7ccedb6ef5a7ac461be94318473cf"
+    },
+    {
+      "path": "apps/web/tests/m3-m6.spec.ts",
+      "size_bytes": 16348,
+      "sha256": "3c255ce40bdcaeecd8b84e24b46ae18aceb5f7cc736a00d8bc0a7b6ffd634c99"
+    },
+    {
+      "path": "apps/web/tests/measurements.spec.ts",
+      "size_bytes": 767,
+      "sha256": "11d695f403a7eb53d201dc1aec11a719fdfa9e24587b85cc4964a67f43800f60"
+    },
+    {
+      "path": "apps/web/tests/regeneration.spec.ts",
+      "size_bytes": 15804,
+      "sha256": "206d1c77405beda5077da9a615356e8e10812553d36341ba99913b29013bdbd3"
+    },
+    {
+      "path": "docs/EDITOR-USABILITY.md",
+      "size_bytes": 6852,
+      "sha256": "0fe3a134cb060e775c28bdd6b94f1349c7dc77cf5d111dcaa90721037f9bda08"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-STATUS.md",
+      "size_bytes": 44457,
+      "sha256": "0f24c70f7c0b658c636617a5b89edd4838847e9fa6dc22c834093bdb9045a6d1"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "size_bytes": 312,
+      "sha256": "9a990d253b79849b0f7cdad91464729e9bc77d8566da51aa6a5096e144beff9a"
+    },
+    {
+      "path": "docs/agents/issue-tracker.md",
+      "size_bytes": 289,
+      "sha256": "b02f17b22a154af4638def8b33f9f2a99aba6e4895dca7327184ee6a0778a253"
+    },
+    {
+      "path": "docs/agents/triage-labels.md",
+      "size_bytes": 241,
+      "sha256": "88522410b85f680e357b6ecb1b7a10a1b22d29dab05af869a9903771e4b77896"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-results.json",
+      "size_bytes": 8705,
+      "sha256": "089943faa1b8d61b55355f356ca734cbc6d3c77a00cc2cc495f106bbc5d16733"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/m2-cancel-preserves-model.png",
+      "size_bytes": 157378,
+      "sha256": "068a765e0df53a7557f21fa48a3fed414b1a5e5e97c59cc0b79a86f76fddc245"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/m2-manual-workflow.png",
+      "size_bytes": 153563,
+      "sha256": "fe5a5e1539522f62835be4fa7f4eb64ed4496b23d874089a529a4e535019a3cc"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/m2-narrow-saved-project.png",
+      "size_bytes": 139674,
+      "sha256": "59b9a89d7368eca03bfd1728e7fa2189b641f7eef13a4130ce1b514bc4f8755e"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/m2-narrow-workspace.png",
+      "size_bytes": 70970,
+      "sha256": "f9c196596f991044e8c9905774eda309b0f58a90be5332d80f2e9691cfa810f3"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/m3-m6-imported-rebuilt.png",
+      "size_bytes": 172178,
+      "sha256": "f31853c2220a749725cba8090e09121729a288df6a739809bbb8d4f08b3bb925"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/m5-inert-stale-narrow.png",
+      "size_bytes": 155638,
+      "sha256": "b7503ff2e5219766eec58eb8148e1cda9553ea4e19172d59edddb8f59ef3518a"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/production-outputs-desktop.png",
+      "size_bytes": 191828,
+      "sha256": "094f6d7eed6ac94147c7cb6ef7caa6770932d23b81817d554b6959b148e010ef"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/production-outputs-narrow.png",
+      "size_bytes": 167036,
+      "sha256": "f61b028bb001c7a64f66c8ba8d55e2d7883dddf8d6480a253e7f50eac443561e"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/regeneration-acceptance.json",
+      "size_bytes": 4046,
+      "sha256": "76d65f00fcddd901f1f32bad36a93cb68f43b0a798041487a762d989081e536b"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/regeneration-cancel.json",
+      "size_bytes": 128,
+      "sha256": "e4f60711714f6f458e2c24567771711efb16dd3dcefbb6f183febf907f2d90f6"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/regeneration-final.png",
+      "size_bytes": 186544,
+      "sha256": "3f3afb4e3b249a935a5671c26c7f2a717e2dd510e3af664a03d4182620e24059"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/regeneration-progress.png",
+      "size_bytes": 68941,
+      "sha256": "d8c0e140d9903a59227976643562fcfdad7a7608298bd20d6ed8eef7bc44bc1b"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/regeneration-timeout.png",
+      "size_bytes": 69643,
+      "sha256": "199a4fea086ddbf8cb1882979bbc75bcdea6c3a5baed9d7cfcf7150d984296e6"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/simple-editor-desktop.png",
+      "size_bytes": 162267,
+      "sha256": "a74ec3b70b6468a250b92c4dbae3960b78bf1cbd58a844528674cc7370f15c84"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/browser-run/tests/evidence/simple-editor-narrow.png",
+      "size_bytes": 142882,
+      "sha256": "34de8d77b4ea17b7c0538db10120fd16f53c15df36e0bcb2cae30249e9bb0c92"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/preserved-walkthrough.json",
+      "size_bytes": 849,
+      "sha256": "58db4cf95468c63071736cc8c654f2a93438ecde7b3925c2556d652f3d9b63ba"
+    },
+    {
+      "path": "evidence/simple-editor-20261017/verification.json",
+      "size_bytes": 4307,
+      "sha256": "6f28da83b83036c61fa016882782d1a94adce9862dece3e1c229cc3a1c70100b"
+    }
+  ],
+  "feature_path_count_before_this_audit": 36,
+  "status_partial_staging": "Only the new simpler-editor section is staged; earlier document-corpus follow-up stays in the working tree.",
+  "preexisting_followup_excluded": true,
+  "credential_pattern_scan": "passed",
+  "whitespace": "passed",
+  "runtime_database_pins_and_user_data_excluded": true,
+  "audit_file_self_hash_excluded": true
+}

@@ -22,9 +22,9 @@ test('project-list refresh failure does not detach the opened project from gener
   await page.route('**/api/v1/jobs/'+job.id,route=>route.fulfill({json:{job}}));
   await page.getByLabel('Saved projects').selectOption(created.project.id);
   await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();
-  await expect(page.getByRole('button',{name:'Generate revision 1',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
   expect(failed).toBe(true);
-  await page.getByRole('button',{name:'Generate revision 1',exact:true}).click();
+  await page.getByRole('button',{name:'Update design',exact:true}).click();
   await expect(page.getByText('Building side panels',{exact:true})).toBeVisible();
 });
 
@@ -36,7 +36,7 @@ test('manual editing and generation remain available when browser storage is dis
   await page.goto('/');
   await expect(page.getByLabel('Project name')).toBeVisible();
   await page.getByLabel('Project name').fill('Checkpoint storage '+Date.now());
-  await page.getByRole('button',{name:'Create and generate',exact:true}).click();
+  await page.getByRole('button',{name:'Create design',exact:true}).click();
   await expect(page.getByText('Building side panels',{exact:true})).toBeVisible();
   await expect(page.getByRole('alert')).toHaveCount(0);
 });

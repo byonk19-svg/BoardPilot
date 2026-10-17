@@ -1,5 +1,6 @@
 import type {ProjectSpec} from './contracts';
 import {api,ApiError,type Resolved} from './api';
+import {formatDualMeasurement} from './measurements';
 
 export type Unit='in'|'mm';
 export type Measurement={text:string;default_unit:Unit};
@@ -35,7 +36,16 @@ export function restoreForm(raw:unknown):Form|null {
     return value as Form;
   }catch{return null;}
 }
-export function displayUnit(form:Form,unit:Unit):Form {const copy=structuredClone(form);copy.spec.display.preferred_unit=unit;for(const path of dimensionPaths){const measurement=copy.measurements[path];if(!/(mm|cm|in|\")\s*$/i.test(measurement.text))measurement.text+=' '+measurement.default_unit;measurement.default_unit=unit;}return copy;}
+export function displayUnit(form:Form,unit:Unit,normalizedSpec?:ProjectSpec):Form {
+  const copy=structuredClone(form);copy.spec.display.preferred_unit=unit;
+  for(const path of dimensionPaths){
+    const measurement=copy.measurements[path];
+    if(normalizedSpec)measurement.text=editableMeasurement(valueAt(normalizedSpec,path),unit);
+    else if(!/(mm|cm|in|\")\s*$/i.test(measurement.text))measurement.text+=' '+measurement.default_unit;
+    measurement.default_unit=unit;
+  }
+  return copy;
+}
 export async function validateForm(form:Form):Promise<Validated>{
   const paths=measurementPaths(form.spec);
   const normalized=await api<{values:{field:string;value_mm:string}[];errors:unknown[]}>('/inputs/normalize',paths.map(field=>({field,...form.measurements[field]})));
@@ -49,11 +59,12 @@ export async function validateForm(form:Form):Promise<Validated>{
   return api<Validated>('/specs/validate',spec);
 }
 export function sameSpec(a:ProjectSpec,b:ProjectSpec){const canonical=(value:unknown):unknown=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).sort(([a],[b])=>a.localeCompare(b)).map(([key,value])=>[key,canonical(value)])):value;return JSON.stringify(canonical(a))===JSON.stringify(canonical(b));}
-export function changeSummary(previous:Resolved|undefined,current:Resolved){
-  if(!previous)return [`${current.part_instance_count} panels · ${current.openings.length} clear openings`,`Inside width ${current.inside_width_mm} mm · panel depth ${current.carcass_depth_mm} mm`,`Clear height target ${current.rounded_clear_height_target_mm} mm`];
+export function changeSummary(previous:Resolved|undefined,current:Resolved,unit:Unit='mm',denominator=64){
+  const format=(mm:string)=>formatDualMeasurement(mm,unit,denominator);
+  if(!previous)return [`${current.part_instance_count} panels · ${current.openings.length} clear openings`,`Inside width ${format(current.inside_width_mm)} · panel depth ${format(current.carcass_depth_mm)}`,`Clear height target ${format(current.rounded_clear_height_target_mm)}`];
   const changes:string[]=[];
-  for(const next of current.part_definitions){const old=previous.part_definitions.find(p=>p.definition_id===next.definition_id);if(!old)continue;for(const [axis,label] of [['length_mm','length'],['width_mm',next.definition_id==='panel_back'?'width':'depth'],['thickness_mm','thickness']] as const){if(old.finished_mm[axis]!==next.finished_mm[axis])changes.push(`${groupLabel(next.definition_id)} ${label}: ${old.finished_mm[axis]} → ${next.finished_mm[axis]} mm`);}if(old.quantity!==next.quantity)changes.push(`${groupLabel(next.definition_id)}: ${old.quantity} → ${next.quantity} panels`);}
-  if(previous.rounded_clear_height_target_mm!==current.rounded_clear_height_target_mm)changes.push(`Clear height: ${previous.rounded_clear_height_target_mm} → ${current.rounded_clear_height_target_mm} mm`);
+  for(const next of current.part_definitions){const old=previous.part_definitions.find(p=>p.definition_id===next.definition_id);if(!old)continue;for(const [axis,label] of [['length_mm','length'],['width_mm',next.definition_id==='panel_back'?'width':'depth'],['thickness_mm','thickness']] as const){if(old.finished_mm[axis]!==next.finished_mm[axis])changes.push(`${groupLabel(next.definition_id)} ${label}: ${format(old.finished_mm[axis])} → ${format(next.finished_mm[axis])}`);}if(old.quantity!==next.quantity)changes.push(`${groupLabel(next.definition_id)}: ${old.quantity} → ${next.quantity} panels`);}
+  if(previous.rounded_clear_height_target_mm!==current.rounded_clear_height_target_mm)changes.push(`Clear height: ${format(previous.rounded_clear_height_target_mm)} → ${format(current.rounded_clear_height_target_mm)}`);
   return [`${current.part_instance_count} panels · ${current.openings.length} clear openings`,...(changes.length?changes:['Panel geometry unchanged. Labels, manufacturing settings, and output preferences remain part of this revision.'])];
 }
 export function groupLabel(id:string){return {panel_side:'Sides',panel_horizontal:'Horizontal panels',panel_back:'Applied back'}[id]||'Interchangeable panels';}

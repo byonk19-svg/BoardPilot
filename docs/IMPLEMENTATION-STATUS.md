@@ -1,5 +1,32 @@
 # Implementation status
 
+## 2026-10-17 simpler manual editor
+
+Completed and verified against the six requirements in
+`.scratch/simple-editor/PRD.md`: basic measured fields first, one Advanced
+disclosure, Create/Update design, exact unit switching, saved revision display
+identity and direct narrow-screen section access. Assembly guidance stays visible
+during invalid drafts. Saved fraction precision stays bound to the shown revision.
+
+- Backend: **258 passed, 22 explicit native opt-in skips**, two known warnings,
+  134.67 seconds. The skipped native corpora retain their separately dated evidence.
+- Final strict TypeScript/production build passed (`index-CgspSzIv.js`,
+  `index-CX6p0r1k.css`); final full frontend suite: **31 passed, zero failed/skipped/
+  flaky in 822.266 seconds**. Genuine CAD, CSV/stock binding, PDF/ZIP/import,
+  recovery and cancellation checks remain active under the same worker limits.
+- New eight-panel sample: 36 x 42 x 14 inches, three shelves, actual 19/6 mm,
+  genuine generation 52.250 seconds. Five-build regeneration and stock
+  workflow passed; cancellation 1275 ms preserved earlier downloads.
+- Independent Standards/Spec reviews complete; two P2 spec findings and one
+  visual finding fixed and rechecked. Desktop/535/390 px checks passed.
+- Original sample revision 2, raw draft, saved set/manifest and all 19 payloads
+  unchanged. Pre-existing nine-document follow-up files remain preserved.
+
+Exact commands, launch/use instructions, review scope and limitations:
+`docs/EDITOR-USABILITY.md`. Evidence: `evidence/simple-editor-20261017/`.
+Keep local; no push, deployment, paid provider or CAD pin changes. Physical/human
+accessibility/release approval remain separate; combined Get plans is deferred.
+
 ## 2026-10-17 review and first local checkpoint
 
 The current task is to review/verify the app and create its first **local** Git

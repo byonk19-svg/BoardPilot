@@ -41,14 +41,14 @@ async function showAuthored(page:Page,projectId:string){
   await expect(page.getByTestId('model-revision')).toBeVisible();
   // Reopening first revalidates the form. Its temporary Revert control can
   // disappear when validation finishes, so wait for actionable form controls.
-  await expect(page.getByRole('button',{name:/^(?:Apply and generate|Generate revision \d+)$/})).toBeEnabled();
+  await expect(page.getByRole('button',{name:/^Update design$/})).toBeEnabled();
   const revert=page.getByRole('button',{name:'Revert draft',exact:true});
   if(await revert.count())await revert.click({timeout:5000});
   // The accepted summary intentionally hides its redundant heading. Verify the
   // accepted state and visible summary instead of requiring that hidden title.
   await expect(page.getByTestId('draft-summary')).toBeVisible();
   await expect(page.getByTestId('draft-summary')).toContainText('Accepted design');
-  await expect(page.getByText('Draft inputs',{exact:true})).toHaveCount(0);
+  await expect(page.getByText('Changes not applied',{exact:true})).toHaveCount(0);
 }
 
 test('authored method, genuine PDF, offline incompatible recipe, proposals and ZIP import rebuild',async({page})=>{
@@ -72,14 +72,14 @@ test('authored method, genuine PDF, offline incompatible recipe, proposals and Z
   await page.getByRole('button',{name:'New bookcase',exact:true}).click();
   await page.getByLabel('Project name').fill('Offline incompatible '+Date.now());
   const recipe=(await (await page.request.get('/api/v1/templates')).json()).templates[0].recipes[0];
+  await page.getByText('Advanced settings',{exact:true}).click();
   await page.getByLabel('Installed recipe').selectOption(recipe.id+'@'+recipe.version);
   await expect(page.getByTestId('recipe-state')).toContainText('incompatible');
   await expect(page.getByLabel('Actual main thickness (mm)',{exact:true})).toHaveValue('18 mm');
-  await page.getByText('Stock sheets and prices',{exact:true}).click();
   await page.getByLabel('Sheet 1 price (USD)',{exact:true}).fill('70.00');
   await page.getByLabel('Sheet 2 price (USD)',{exact:true}).fill('25.00');
   await page.route('**/*',route=>{const host=new URL(route.request().url()).hostname;return ['127.0.0.1','localhost','[::1]'].includes(host)?route.continue():route.abort();});
-  await page.getByRole('button',{name:'Create and generate',exact:true}).click();
+  await page.getByRole('button',{name:'Create design',exact:true}).click();
   await expect(page.getByTestId('model-revision')).toContainText('revision 1',{timeout:150_000});
   await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
   await expect(page.getByText('Construction incompatible',{exact:true})).toBeVisible();
