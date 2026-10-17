@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "woodworking-platform"
+version = "0.1.0"
+requires-python = ">=3.13,<3.14"
+dependencies = ["cadgen==0.7.21", "fastapi==0.119.1", "pydantic==2.12.3", "uvicorn==0.38.0", "jsonschema==4.25.1", "python-multipart==0.0.20", "reportlab==4.4.4", "pypdf==6.1.1", "psutil==7.1.0"]
+
+[tool.setuptools.packages.find]
+where = ["services/api/src"]
+
+[tool.setuptools.package-data]
+"woodwork.templates" = ["*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["services/api/src"]
+testpaths = ["tests"]
+markers = ["cad: genuine CAD integration corpus", "browser: actual browser flow"]

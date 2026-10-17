@@ -1,0 +1,15 @@
+import {useState} from 'react';
+import type {ProjectSpec} from './contracts';
+import {api,uploadApi,type Project,type Revision} from './api';
+
+type CheckedImport={token:string;spec:ProjectSpec;provenance:{source_project_id?:string;source_revision_id?:string;source_artifact_set_id?:string};rebuild_supported:boolean};
+export function ImportProject({onImported}:{onImported:(project:Project,revision:Revision)=>Promise<void>}){
+  const [file,setFile]=useState<File|null>(null);
+  const [checked,setChecked]=useState<CheckedImport|null>(null);
+  const [title,setTitle]=useState('');
+  const [error,setError]=useState('');
+  const [busy,setBusy]=useState(false);
+  async function validate(){if(!file)return;setError('');setChecked(null);setBusy(true);try{if(file.size>32*1024*1024)throw new Error('Choose a project ZIP no larger than 32 MiB.');const result=await uploadApi<CheckedImport>('/imports/validate',file);setChecked(result);setTitle((result.spec.project_name+' - imported').slice(0,100));}catch(value){setError(value instanceof Error?value.message:'This project package could not be validated.');}finally{setBusy(false);}}
+  async function importProject(){if(!checked)return;setError('');setBusy(true);try{const result=await api<{project:Project;revision:Revision}>('/imports',{token:checked.token,title});await onImported(result.project,result.revision);setChecked(null);setFile(null);}catch(value){setError(value instanceof Error?value.message:'The project could not be imported.');}finally{setBusy(false);}}
+  return <details className="import-project"><summary>Import a saved project ZIP</summary><div className="import-body"><p className="help">Validate its checksums first, then create a new local project. Imported geometry is rebuilt from the installed trusted template before it becomes the current model.</p><div className="field"><label htmlFor="import-zip">Project ZIP file</label><input id="import-zip" type="file" accept=".zip,application/zip" disabled={busy} onChange={event=>{setFile(event.target.files?.[0]||null);setChecked(null);setError('');}}/></div><button disabled={busy||!file} onClick={()=>void validate()}>Validate project ZIP</button>{error&&<p className="error" role="alert">{error}</p>}{checked&&<div className="import-review" data-testid="import-review"><h3>Package checked</h3><p>{checked.spec.dimensions.outside_width_mm} × {checked.spec.dimensions.outside_depth_mm} × {checked.spec.dimensions.outside_height_mm} mm; {checked.spec.dimensions.fixed_shelf_count} fixed shelves.</p><p className="help">Source revision {checked.provenance.source_revision_id||'recorded in package'}; a new project identity will be created.</p>{!checked.rebuild_supported&&<p className="error" role="alert">The template version needed to rebuild this package is not installed.</p>}<div className="field"><label htmlFor="import-title">Imported project name</label><input id="import-title" maxLength={100} value={title} onChange={event=>setTitle(event.target.value)}/></div><button disabled={busy||!title.trim()||!checked.rebuild_supported} onClick={()=>void importProject()}>Import and rebuild as new local project</button></div>}</div></details>;
+}

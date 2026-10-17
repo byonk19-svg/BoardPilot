@@ -1,0 +1,13 @@
+# Source checks and saved artifacts must survive Windows Git checkouts.
+* text=auto eol=lf whitespace=trailing-space,space-before-tab,cr-at-eol
+handoff/** -text
+tests/fixtures/** -text
+samples/** -text
+evidence/** -text
+apps/web/tests/evidence/** -text
+requirements-runtime.lock -text
+*.step binary
+*.glb binary
+*.png binary
+*.pdf binary
+*.zip binary

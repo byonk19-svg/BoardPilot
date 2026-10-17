@@ -1,0 +1,3 @@
+# Product design
+
+Use a light warm-neutral workspace, solid deep-green actions and selection, and a readable system sans. Desktop has a parameter rail, central viewport and compact detail area; narrow layouts stack panels. Prefer flat sections and ruled tables. Show draft/building/last-successful identities adjacent to the affected surface. Each input has an explicit label/unit, focus outline and field error. Selected instances have text IDs as well as material color. Downloads are available outside the 3D viewer. No modal is needed for routine editing. View/explosion transforms never change the authoritative assembly.

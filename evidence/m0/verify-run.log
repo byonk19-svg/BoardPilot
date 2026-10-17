@@ -1,0 +1,86 @@
+{
+  "scope": "M0 runtime probes only; canonical project acceptance not run",
+  "python": "3.13.9 (main, Oct 28 2025, 12:03:59) [MSC v.1944 64 bit (AMD64)]",
+  "versions": {
+    "cadgen": "0.7.21",
+    "build123d": "0.11.1",
+    "cadquery-ocp-novtk": "7.9.3.1.1",
+    "playwright": "1.63.0"
+  },
+  "panel_size_mm": [
+    726.0,
+    298.8,
+    18.0
+  ],
+  "panel_volume_mm3": 3904718.4,
+  "panel_glb_size_m": [
+    0.7260000109672546,
+    0.017999999225139618,
+    0.298799991607666
+  ],
+  "panel_glb_signed_volume_m3": 0.003904718181225729,
+  "asymmetric_volume_mm3": 107095.22131576594,
+  "offcenter_hole_glb_vertex_count": 176,
+  "occurrences": [
+    {
+      "label": "panel_left",
+      "selector": "#o1.1",
+      "center_mm": [
+        -60.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "panel_right",
+      "selector": "#o1.2",
+      "center_mm": [
+        60.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "asymmetric.glb",
+      "size": 7180,
+      "sha256": "28d182133cfebf5db6f1285b211675d24909ef75b22a1bc9ae3a68048f873c27"
+    },
+    {
+      "path": "asymmetric.step",
+      "size": 20569,
+      "sha256": "2ebe7b4934bff3f207bf53558462ef0abc61b5d23be4cd785b7387c548c34b95"
+    },
+    {
+      "path": "part-metric-1.png",
+      "size": 43724,
+      "sha256": "f78f63693343c7b0db3e97db3a85d7ae3f68a937a0e5d9ad9c8338a67b35e137"
+    },
+    {
+      "path": "part-metric.pdf",
+      "size": 50697,
+      "sha256": "1579bcce96b0450b814bfe801287bbfebbfe59349165ebb4c74f3888546be87e"
+    },
+    {
+      "path": "part.glb",
+      "size": 1852,
+      "sha256": "d2a4076311f4721b9dfaf66ac00c0d92eba9adb8f8caad4931f3497806029a35"
+    },
+    {
+      "path": "part.png",
+      "size": 110580,
+      "sha256": "c03179875d5fa37b54b4f8490b8100d0d4059a1b9c5225374ca498b63f7d697d"
+    },
+    {
+      "path": "part.step",
+      "size": 17028,
+      "sha256": "ef47c5c8677c1938bb485ce44dfb40a59337f69e5c236d8fdfe56a8af2f8d36b"
+    },
+    {
+      "path": "two-instances.step",
+      "size": 17535,
+      "sha256": "d7db0c1e266289834af44737f1ab99d4a1661d78db8d7940b3131e54b7b1b8b3"
+    }
+  ]
+}

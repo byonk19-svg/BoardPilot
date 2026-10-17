@@ -1,0 +1,527 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:woodworking-planner:artifact-manifest:1.0.0",
+  "title": "Published artifact manifest contract v1",
+  "description": "For successful published artifact sets only. Semantic checks bind hashes and revisions, quantity/identity, positive dimensions, and proper rotations. Inventory excludes this manifest and enclosing ZIP to avoid checksum cycles.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "revision_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "revision_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "spec_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "resolved_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "build_key_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "app": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "template": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "compiler": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "adapter": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "cadgen": {
+          "const": "0.7.21"
+        },
+        "python": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "build123d": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "ocp": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "node": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "dependency_lock_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "recipe_fingerprint": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/sha256"
+            }
+          ]
+        }
+      },
+      "required": [
+        "app",
+        "template",
+        "compiler",
+        "adapter",
+        "cadgen",
+        "python",
+        "build123d",
+        "ocp",
+        "node",
+        "dependency_lock_sha256",
+        "recipe_fingerprint"
+      ]
+    },
+    "coordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cad_units": {
+          "const": "mm"
+        },
+        "cad_axes": {
+          "const": "x_width_y_depth_z_height"
+        },
+        "part_origin": {
+          "const": "center"
+        },
+        "part_axes": {
+          "const": "x_length_y_width_z_thickness"
+        },
+        "preview_units": {
+          "const": "m"
+        },
+        "cad_to_preview": {
+          "const": "x_z_neg_y_times_0.001"
+        }
+      },
+      "required": [
+        "cad_units",
+        "cad_axes",
+        "part_origin",
+        "part_axes",
+        "preview_units",
+        "cad_to_preview"
+      ]
+    },
+    "part_definitions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/definition"
+      },
+      "minItems": 1
+    },
+    "part_instances": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/instance"
+      },
+      "minItems": 1,
+      "maxItems": 9
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "minItems": 1
+    },
+    "validation": {
+      "$ref": "#/$defs/validation"
+    },
+    "construction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "recipe_unselected",
+            "incompatible",
+            "incomplete",
+            "complete"
+          ]
+        },
+        "recipe_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          ]
+        },
+        "recipe_version": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          ]
+        },
+        "physical_review": {
+          "enum": [
+            "not_reviewed",
+            "review_recorded"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100
+        }
+      },
+      "required": [
+        "status",
+        "recipe_id",
+        "recipe_version",
+        "physical_review",
+        "findings"
+      ]
+    },
+    "artifact_set_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "source_artifact_set_id": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "geometry",
+          "documents",
+          "construction_instructions",
+          "stock_layout",
+          "cost_estimate"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "contains": {
+        "const": "geometry"
+      }
+    }
+  },
+  "required": [
+    "manifest_schema_version",
+    "project_id",
+    "revision_id",
+    "revision_number",
+    "spec_sha256",
+    "resolved_sha256",
+    "build_key_sha256",
+    "versions",
+    "coordinates",
+    "part_definitions",
+    "part_instances",
+    "artifacts",
+    "validation",
+    "construction",
+    "artifact_set_id",
+    "source_artifact_set_id",
+    "capabilities"
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "mm": {
+      "type": "string",
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]{0,5}[1-9])?$"
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "length_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "width_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "thickness_mm": {
+          "$ref": "#/$defs/mm"
+        }
+      },
+      "required": [
+        "length_mm",
+        "width_mm",
+        "thickness_mm"
+      ]
+    },
+    "xyz": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "$ref": "#/$defs/mm"
+        },
+        "y": {
+          "$ref": "#/$defs/mm"
+        },
+        "z": {
+          "$ref": "#/$defs/mm"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    "definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "definition_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "material_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "manufacturing_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "finished_mm": {
+          "$ref": "#/$defs/dimensions"
+        },
+        "rough_mm": {
+          "$ref": "#/$defs/dimensions"
+        },
+        "grain_axis": {
+          "enum": [
+            "L",
+            "none"
+          ]
+        },
+        "member_instance_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "definition_id",
+        "material_id",
+        "manufacturing_sha256",
+        "quantity",
+        "finished_mm",
+        "rough_mm",
+        "grain_axis",
+        "member_instance_ids"
+      ]
+    },
+    "instance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "instance_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "definition_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "center_mm": {
+          "$ref": "#/$defs/xyz"
+        },
+        "rotation_cad_rows": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "enum": [
+                -1,
+                0,
+                1
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "instance_id",
+        "definition_id",
+        "center_mm",
+        "rotation_cad_rows"
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "kind": {
+          "enum": [
+            "step",
+            "glb",
+            "csv",
+            "pdf",
+            "json",
+            "svg",
+            "dxf",
+            "png",
+            "text"
+          ]
+        },
+        "relative_path": {
+          "type": "string",
+          "pattern": "^(?:[a-z0-9][a-z0-9_.-]*/)*[a-z0-9][a-z0-9_.-]*$"
+        },
+        "mime_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "revision_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "spec_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "definition_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          ]
+        }
+      },
+      "required": [
+        "artifact_id",
+        "kind",
+        "relative_path",
+        "mime_type",
+        "size_bytes",
+        "sha256",
+        "revision_id",
+        "spec_sha256",
+        "definition_id"
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "parameters": {
+          "const": "passed"
+        },
+        "geometry": {
+          "const": "passed"
+        },
+        "documents": {
+          "enum": [
+            "passed",
+            "not_requested"
+          ]
+        },
+        "stock_layout": {
+          "enum": [
+            "passed",
+            "not_requested",
+            "unplaceable"
+          ]
+        }
+      },
+      "required": [
+        "parameters",
+        "geometry",
+        "documents",
+        "stock_layout"
+      ]
+    }
+  }
+}

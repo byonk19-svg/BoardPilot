@@ -1,0 +1,156 @@
+{
+  "project": {
+    "id": "project_26ad37413dc040deb6b0d479c438e8a3",
+    "title": "Sample bookcase walkthrough",
+    "created_at": "2026-10-15T00:38:01.030011+00:00",
+    "updated_at": "2026-10-15T01:28:30.618845+00:00",
+    "latest_accepted_revision_id": "rev_d607e963a700410e945ea0de72025316",
+    "latest_successful_revision_id": "rev_d607e963a700410e945ea0de72025316",
+    "provenance": {
+      "source_artifact_set_id": "stock_bookcase_baseline",
+      "source_manifest_sha256": "1075c727c799ae335d6af11d23aed1e0216e965e865e32a0c93d81ff0abe8f16",
+      "source_project_id": "m1-acceptance",
+      "source_revision_id": "bookcase-baseline",
+      "source_spec_sha256": "2d4c00c1478a2cc839f2c3a32bbd6d2072196de2e0f8cb736ab08d9d3560aa2b",
+      "source_zip_sha256": "efa09a934c9afc197e58d7064b90d3035beddb9459472ad16b68550ae73cd878"
+    }
+  },
+  "draft": {
+    "base_revision_id": "rev_d607e963a700410e945ea0de72025316",
+    "raw": {
+      "measurements": {
+        "dimensions.outside_depth_mm": {
+          "default_unit": "in",
+          "text": "12 in"
+        },
+        "dimensions.outside_height_mm": {
+          "default_unit": "in",
+          "text": "36 in"
+        },
+        "dimensions.outside_width_mm": {
+          "default_unit": "in",
+          "text": "36 in"
+        },
+        "manufacturing.rough_allowance_per_edge_mm": {
+          "default_unit": "mm",
+          "text": "0 mm"
+        },
+        "manufacturing.saw_kerf_mm": {
+          "default_unit": "mm",
+          "text": "3.2 mm"
+        },
+        "manufacturing.sheet_edge_trim_mm": {
+          "default_unit": "mm",
+          "text": "10 mm"
+        },
+        "manufacturing.stock_sheets.0.length_mm": {
+          "default_unit": "mm",
+          "text": "2440 mm"
+        },
+        "manufacturing.stock_sheets.0.width_mm": {
+          "default_unit": "mm",
+          "text": "1220 mm"
+        },
+        "manufacturing.stock_sheets.1.length_mm": {
+          "default_unit": "mm",
+          "text": "2440 mm"
+        },
+        "manufacturing.stock_sheets.1.width_mm": {
+          "default_unit": "mm",
+          "text": "1220 mm"
+        },
+        "materials.back.actual_thickness_mm": {
+          "default_unit": "mm",
+          "text": "6 mm"
+        },
+        "materials.main.actual_thickness_mm": {
+          "default_unit": "mm",
+          "text": "18 mm"
+        }
+      },
+      "prices": {
+        "back_sheet": "",
+        "main_sheet": ""
+      },
+      "spec": {
+        "construction": {
+          "back_style": "applied_full",
+          "edge_banding": "none",
+          "panel_geometry": "butt_panels",
+          "recipe": null,
+          "shelf_spacing": "equal_clear"
+        },
+        "dimensions": {
+          "fixed_shelf_count": 2,
+          "outside_depth_mm": "304.8",
+          "outside_height_mm": "914.4",
+          "outside_width_mm": "914.4"
+        },
+        "display": {
+          "fraction_denominator": 64,
+          "preferred_unit": "in"
+        },
+        "documents": {
+          "native_part_drawing_units": "mm",
+          "paper_size": "letter",
+          "schedule_units": "dual"
+        },
+        "manufacturing": {
+          "rough_allowance_per_edge_mm": "0",
+          "saw_kerf_mm": "3.2",
+          "sheet_edge_trim_mm": "10",
+          "stock_sheets": [
+            {
+              "currency": "USD",
+              "grain_axis": "length",
+              "length_mm": "2440",
+              "material_id": "plywood_main",
+              "stock_id": "main_sheet",
+              "unit_price": null,
+              "width_mm": "1220"
+            },
+            {
+              "currency": "USD",
+              "grain_axis": "length",
+              "length_mm": "2440",
+              "material_id": "plywood_back",
+              "stock_id": "back_sheet",
+              "unit_price": null,
+              "width_mm": "1220"
+            }
+          ]
+        },
+        "materials": {
+          "back": {
+            "actual_thickness_mm": "6",
+            "face_grain": "along_L",
+            "kind": "plywood",
+            "material_id": "plywood_back",
+            "name": "Example back plywood",
+            "nominal_label": "1/4 in plywood (label only)"
+          },
+          "main": {
+            "actual_thickness_mm": "18",
+            "face_grain": "along_L",
+            "kind": "plywood",
+            "material_id": "plywood_main",
+            "name": "Example main plywood",
+            "nominal_label": "3/4 in plywood (label only)"
+          }
+        },
+        "project_name": "Reference plywood bookcase",
+        "schema_version": "1.0.0",
+        "template": {
+          "id": "plywood_bookcase_v1",
+          "version": "1.0.0"
+        }
+      },
+      "version": 1
+    },
+    "updated_at": "2026-10-15T01:02:39.107999+00:00"
+  },
+  "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+  "manifest_sha256": "9a9cff3eeff7a761c5ea0d988573250aab13d8cc49a35a0e845975db5133408e",
+  "data_root": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\app-development",
+  "active_jobs": 0
+}

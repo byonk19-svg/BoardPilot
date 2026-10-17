@@ -1,0 +1,156 @@
+{
+  "full_check_exit": 2,
+  "immutable_input_whitespace": {
+    "handoff/Woodworking-Platform-Full-Plan.md": {
+      "count": 3,
+      "issues": [
+        "trailing whitespace."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/WOODWORKING-PLATFORM-PLAN.md": {
+      "count": 3,
+      "issues": [
+        "trailing whitespace."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/ai-width-proposal.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-back-9mm.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-baseline.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-depth-14in.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-one-shelf.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-thickness-19mm.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-width-36in.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/bookcase-zero-shelves.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/input-cases.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/examples/kerf-exact-fit.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/spec/ai-proposal.schema.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "handoff/package/woodworking-codex-handoff/spec/project.schema.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/ai-width-proposal.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-back-9mm.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-baseline.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-depth-14in.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-one-shelf.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-thickness-19mm.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-width-36in.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/bookcase-zero-shelves.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/input-cases.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/kerf-exact-fit.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    },
+    "tests/fixtures/project.schema.json": {
+      "count": 1,
+      "issues": [
+        "new blank line at EOF."
+      ]
+    }
+  },
+  "first_party_source_check_exit": 0
+}

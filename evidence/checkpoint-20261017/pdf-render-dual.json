@@ -1,0 +1,48 @@
+{
+  "units": "dual",
+  "rendered_pages": 16,
+  "render_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-pdf-render-20261017\\dual",
+  "pdfs": [
+    {
+      "path": "design-packet.pdf",
+      "pages": 7,
+      "sha256": "3bc312ba32f8b615e56d5b6aeb851d76244d9d229c3bb46cb9bfda0aad9e8647",
+      "render_status": "passed",
+      "poppler_warnings": true
+    },
+    {
+      "path": "drawings/panel_side-metric.pdf",
+      "pages": 1,
+      "sha256": "adc04d740c3f345fcda4f3577362e222ba80fdc02b6eb24a29e6ad75ada2f61a",
+      "render_status": "passed",
+      "poppler_warnings": true
+    },
+    {
+      "path": "drawings/panel_horizontal-metric.pdf",
+      "pages": 1,
+      "sha256": "62cdd313b866ecb454a6f8db7e9d93ca3ff2c7d1b99d0be3e8310289ee3791d1",
+      "render_status": "passed",
+      "poppler_warnings": true
+    },
+    {
+      "path": "drawings/panel_back-metric.pdf",
+      "pages": 1,
+      "sha256": "211b3094da93f5ddaaa6cbe198399d498a857dce2e4215e2b1395f20ab5d3aca",
+      "render_status": "passed",
+      "poppler_warnings": true
+    },
+    {
+      "path": "stock-layout.pdf",
+      "pages": 6,
+      "sha256": "ff99aa5c8077c0b97463398b066e4fb518426619e59e22f2e0136513676854bf",
+      "render_status": "passed",
+      "poppler_warnings": true
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewer": "agent",
+    "scope": "all 16 pages inspected in four contact sheets; correct selected units, unclipped labels, legible diagrams and cut-sequence tables",
+    "physical_review": "not_reviewed"
+  }
+}

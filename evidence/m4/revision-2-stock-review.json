@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-14",
+  "revision_id": "rev_d607e963a700410e945ea0de72025316",
+  "revision_number": 2,
+  "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+  "job_id": "job_00e40423aa04445ca07ff76f15a9460a",
+  "status": "passed",
+  "fresh_artifact_inventory_check_count": 19,
+  "cut_tree_replay": "passed",
+  "physical_panel_coverage": 7,
+  "unplaced": [],
+  "same_geometry_and_cut_list_files": [
+    "assembly.step",
+    "cut-list.csv",
+    "parts\\panel_back.glb",
+    "parts\\panel_back.step",
+    "parts\\panel_horizontal.glb",
+    "parts\\panel_horizontal.step",
+    "parts\\panel_side.glb",
+    "parts\\panel_side.step"
+  ],
+  "sheet_counts": {
+    "main_sheet": 1,
+    "back_sheet": 1
+  },
+  "sheet_size_mm": [
+    2440,
+    1220
+  ],
+  "saw_kerf_mm": "3.2",
+  "edge_trim_mm": "10",
+  "grain_rotations_verified": true,
+  "pdf_visual_review": {
+    "pages_reviewed": 6,
+    "result": "passed",
+    "renders": "output/pdf/revision-2-stock"
+  },
+  "sheet_prices_complete": false,
+  "project_total": null
+}

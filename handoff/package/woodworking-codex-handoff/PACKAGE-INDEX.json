@@ -1,0 +1,142 @@
+{
+  "handoff_version": "1.0",
+  "prepared_utc": "2026-10-13",
+  "description": "Integrity index for the Codex handoff, excluding this index and enclosing ZIP. Not an application artifact manifest.",
+  "files": [
+    {
+      "path": "START-HERE.md",
+      "size_bytes": 8538,
+      "sha256": "4a5d8d619b61ce9abd73a62e40e41375afb93a91120397e54bfcaf158e16352a"
+    },
+    {
+      "path": "WOODWORKING-PLATFORM-PLAN.md",
+      "size_bytes": 35391,
+      "sha256": "524429eaa2f3837e1747c939b7e9eb4a65ce5b25a713fb5a2d2d326a720a6cda"
+    },
+    {
+      "path": "docs/ACCEPTANCE-TESTS.md",
+      "size_bytes": 19611,
+      "sha256": "6b88a09ce3b2831eca075b53069ce70039efc98bbc11a8cc4c8d62aaf604950d"
+    },
+    {
+      "path": "docs/API-AND-JOBS.md",
+      "size_bytes": 23267,
+      "sha256": "c8c53cda7208f2b955758507b4db845c377de7d5d7a2ce1b48ec513ee2960c83"
+    },
+    {
+      "path": "docs/CAD-INTEGRATION.md",
+      "size_bytes": 20012,
+      "sha256": "1ba815160e74661dc53de7a7a28cade868bdf909c9147b8d98b5ef99fe168541"
+    },
+    {
+      "path": "docs/CONSTRUCTION-AND-EXPORTS.md",
+      "size_bytes": 20531,
+      "sha256": "6a16ab2b233fb6e20ddd1238e3194d1da0f212d02776cba704abfcc56db42b45"
+    },
+    {
+      "path": "docs/DATA-AND-GEOMETRY.md",
+      "size_bytes": 16800,
+      "sha256": "1862fe5a506f1f726d99092c66ac92c08b3c2992edb9b859b20886a0c96dfae7"
+    },
+    {
+      "path": "docs/HANDOFF-VALIDATION.md",
+      "size_bytes": 2379,
+      "sha256": "f917cb39519286477e99166393080d9a1d9ac8507f0f375f79aa558017715a82"
+    },
+    {
+      "path": "docs/IMPLEMENTATION-SEQUENCE.md",
+      "size_bytes": 15902,
+      "sha256": "06c3a2488d75344ca6d1f9dc30d75863ae79e9efd442a8c1158541630a0fb821"
+    },
+    {
+      "path": "docs/SOURCES.md",
+      "size_bytes": 8637,
+      "sha256": "65326bee1e7ebfa824e81141c41964ffed77d30202b0b318bbe38d05bbee93a9"
+    },
+    {
+      "path": "examples/README.md",
+      "size_bytes": 4706,
+      "sha256": "b464c4c73a04e9a12c30820de2b09cbc2720cb4fa9028c496376e885a3c42c13"
+    },
+    {
+      "path": "examples/ai-width-proposal.json",
+      "size_bytes": 380,
+      "sha256": "170aea2621d60d67c58e2fb005b7cb31eedf8941e026e35e4fa8d6d22b380d41"
+    },
+    {
+      "path": "examples/bookcase-3-shelves.json",
+      "size_bytes": 1798,
+      "sha256": "cb6178d6d52a5ba294b0f0da42571ce33032cd4a06b556c53d6826d29c77524b"
+    },
+    {
+      "path": "examples/bookcase-4-shelves.json",
+      "size_bytes": 1798,
+      "sha256": "55f6212890ddd2dd0a0e952226a393bb3715af09629be80b878adc735fe31860"
+    },
+    {
+      "path": "examples/bookcase-back-9mm.json",
+      "size_bytes": 1799,
+      "sha256": "9b1939199d7e3d58531548b443c66b28bd4807743d90cb61da2bacdcf5d02900"
+    },
+    {
+      "path": "examples/bookcase-baseline.json",
+      "size_bytes": 1799,
+      "sha256": "a7ff20000e0ee2f19ca052c15977cf45df4fe180fb41679ff2238c0317a4f8c0"
+    },
+    {
+      "path": "examples/bookcase-depth-14in.json",
+      "size_bytes": 1799,
+      "sha256": "3f1309814a070d65b2b2b80a49dd230d251cab86a8b1f52c64dd03cdeb21de02"
+    },
+    {
+      "path": "examples/bookcase-expected.json",
+      "size_bytes": 98056,
+      "sha256": "0939067cb09b7acbbe4c28e74e4f6620233cd76e59df84e5c55d8fefdee89093"
+    },
+    {
+      "path": "examples/bookcase-one-shelf.json",
+      "size_bytes": 1799,
+      "sha256": "163c5a912d3e057e0c3ef30e4763f4e75aee06d441e8947b7cd96eddefb7f71f"
+    },
+    {
+      "path": "examples/bookcase-thickness-19mm.json",
+      "size_bytes": 1799,
+      "sha256": "56455024961a0829d18c2997a3cebee45755394e59cd071e77a4e979f9717c7f"
+    },
+    {
+      "path": "examples/bookcase-width-36in.json",
+      "size_bytes": 1801,
+      "sha256": "1a8c4902306a0ebfbc0c759b364f98e2060305cba381037fe64d40c0e08c0720"
+    },
+    {
+      "path": "examples/bookcase-zero-shelves.json",
+      "size_bytes": 1799,
+      "sha256": "267d00b0414afcecf15243777ebe41c20a954b09c76ffd1a81ea46eba0ee95d1"
+    },
+    {
+      "path": "examples/input-cases.json",
+      "size_bytes": 1578,
+      "sha256": "efeb983e0d11ead3defa555f6fc2680f238f292a5d7dff6ea12670b4a79bdc89"
+    },
+    {
+      "path": "examples/kerf-exact-fit.json",
+      "size_bytes": 1763,
+      "sha256": "ae20fc363ce68e7f6f9943f58eb70ff469889ee77bd37afa27a433e96021774f"
+    },
+    {
+      "path": "spec/ai-proposal.schema.json",
+      "size_bytes": 3780,
+      "sha256": "e2b76ea5e273e3689910020b6ed8f85cc4aac196d0a9cf2e2a65ed2d8a4d0977"
+    },
+    {
+      "path": "spec/artifact-manifest.schema.json",
+      "size_bytes": 11309,
+      "sha256": "a8f79de9b12bbf7b321987a2b31ba4c81fd2d7b4b520a0328fa3787168537e09"
+    },
+    {
+      "path": "spec/project.schema.json",
+      "size_bytes": 6921,
+      "sha256": "ba9b839c48d48d4d27f42937a190bb2760d2f62045d0a22188e35524ecc4c8ff"
+    }
+  ]
+}

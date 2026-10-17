@@ -1,0 +1,97 @@
+{
+  "fixtures": [
+    {
+      "artifact_set_id": "stock_bookcase_baseline",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-baseline",
+      "fixture": "bookcase-baseline.json",
+      "manifest_sha256": "1075c727c799ae335d6af11d23aed1e0216e965e865e32a0c93d81ff0abe8f16",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "9f61f9e20bcc57dba8272b5a5c64f7679b17b0a0010687bdbc2d3943cc2ff257",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_width_36in",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-width-36in",
+      "fixture": "bookcase-width-36in.json",
+      "manifest_sha256": "d2f9d97115ae687c3aa12c9a6af260e87f1c9ec72ac6592c44412b681ac2a209",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "f85a1948f81396cca26002712ccbc76bd9049d1425d7d42ec1e992dca7bb7d4b",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_thickness_19mm",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-thickness-19mm",
+      "fixture": "bookcase-thickness-19mm.json",
+      "manifest_sha256": "b623f13082de492e05e48b44e0a2cdd05f94311829d54ce2fb0456b874309637",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "539573cc483bc95fb8b290f3075d33a00f2d3e3dfb8b95bbc43d41aa76cb5d90",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_depth_14in",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-depth-14in",
+      "fixture": "bookcase-depth-14in.json",
+      "manifest_sha256": "115fbcfa14d0045ff53897d27486279f0226eadae43ef4417aaa70e2000cf977",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "f66457de8495bb87500f86a65364527ffe421840d8b30db8a3aa9ad938ac9227",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_zero_shelves",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-zero-shelves",
+      "fixture": "bookcase-zero-shelves.json",
+      "manifest_sha256": "ca0d7f6b04c7aca41c359bcbf6ecf516de7f2bbcc2bdb5ba02a4d5f4f791eb0b",
+      "pages_rendered": 5,
+      "status": "passed",
+      "stock_pdf_sha256": "da100214daf7e95076d3d7b69bdd8e74c9eb43c5510b97fa75ffdb479b9fda93",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_one_shelf",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-one-shelf",
+      "fixture": "bookcase-one-shelf.json",
+      "manifest_sha256": "71e53c6ae899fb180bd2835ab285049724c5f5cc3ddd6ab995087023d08ecfab",
+      "pages_rendered": 5,
+      "status": "passed",
+      "stock_pdf_sha256": "1ab3fd566a4d1d9ddd531ef24e7cdec5be28b07bc354393faa092cd706d4dce2",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_back_9mm",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-back-9mm",
+      "fixture": "bookcase-back-9mm.json",
+      "manifest_sha256": "38376fb815740fbeda8cc084dd8be6f2dea49bc4a10e8c7b36deac0a1878aedc",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "6f5cc2080b46627ec8caa858a86a6a0214913edcc7b6a075118cfc26a32f4082",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_3_shelves",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-3-shelves",
+      "fixture": "bookcase-3-shelves.json",
+      "manifest_sha256": "1cbb95bfd2efab65746ff20a85d166b0e24a5401c2a887dcb5f1f317397e08d8",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "c7a577b9ac4b847edab236a1ed99798679607320377fc453133fa66622e5f911",
+      "visual_review": "passed"
+    },
+    {
+      "artifact_set_id": "stock_bookcase_4_shelves",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\m4-stock\\20261013-final-02\\bookcase-4-shelves",
+      "fixture": "bookcase-4-shelves.json",
+      "manifest_sha256": "cf75b87bd2c6124f5878181e15a0e50b0eb60211f8306a847f404b2451d8325e",
+      "pages_rendered": 6,
+      "status": "passed",
+      "stock_pdf_sha256": "d64dbf4a2b640f81052bdb084276ff7c2b9cebc185e6b5d3295a2bfee7cda9aa",
+      "visual_review": "passed"
+    }
+  ],
+  "scope": "nine genuine cumulative exports; exact cut-tree replay and PDF text/identity checks, all stock pages rendered",
+  "status": "passed",
+  "visual_review": "passed; all 52 rendered pages inspected, nominal rough dimensions, IDs, grain arrows, human cut sequences, unclipped body text"
+}

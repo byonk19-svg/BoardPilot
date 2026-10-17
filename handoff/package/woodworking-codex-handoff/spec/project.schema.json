@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:woodworking-planner:project-spec:1.0.0",
+  "title": "Woodworking Planner ProjectSpec v1",
+  "description": "Initial implementation contract. Schema validity is necessary but not sufficient: see semantic constraints in DATA-AND-GEOMETRY.md and API-AND-JOBS.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "template": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "const": "plywood_bookcase_v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ]
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preferred_unit": {
+          "enum": [
+            "in",
+            "mm"
+          ]
+        },
+        "fraction_denominator": {
+          "enum": [
+            16,
+            32,
+            64
+          ]
+        }
+      },
+      "required": [
+        "preferred_unit",
+        "fraction_denominator"
+      ]
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outside_width_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "outside_height_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "outside_depth_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "fixed_shelf_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "outside_width_mm",
+        "outside_height_mm",
+        "outside_depth_mm",
+        "fixed_shelf_count"
+      ]
+    },
+    "materials": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "$ref": "#/$defs/material"
+        },
+        "back": {
+          "$ref": "#/$defs/material"
+        }
+      },
+      "required": [
+        "main",
+        "back"
+      ]
+    },
+    "construction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "panel_geometry": {
+          "const": "butt_panels"
+        },
+        "back_style": {
+          "const": "applied_full"
+        },
+        "shelf_spacing": {
+          "const": "equal_clear"
+        },
+        "edge_banding": {
+          "const": "none"
+        },
+        "recipe": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "$ref": "#/$defs/id"
+                },
+                "version": {
+                  "$ref": "#/$defs/version"
+                }
+              },
+              "required": [
+                "id",
+                "version"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "panel_geometry",
+        "back_style",
+        "shelf_spacing",
+        "edge_banding",
+        "recipe"
+      ]
+    },
+    "manufacturing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "saw_kerf_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "rough_allowance_per_edge_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "sheet_edge_trim_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "stock_sheets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stock"
+          },
+          "minItems": 0,
+          "maxItems": 12
+        }
+      },
+      "required": [
+        "saw_kerf_mm",
+        "rough_allowance_per_edge_mm",
+        "sheet_edge_trim_mm",
+        "stock_sheets"
+      ]
+    },
+    "documents": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paper_size": {
+          "enum": [
+            "letter",
+            "a4"
+          ]
+        },
+        "schedule_units": {
+          "enum": [
+            "dual",
+            "mm"
+          ]
+        },
+        "native_part_drawing_units": {
+          "const": "mm"
+        }
+      },
+      "required": [
+        "paper_size",
+        "schedule_units",
+        "native_part_drawing_units"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_name",
+    "template",
+    "display",
+    "dimensions",
+    "materials",
+    "construction",
+    "manufacturing",
+    "documents"
+  ],
+  "$defs": {
+    "mm": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{0,5}[1-9])?$",
+      "maxLength": 18,
+      "description": "Normalized nonnegative decimal millimeters, at most six fractional digits. No exponent, leading zeros, trailing fractional zeros, or sign. Positive/range rules are semantic."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "material_id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "kind": {
+          "const": "plywood"
+        },
+        "nominal_label": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "actual_thickness_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "face_grain": {
+          "enum": [
+            "along_L",
+            "none"
+          ]
+        }
+      },
+      "required": [
+        "material_id",
+        "name",
+        "kind",
+        "nominal_label",
+        "actual_thickness_mm",
+        "face_grain"
+      ]
+    },
+    "stock": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stock_id": {
+          "$ref": "#/$defs/id"
+        },
+        "material_id": {
+          "$ref": "#/$defs/id"
+        },
+        "length_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "width_mm": {
+          "$ref": "#/$defs/mm"
+        },
+        "grain_axis": {
+          "enum": [
+            "length",
+            "none"
+          ]
+        },
+        "unit_price": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{2}$"
+            }
+          ]
+        },
+        "currency": {
+          "const": "USD"
+        }
+      },
+      "required": [
+        "stock_id",
+        "material_id",
+        "length_mm",
+        "width_mm",
+        "grain_axis",
+        "unit_price",
+        "currency"
+      ]
+    }
+  }
+}
+

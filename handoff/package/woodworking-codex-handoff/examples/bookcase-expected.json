@@ -1,0 +1,4304 @@
+{
+  "contract_version": "1.0.0",
+  "description": "Exact arithmetic reference expectations. These are not CAD outputs and do not certify construction. Each mutation starts from the baseline. The implementation must reproduce these results with genuine geometry.",
+  "rounding": "Derived millimeter positions: HALF_EVEN to 0.000001 mm. Raw inputs needing greater exact millimeter precision are rejected.",
+  "resolved_position_tolerance_mm": "0.000002",
+  "fixtures": [
+    {
+      "input_file": "bookcase-baseline.json",
+      "canonical_spec_sha256": "2d4c00c1478a2cc839f2c3a32bbd6d2072196de2e0f8cb736ab08d9d3560aa2b",
+      "part_definition_count": 3,
+      "part_instance_count": 7,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "1404",
+        "denominator": "5"
+      },
+      "rounded_clear_height_target_mm": "280.8",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 4,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "307.8"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "298.8"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "316.8"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.3078",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "606.6"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "597.6"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "615.6"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.6066",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "298.8",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "316.8",
+          "z_max_mm": "597.6",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "615.6",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "29635528.32",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-width-36in.json",
+      "canonical_spec_sha256": "db85b204555a22ed12f020ec4c45e818f6edbf66edba5c60b0454c69b329d5c5",
+      "part_definition_count": 3,
+      "part_instance_count": 7,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "878.4",
+      "exact_clear_height_mm": {
+        "numerator": "1404",
+        "denominator": "5"
+      },
+      "rounded_clear_height_target_mm": "280.8",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "878.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "878.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 4,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "914.4",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "914.4",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "905.4",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "896.4",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "914.4",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.9054",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "457.2",
+            "y": "149.4",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "896.4",
+              "y": "298.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.4572",
+            "y": "0.009",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "457.2",
+            "y": "149.4",
+            "z": "307.8"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "298.8"
+            },
+            "max": {
+              "x": "896.4",
+              "y": "298.8",
+              "z": "316.8"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.4572",
+            "y": "0.3078",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "457.2",
+            "y": "149.4",
+            "z": "606.6"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "597.6"
+            },
+            "max": {
+              "x": "896.4",
+              "y": "298.8",
+              "z": "615.6"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.4572",
+            "y": "0.6066",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "457.2",
+            "y": "149.4",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "896.4",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.4572",
+            "y": "0.9054",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "457.2",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "914.4",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.4572",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "298.8",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "878.4",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "316.8",
+          "z_max_mm": "597.6",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "878.4",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "615.6",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "878.4",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "914.4",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "33750328.32",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-thickness-19mm.json",
+      "canonical_spec_sha256": "bb9e59756563e2b31f91f8a3c3b54ad9a84d6c7eedc7e48a4893aff6a1361ba4",
+      "part_definition_count": 3,
+      "part_instance_count": 7,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "724",
+      "exact_clear_height_mm": {
+        "numerator": "4192",
+        "denominator": "15"
+      },
+      "rounded_clear_height_target_mm": "279.466667",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "19"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "19"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "724",
+            "width_mm": "298.8",
+            "thickness_mm": "19"
+          },
+          "rough_mm": {
+            "length_mm": "724",
+            "width_mm": "298.8",
+            "thickness_mm": "19"
+          },
+          "quantity": 4,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9.5",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "19",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.0095",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "752.5",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "743",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.7525",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "9.5"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "19",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "743",
+              "y": "298.8",
+              "z": "19"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.0095",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "307.966667"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "19",
+              "y": "0",
+              "z": "298.466667"
+            },
+            "max": {
+              "x": "743",
+              "y": "298.8",
+              "z": "317.466667"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.307966667",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "606.433333"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "19",
+              "y": "0",
+              "z": "596.933333"
+            },
+            "max": {
+              "x": "743",
+              "y": "298.8",
+              "z": "615.933333"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.606433333",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "904.9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "19",
+              "y": "0",
+              "z": "895.4"
+            },
+            "max": {
+              "x": "743",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9049",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "19",
+          "z_max_mm": "298.466667",
+          "resolved_clear_height_mm": "279.466667",
+          "clear_width_mm": "724",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "317.466667",
+          "z_max_mm": "596.933333",
+          "resolved_clear_height_mm": "279.466666",
+          "clear_width_mm": "724",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "615.933333",
+          "z_max_mm": "895.4",
+          "resolved_clear_height_mm": "279.466667",
+          "clear_width_mm": "724",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "31004271.36",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-depth-14in.json",
+      "canonical_spec_sha256": "2e9d9949b68f8fad70fb239e2c856cf66ab3bc4c0894623a44dd20620af973ce",
+      "part_definition_count": 3,
+      "part_instance_count": 7,
+      "carcass_depth_mm": "349.6",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "1404",
+        "denominator": "5"
+      },
+      "rounded_clear_height_target_mm": "280.8",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "349.6",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "349.6",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "349.6",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "349.6",
+            "thickness_mm": "18"
+          },
+          "quantity": 4,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "174.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "349.6",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1748"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "174.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "349.6",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1748"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "174.8",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "349.6",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1748"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "174.8",
+            "z": "307.8"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "298.8"
+            },
+            "max": {
+              "x": "744",
+              "y": "349.6",
+              "z": "316.8"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.3078",
+            "z": "-0.1748"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "174.8",
+            "z": "606.6"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "597.6"
+            },
+            "max": {
+              "x": "744",
+              "y": "349.6",
+              "z": "615.6"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.6066",
+            "z": "-0.1748"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "174.8",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "349.6",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1748"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "352.6",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "349.6",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "355.6",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3526"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "298.8",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "349.6"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "316.8",
+          "z_max_mm": "597.6",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "349.6"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "615.6",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "349.6"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "355.6",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "33963200.64",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-zero-shelves.json",
+      "canonical_spec_sha256": "310848dc7515000cd3b994f87800f395fee34180fda905d768c86c173428c558",
+      "part_definition_count": 3,
+      "part_instance_count": 5,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "4392",
+        "denominator": "5"
+      },
+      "rounded_clear_height_target_mm": "878.4",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "bottom",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "878.4",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "21826091.52",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-one-shelf.json",
+      "canonical_spec_sha256": "3fae0c7176ef61e8347b5bbac4e109d0af411a6b86f22ec6f67c4bee020e79bc",
+      "part_definition_count": 3,
+      "part_instance_count": 6,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "2151",
+        "denominator": "5"
+      },
+      "rounded_clear_height_target_mm": "430.2",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 3,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "448.2"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "466.2"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "448.2",
+          "resolved_clear_height_mm": "430.2",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "466.2",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "430.2",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "25730809.92",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-back-9mm.json",
+      "canonical_spec_sha256": "e2a297eeb4eaf050553e739b8602f74b22c3b924e44585da2f6e5aa64839ad6d",
+      "part_definition_count": 3,
+      "part_instance_count": 7,
+      "carcass_depth_mm": "295.8",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "1404",
+        "denominator": "5"
+      },
+      "rounded_clear_height_target_mm": "280.8",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "295.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "295.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "295.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "295.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 4,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "9"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "9"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "147.9",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "295.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1479"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "147.9",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "295.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1479"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "147.9",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "295.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1479"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "147.9",
+            "z": "307.8"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "298.8"
+            },
+            "max": {
+              "x": "744",
+              "y": "295.8",
+              "z": "316.8"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.3078",
+            "z": "-0.1479"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "147.9",
+            "z": "606.6"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "597.6"
+            },
+            "max": {
+              "x": "744",
+              "y": "295.8",
+              "z": "615.6"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.6066",
+            "z": "-0.1479"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "147.9",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "295.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1479"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "300.3",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "295.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3003"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "298.8",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "295.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "316.8",
+          "z_max_mm": "597.6",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "295.8"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "615.6",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "280.8",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "295.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "31470275.52",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-3-shelves.json",
+      "canonical_spec_sha256": "461e9f72637454defb7e315a5843274cc9bff5f482c7d06ace507d1ab13e0108",
+      "part_definition_count": 3,
+      "part_instance_count": 8,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "2061",
+        "denominator": "10"
+      },
+      "rounded_clear_height_target_mm": "206.1",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 5,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "shelf_03",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "233.1"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "224.1"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "242.1"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.2331",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "448.2"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "466.2"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_03",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "681.3"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "672.3"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "690.3"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.6813",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "224.1",
+          "resolved_clear_height_mm": "206.1",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "242.1",
+          "z_max_mm": "448.2",
+          "resolved_clear_height_mm": "206.1",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "466.2",
+          "z_max_mm": "672.3",
+          "resolved_clear_height_mm": "206.1",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 3,
+          "z_min_mm": "690.3",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "206.1",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "33540246.72",
+      "construction_status": "recipe_unselected"
+    },
+    {
+      "input_file": "bookcase-4-shelves.json",
+      "canonical_spec_sha256": "cec76d8b7161c6c1e47fe11e35279d42c030c6c62b6fd167ddc996d3c3d5a65a",
+      "part_definition_count": 3,
+      "part_instance_count": 9,
+      "carcass_depth_mm": "298.8",
+      "inside_width_mm": "726",
+      "exact_clear_height_mm": {
+        "numerator": "4032",
+        "denominator": "25"
+      },
+      "rounded_clear_height_target_mm": "161.28",
+      "part_definitions": [
+        {
+          "definition_id": "panel_side",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 2,
+          "member_instance_ids": [
+            "side_left",
+            "side_right"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_horizontal",
+          "material_id": "plywood_main",
+          "finished_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "rough_mm": {
+            "length_mm": "726",
+            "width_mm": "298.8",
+            "thickness_mm": "18"
+          },
+          "quantity": 6,
+          "member_instance_ids": [
+            "bottom",
+            "shelf_01",
+            "shelf_02",
+            "shelf_03",
+            "shelf_04",
+            "top"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        },
+        {
+          "definition_id": "panel_back",
+          "material_id": "plywood_back",
+          "finished_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "rough_mm": {
+            "length_mm": "914.4",
+            "width_mm": "762",
+            "thickness_mm": "6"
+          },
+          "quantity": 1,
+          "member_instance_ids": [
+            "back"
+          ],
+          "grain_axis": "L",
+          "allowed_layout_rotations_deg": [
+            0,
+            180
+          ]
+        }
+      ],
+      "part_instances": [
+        {
+          "instance_id": "side_left",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "9",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "18",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.009",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "side_right",
+          "definition_id": "panel_side",
+          "rotation_cad_rows": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "753",
+            "y": "149.4",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "744",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.753",
+            "y": "0.4572",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "bottom",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "9"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "0"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "18"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.009",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_01",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "188.28"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "179.28"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "197.28"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.18828",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_02",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "367.56"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "358.56"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "376.56"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.36756",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_03",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "546.84"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "537.84"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "555.84"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.54684",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "shelf_04",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "726.12"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "717.12"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "735.12"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.72612",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "top",
+          "definition_id": "panel_horizontal",
+          "rotation_cad_rows": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "149.4",
+            "z": "905.4"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "18",
+              "y": "0",
+              "z": "896.4"
+            },
+            "max": {
+              "x": "744",
+              "y": "298.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.9054",
+            "z": "-0.1494"
+          }
+        },
+        {
+          "instance_id": "back",
+          "definition_id": "panel_back",
+          "rotation_cad_rows": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "center_mm": {
+            "x": "381",
+            "y": "301.8",
+            "z": "457.2"
+          },
+          "world_aabb_mm": {
+            "min": {
+              "x": "0",
+              "y": "298.8",
+              "z": "0"
+            },
+            "max": {
+              "x": "762",
+              "y": "304.8",
+              "z": "914.4"
+            }
+          },
+          "viewer_center_m": {
+            "x": "0.381",
+            "y": "0.4572",
+            "z": "-0.3018"
+          }
+        }
+      ],
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": "18",
+          "z_max_mm": "179.28",
+          "resolved_clear_height_mm": "161.28",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": "197.28",
+          "z_max_mm": "358.56",
+          "resolved_clear_height_mm": "161.28",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": "376.56",
+          "z_max_mm": "537.84",
+          "resolved_clear_height_mm": "161.28",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 3,
+          "z_min_mm": "555.84",
+          "z_max_mm": "717.12",
+          "resolved_clear_height_mm": "161.28",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        },
+        {
+          "opening_index": 4,
+          "z_min_mm": "735.12",
+          "z_max_mm": "896.4",
+          "resolved_clear_height_mm": "161.28",
+          "clear_width_mm": "726",
+          "clear_depth_mm": "298.8"
+        }
+      ],
+      "world_aabb_mm": {
+        "min": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "max": {
+          "x": "762",
+          "y": "304.8",
+          "z": "914.4"
+        }
+      },
+      "total_part_volume_mm3": "37444965.12",
+      "construction_status": "recipe_unselected"
+    }
+  ],
+  "baseline_stock_layout": [
+    {
+      "stock_id": "main_sheet",
+      "material_id": "plywood_main",
+      "sheet_count": 1,
+      "actual_stock_mm": {
+        "length_mm": "2440",
+        "width_mm": "1220"
+      },
+      "usable_rectangle": {
+        "x_mm": "10",
+        "y_mm": "10",
+        "length_mm": "2420",
+        "width_mm": "1200"
+      },
+      "internal_cuts": [
+        {
+          "cut_id": "cut_01",
+          "source_region": "usable",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "10",
+            "length_mm": "2420",
+            "width_mm": "1200"
+          },
+          "axis": "y",
+          "kerf_start_mm": "308.8",
+          "kerf_mm": "3.2",
+          "low_child": "row_1",
+          "high_child": "remainder_1",
+          "kerf_rectangle": {
+            "x_mm": "10",
+            "y_mm": "308.8",
+            "length_mm": "2420",
+            "width_mm": "3.2"
+          }
+        },
+        {
+          "cut_id": "cut_02",
+          "source_region": "remainder_1",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "312",
+            "length_mm": "2420",
+            "width_mm": "898"
+          },
+          "axis": "y",
+          "kerf_start_mm": "610.8",
+          "kerf_mm": "3.2",
+          "low_child": "row_2",
+          "high_child": "remainder_2",
+          "kerf_rectangle": {
+            "x_mm": "10",
+            "y_mm": "610.8",
+            "length_mm": "2420",
+            "width_mm": "3.2"
+          }
+        },
+        {
+          "cut_id": "cut_03",
+          "source_region": "remainder_2",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "614",
+            "length_mm": "2420",
+            "width_mm": "596"
+          },
+          "axis": "y",
+          "kerf_start_mm": "912.8",
+          "kerf_mm": "3.2",
+          "low_child": "row_3",
+          "high_child": "offcut_top",
+          "kerf_rectangle": {
+            "x_mm": "10",
+            "y_mm": "912.8",
+            "length_mm": "2420",
+            "width_mm": "3.2"
+          }
+        },
+        {
+          "cut_id": "cut_04",
+          "source_region": "row_1",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "10",
+            "length_mm": "2420",
+            "width_mm": "298.8"
+          },
+          "axis": "x",
+          "kerf_start_mm": "924.4",
+          "kerf_mm": "3.2",
+          "low_child": "side_left",
+          "high_child": "row_1_remaining",
+          "kerf_rectangle": {
+            "x_mm": "924.4",
+            "y_mm": "10",
+            "length_mm": "3.2",
+            "width_mm": "298.8"
+          }
+        },
+        {
+          "cut_id": "cut_05",
+          "source_region": "row_1_remaining",
+          "source_rectangle": {
+            "x_mm": "927.6",
+            "y_mm": "10",
+            "length_mm": "1502.4",
+            "width_mm": "298.8"
+          },
+          "axis": "x",
+          "kerf_start_mm": "1842",
+          "kerf_mm": "3.2",
+          "low_child": "side_right",
+          "high_child": "offcut_row_1",
+          "kerf_rectangle": {
+            "x_mm": "1842",
+            "y_mm": "10",
+            "length_mm": "3.2",
+            "width_mm": "298.8"
+          }
+        },
+        {
+          "cut_id": "cut_06",
+          "source_region": "row_2",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "312",
+            "length_mm": "2420",
+            "width_mm": "298.8"
+          },
+          "axis": "x",
+          "kerf_start_mm": "736",
+          "kerf_mm": "3.2",
+          "low_child": "bottom",
+          "high_child": "row_2_remaining_a",
+          "kerf_rectangle": {
+            "x_mm": "736",
+            "y_mm": "312",
+            "length_mm": "3.2",
+            "width_mm": "298.8"
+          }
+        },
+        {
+          "cut_id": "cut_07",
+          "source_region": "row_2_remaining_a",
+          "source_rectangle": {
+            "x_mm": "739.2",
+            "y_mm": "312",
+            "length_mm": "1690.8",
+            "width_mm": "298.8"
+          },
+          "axis": "x",
+          "kerf_start_mm": "1465.2",
+          "kerf_mm": "3.2",
+          "low_child": "shelf_01",
+          "high_child": "row_2_remaining_b",
+          "kerf_rectangle": {
+            "x_mm": "1465.2",
+            "y_mm": "312",
+            "length_mm": "3.2",
+            "width_mm": "298.8"
+          }
+        },
+        {
+          "cut_id": "cut_08",
+          "source_region": "row_2_remaining_b",
+          "source_rectangle": {
+            "x_mm": "1468.4",
+            "y_mm": "312",
+            "length_mm": "961.6",
+            "width_mm": "298.8"
+          },
+          "axis": "x",
+          "kerf_start_mm": "2194.4",
+          "kerf_mm": "3.2",
+          "low_child": "shelf_02",
+          "high_child": "offcut_row_2",
+          "kerf_rectangle": {
+            "x_mm": "2194.4",
+            "y_mm": "312",
+            "length_mm": "3.2",
+            "width_mm": "298.8"
+          }
+        },
+        {
+          "cut_id": "cut_09",
+          "source_region": "row_3",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "614",
+            "length_mm": "2420",
+            "width_mm": "298.8"
+          },
+          "axis": "x",
+          "kerf_start_mm": "736",
+          "kerf_mm": "3.2",
+          "low_child": "top",
+          "high_child": "offcut_row_3",
+          "kerf_rectangle": {
+            "x_mm": "736",
+            "y_mm": "614",
+            "length_mm": "3.2",
+            "width_mm": "298.8"
+          }
+        }
+      ],
+      "leaf_regions": [
+        {
+          "region_id": "offcut_top",
+          "kind": "offcut",
+          "instance_id": null,
+          "x_mm": "10",
+          "y_mm": "916",
+          "length_mm": "2420",
+          "width_mm": "294",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "side_left",
+          "kind": "part",
+          "instance_id": "side_left",
+          "x_mm": "10",
+          "y_mm": "10",
+          "length_mm": "914.4",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "side_right",
+          "kind": "part",
+          "instance_id": "side_right",
+          "x_mm": "927.6",
+          "y_mm": "10",
+          "length_mm": "914.4",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "offcut_row_1",
+          "kind": "offcut",
+          "instance_id": null,
+          "x_mm": "1845.2",
+          "y_mm": "10",
+          "length_mm": "584.8",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "bottom",
+          "kind": "part",
+          "instance_id": "bottom",
+          "x_mm": "10",
+          "y_mm": "312",
+          "length_mm": "726",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "shelf_01",
+          "kind": "part",
+          "instance_id": "shelf_01",
+          "x_mm": "739.2",
+          "y_mm": "312",
+          "length_mm": "726",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "shelf_02",
+          "kind": "part",
+          "instance_id": "shelf_02",
+          "x_mm": "1468.4",
+          "y_mm": "312",
+          "length_mm": "726",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "offcut_row_2",
+          "kind": "offcut",
+          "instance_id": null,
+          "x_mm": "2197.6",
+          "y_mm": "312",
+          "length_mm": "232.4",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "top",
+          "kind": "part",
+          "instance_id": "top",
+          "x_mm": "10",
+          "y_mm": "614",
+          "length_mm": "726",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "offcut_row_3",
+          "kind": "offcut",
+          "instance_id": null,
+          "x_mm": "739.2",
+          "y_mm": "614",
+          "length_mm": "1690.8",
+          "width_mm": "298.8",
+          "rotation_deg": 0
+        }
+      ],
+      "area_mm2": {
+        "parts": "1414160.64",
+        "internal_kerf": "28968.96",
+        "offcuts": "1460870.4",
+        "usable": "2904000",
+        "reserved_edge_bands": "72800",
+        "original_sheet": "2976800"
+      }
+    },
+    {
+      "stock_id": "back_sheet",
+      "material_id": "plywood_back",
+      "sheet_count": 1,
+      "actual_stock_mm": {
+        "length_mm": "2440",
+        "width_mm": "1220"
+      },
+      "usable_rectangle": {
+        "x_mm": "10",
+        "y_mm": "10",
+        "length_mm": "2420",
+        "width_mm": "1200"
+      },
+      "internal_cuts": [
+        {
+          "cut_id": "cut_01",
+          "source_region": "usable",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "10",
+            "length_mm": "2420",
+            "width_mm": "1200"
+          },
+          "axis": "y",
+          "kerf_start_mm": "772",
+          "kerf_mm": "3.2",
+          "low_child": "back_row",
+          "high_child": "offcut_top",
+          "kerf_rectangle": {
+            "x_mm": "10",
+            "y_mm": "772",
+            "length_mm": "2420",
+            "width_mm": "3.2"
+          }
+        },
+        {
+          "cut_id": "cut_02",
+          "source_region": "back_row",
+          "source_rectangle": {
+            "x_mm": "10",
+            "y_mm": "10",
+            "length_mm": "2420",
+            "width_mm": "762"
+          },
+          "axis": "x",
+          "kerf_start_mm": "924.4",
+          "kerf_mm": "3.2",
+          "low_child": "back",
+          "high_child": "offcut_right",
+          "kerf_rectangle": {
+            "x_mm": "924.4",
+            "y_mm": "10",
+            "length_mm": "3.2",
+            "width_mm": "762"
+          }
+        }
+      ],
+      "leaf_regions": [
+        {
+          "region_id": "offcut_top",
+          "kind": "offcut",
+          "instance_id": null,
+          "x_mm": "10",
+          "y_mm": "775.2",
+          "length_mm": "2420",
+          "width_mm": "434.8",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "back",
+          "kind": "part",
+          "instance_id": "back",
+          "x_mm": "10",
+          "y_mm": "10",
+          "length_mm": "914.4",
+          "width_mm": "762",
+          "rotation_deg": 0
+        },
+        {
+          "region_id": "offcut_right",
+          "kind": "offcut",
+          "instance_id": null,
+          "x_mm": "927.6",
+          "y_mm": "10",
+          "length_mm": "1502.4",
+          "width_mm": "762",
+          "rotation_deg": 0
+        }
+      ],
+      "area_mm2": {
+        "parts": "696772.8",
+        "internal_kerf": "10182.4",
+        "offcuts": "2197044.8",
+        "usable": "2904000",
+        "reserved_edge_bands": "72800",
+        "original_sheet": "2976800"
+      }
+    }
+  ]
+}

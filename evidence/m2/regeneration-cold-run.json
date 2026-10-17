@@ -1,0 +1,47 @@
+{
+  "case": {
+    "revision": 1,
+    "revision_id": "rev_3b01079f5bb548f58b18b12232a5f30c",
+    "artifact_set_id": "set_c69fe36205a848dfa08863d78ae0a68b",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "762"
+    },
+    "generation_seconds": 76.02858209999977,
+    "observed_stages": [
+      "generating_geometry",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "publishing"
+    ]
+  },
+  "job": {
+    "id": "job_de5caac0461c4319a6ef14c928503645",
+    "revision_id": "rev_3b01079f5bb548f58b18b12232a5f30c",
+    "kind": "generate",
+    "state": "succeeded",
+    "stage": "publishing",
+    "attempt": 1,
+    "idempotency_key": "2ef4698f-ac54-4dc7-8b3f-c706d168c344",
+    "request_sha256": "93c1079c650c292aaff567e23fa00631cc8e7c87137de4d08c85dcc01453dd31",
+    "source_artifact_set_id": null,
+    "owner_session": "session_dce5dcb731be4b9cbdb6f66d543051fb",
+    "created_at": "2026-10-15T01:49:45.866575+00:00",
+    "started_at": "2026-10-15T01:49:45.884236+00:00",
+    "finished_at": "2026-10-15T01:51:02.035189+00:00",
+    "diagnostic_code": null,
+    "result_artifact_set_id": "set_dff098554cca470bad80dbd5c8ad0396",
+    "result_artifact_id": null,
+    "metrics": {
+      "elapsed_seconds": 76.02858209999977,
+      "peak_sampled_process_tree_rss_bytes": 884830208
+    }
+  },
+  "cache_state": "empty isolated application cache before the first genuine browser build",
+  "cad_deadline_seconds": 120
+}

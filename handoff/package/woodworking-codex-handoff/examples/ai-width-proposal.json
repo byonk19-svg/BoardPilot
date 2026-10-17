@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "base_revision_id": "fixture_revision_001",
+  "intent": "update",
+  "template_id": "plywood_bookcase_v1",
+  "changes": [
+    {
+      "field": "dimensions.outside_width_mm",
+      "value_mm": "914.4"
+    }
+  ],
+  "questions": [],
+  "explanation": "Change the outside width to 36 inches. Keep height, depth, measured materials, and shelf count."
+}
+

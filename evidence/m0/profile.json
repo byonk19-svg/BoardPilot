@@ -1,0 +1,7 @@
+{
+  "output_root": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\probes\\f24f5e64ddb84b7b9fb2f9bce4713a01",
+  "elapsed_seconds": 24.385359699997935,
+  "peak_sampled_process_tree_rss_bytes": 791748608,
+  "sample_period_seconds": 0.1,
+  "scope": "native Windows single trusted panel, cold application cache; concurrent development may affect elapsed time"
+}

@@ -1,0 +1,331 @@
+{
+  "correctness_coverage": "All 30 cases passed in the final clean serial run, including all nine fixtures and four native negative/precision cases.",
+  "timing_gate": "passed in final serial run with unchanged 120 second worker limits; earlier overload failures retained",
+  "commands": [
+    {
+      "run": "first full corpus",
+      "passed": 29,
+      "failed": 1,
+      "seconds": 851.71
+    },
+    {
+      "run": "daemon-free full corpus",
+      "passed": 23,
+      "failed": 7,
+      "seconds": 903.8,
+      "cause": "four build timeouts and three baseline-dependent failures"
+    },
+    {
+      "run": "cached depth retry",
+      "passed": 1,
+      "failed": 0,
+      "seconds": 74.8
+    },
+    {
+      "run": "final serial corpus",
+      "passed": 30,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 263.25,
+      "junit": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "30",
+        "time": "263.245",
+        "timestamp": "2026-10-17T10:31:48.611797-05:00",
+        "hostname": "YONKIN-PC"
+      },
+      "root": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial"
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "bookcase-baseline.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-baseline",
+      "spec_sha256": "2d4c00c1478a2cc839f2c3a32bbd6d2072196de2e0f8cb736ab08d9d3560aa2b",
+      "native_geometry_status": "passed",
+      "generation_seconds": 32.82360860001063,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-width-36in.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-width-36in",
+      "spec_sha256": "db85b204555a22ed12f020ec4c45e818f6edbf66edba5c60b0454c69b329d5c5",
+      "native_geometry_status": "passed",
+      "generation_seconds": 26.567656100000022,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-thickness-19mm.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-thickness-19mm",
+      "spec_sha256": "bb9e59756563e2b31f91f8a3c3b54ad9a84d6c7eedc7e48a4893aff6a1361ba4",
+      "native_geometry_status": "passed",
+      "generation_seconds": 25.88429719998385,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-depth-14in.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-depth-14in",
+      "spec_sha256": "2e9d9949b68f8fad70fb239e2c856cf66ab3bc4c0894623a44dd20620af973ce",
+      "native_geometry_status": "passed",
+      "generation_seconds": 27.17448049999075,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-zero-shelves.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-zero-shelves",
+      "spec_sha256": "310848dc7515000cd3b994f87800f395fee34180fda905d768c86c173428c558",
+      "native_geometry_status": "passed",
+      "generation_seconds": 12.57312169999932,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-one-shelf.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-one-shelf",
+      "spec_sha256": "3fae0c7176ef61e8347b5bbac4e109d0af411a6b86f22ec6f67c4bee020e79bc",
+      "native_geometry_status": "passed",
+      "generation_seconds": 12.817977900005644,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-back-9mm.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-back-9mm",
+      "spec_sha256": "e2a297eeb4eaf050553e739b8602f74b22c3b924e44585da2f6e5aa64839ad6d",
+      "native_geometry_status": "passed",
+      "generation_seconds": 32.89530130001367,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-3-shelves.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-3-shelves",
+      "spec_sha256": "461e9f72637454defb7e315a5843274cc9bff5f482c7d06ace507d1ab13e0108",
+      "native_geometry_status": "passed",
+      "generation_seconds": 13.538258999993559,
+      "artifact_count": 15
+    },
+    {
+      "fixture": "bookcase-4-shelves.json",
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial\\bookcase-4-shelves",
+      "spec_sha256": "cec76d8b7161c6c1e47fe11e35279d42c030c6c62b6fd167ddc996d3c3d5a65a",
+      "native_geometry_status": "passed",
+      "generation_seconds": 13.706369799998356,
+      "artifact_count": 15
+    }
+  ],
+  "attempts": [
+    {
+      "root": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017",
+      "workers": [
+        {
+          "path": "bookcase-3-shelves-worker\\process-result.json",
+          "elapsed_seconds": 22.657005699991714,
+          "peak_rss_bytes": 473743360,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-4-shelves-worker\\process-result.json",
+          "elapsed_seconds": 26.99656060000416,
+          "peak_rss_bytes": 474341376,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-back-9mm-worker\\process-result.json",
+          "elapsed_seconds": 88.02517960002297,
+          "peak_rss_bytes": 805478400,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-baseline-worker\\process-result.json",
+          "elapsed_seconds": 106.43042400002014,
+          "peak_rss_bytes": 805097472,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-depth-14in-worker\\process-result.json",
+          "elapsed_seconds": 30.565218900010223,
+          "peak_rss_bytes": 470552576,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-one-shelf-worker\\process-result.json",
+          "elapsed_seconds": 25.0159364999854,
+          "peak_rss_bytes": 474157056,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-thickness-19mm-worker\\process-result.json",
+          "elapsed_seconds": 78.75416979999864,
+          "peak_rss_bytes": 805654528,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-width-36in-worker\\process-result.json",
+          "elapsed_seconds": 47.68705750000663,
+          "peak_rss_bytes": 804679680,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-zero-shelves-worker\\process-result.json",
+          "elapsed_seconds": 39.348517200007336,
+          "peak_rss_bytes": 475582464,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "failed-attempts\\bookcase-depth-14in-worker\\process-result.json",
+          "elapsed_seconds": 120.25347669998882,
+          "peak_rss_bytes": 805158912,
+          "returncode": 1,
+          "timed_out": true
+        }
+      ]
+    },
+    {
+      "root": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-final",
+      "workers": [
+        {
+          "path": "bookcase-3-shelves-worker\\process-result.json",
+          "elapsed_seconds": 31.230175300006522,
+          "peak_rss_bytes": 470380544,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-4-shelves-worker\\process-result.json",
+          "elapsed_seconds": 40.25322379998397,
+          "peak_rss_bytes": 471519232,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-back-9mm-worker\\process-result.json",
+          "elapsed_seconds": 120.0461176999961,
+          "peak_rss_bytes": 803000320,
+          "returncode": 1,
+          "timed_out": true
+        },
+        {
+          "path": "bookcase-baseline-worker\\process-result.json",
+          "elapsed_seconds": 120.25137939999695,
+          "peak_rss_bytes": 805216256,
+          "returncode": 1,
+          "timed_out": true
+        },
+        {
+          "path": "bookcase-depth-14in-worker\\process-result.json",
+          "elapsed_seconds": 120.0587239000015,
+          "peak_rss_bytes": 804757504,
+          "returncode": 1,
+          "timed_out": true
+        },
+        {
+          "path": "bookcase-one-shelf-worker\\process-result.json",
+          "elapsed_seconds": 36.71413499998744,
+          "peak_rss_bytes": 472621056,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-thickness-19mm-worker\\process-result.json",
+          "elapsed_seconds": 120.03272779998952,
+          "peak_rss_bytes": 800473088,
+          "returncode": 1,
+          "timed_out": true
+        },
+        {
+          "path": "bookcase-width-36in-worker\\process-result.json",
+          "elapsed_seconds": 102.82861470000353,
+          "peak_rss_bytes": 805310464,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-zero-shelves-worker\\process-result.json",
+          "elapsed_seconds": 59.1836248000036,
+          "peak_rss_bytes": 472846336,
+          "returncode": 0,
+          "timed_out": false
+        }
+      ]
+    },
+    {
+      "root": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-cad-20261017-serial",
+      "workers": [
+        {
+          "path": "bookcase-3-shelves-worker\\process-result.json",
+          "elapsed_seconds": 13.538258999993559,
+          "peak_rss_bytes": 466628608,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-4-shelves-worker\\process-result.json",
+          "elapsed_seconds": 13.706369799998356,
+          "peak_rss_bytes": 466165760,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-back-9mm-worker\\process-result.json",
+          "elapsed_seconds": 32.89530130001367,
+          "peak_rss_bytes": 805175296,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-baseline-worker\\process-result.json",
+          "elapsed_seconds": 32.82360860001063,
+          "peak_rss_bytes": 804884480,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-depth-14in-worker\\process-result.json",
+          "elapsed_seconds": 27.17448049999075,
+          "peak_rss_bytes": 804413440,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-one-shelf-worker\\process-result.json",
+          "elapsed_seconds": 12.817977900005644,
+          "peak_rss_bytes": 464560128,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-thickness-19mm-worker\\process-result.json",
+          "elapsed_seconds": 25.88429719998385,
+          "peak_rss_bytes": 804429824,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-width-36in-worker\\process-result.json",
+          "elapsed_seconds": 26.567656100000022,
+          "peak_rss_bytes": 804372480,
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "path": "bookcase-zero-shelves-worker\\process-result.json",
+          "elapsed_seconds": 12.57312169999932,
+          "peak_rss_bytes": 465485824,
+          "returncode": 0,
+          "timed_out": false
+        }
+      ]
+    }
+  ],
+  "reader_policy": "final full run and cached retry use daemon-free lock-namespaced cache"
+}

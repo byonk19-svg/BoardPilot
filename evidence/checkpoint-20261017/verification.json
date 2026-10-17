@@ -1,0 +1,114 @@
+{
+  "status": "passed",
+  "backend": {
+    "command": "./scripts/verify.ps1",
+    "passed": 258,
+    "skipped": 22,
+    "skip_breakdown": {
+      "native_CAD_regeneration": 13,
+      "native_document_regeneration": 9
+    },
+    "warnings": 2,
+    "seconds": 187.65
+  },
+  "frontend": {
+    "command": "npm.cmd run build (via verify.ps1)",
+    "typescript": "passed",
+    "vite": "passed",
+    "seconds": 55.08,
+    "bundle": "index-B_PlvTYW.js",
+    "advisory": "existing 1.19 MB bundle exceeds Vite chunk advisory"
+  },
+  "browser_recovery_and_storage": {
+    "passed": 9,
+    "skipped": 1,
+    "seconds_approx": 72,
+    "scope": "checkpoint regressions, genuine M0 GLB selection, six simulated transport/recovery scenarios",
+    "skip": "opt-in five-build dimension regeneration workflow; separate native fixture runs are recorded in native-attempts.json"
+  },
+  "limitations": [
+    "Browser results are 17 distinct cases across focused runs/reruns, not one 17-case invocation.",
+    "Nine native document corpus cases were not regenerated; real unit-option and authored browser PDF paths were freshly checked instead.",
+    "Physical fabrication and human accessibility/release validation remain separate."
+  ],
+  "manual_browser": {
+    "passed": 3,
+    "seconds_approx": 132,
+    "scope": "genuine baseline, width, actual thickness and shelf count edits; raycast/control selection; coherent CSV, reopening, input errors, mobile width and cancelling a genuine worker while preserving prior downloads",
+    "visual_review": "desktop workflow and narrow saved-project screenshots reviewed; full accessibility/human acceptance not claimed"
+  },
+  "real_export_options": {
+    "status": "passed",
+    "cases": [
+      "metric-only",
+      "dual with sixteenths"
+    ],
+    "native_geometry": "independently inspected saved files",
+    "zip_payloads_per_case": 26,
+    "all_pdf_pages_rendered_and_visually_reviewed": 32,
+    "probe_preserved": true,
+    "failed_initial_generation": "export-jobs.json",
+    "evidence": "export-retry/export-options.json"
+  },
+  "genuine_regeneration_browser": {
+    "status": "passed",
+    "native_builds": 5,
+    "generation_seconds": [
+      15.513878099998692,
+      14.601787999999942,
+      47.226040200010175,
+      34.01362129999325,
+      17.759066200000234
+    ],
+    "cancellation_ms": 1593,
+    "prior_csv_preserved": true,
+    "prior_stock_preserved": true,
+    "revision_binding": "Each model, CSV, new stock PDF and complete seven-part stock plan checked against its accepted revision."
+  },
+  "browser_feature_workflows": {
+    "status": "passed across final focused reruns",
+    "cases": 4,
+    "broad_rerun_passed": 3,
+    "hostile_injection_retest_passed": 1,
+    "hostile_injection_seconds": 6.8,
+    "fixture": "authored-fixture.json",
+    "scope": "authored method/PDF, incompatible recipe, offline proposal, priced stock, ZIP export/import genuine rebuild, inert hostile text, stale proposals/drafts, production desktop/narrow exports"
+  },
+  "browser_distinct_cases_passed": 17,
+  "post_harness_typescript": {
+    "status": "passed",
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "cwd": "apps/web",
+    "seconds": 5.16
+  },
+  "final_native_run_environment": {
+    "test_ports_listening": 0,
+    "cpu_percent_observed": 65,
+    "available_memory_mib_observed": 2089,
+    "policy": "Separate from browser/build workers, daemon disabled, standard 120 second native limit."
+  },
+  "native_serial": {
+    "passed": 30,
+    "failed": 0,
+    "seconds": 263.25,
+    "native_opt_in_cases": 13,
+    "fixture_builds": 9,
+    "limit_seconds": 120,
+    "min_generation_seconds": 12.57312169999932,
+    "max_generation_seconds": 32.89530130001367,
+    "prior_overload_failures_preserved": true
+  },
+  "main_service": {
+    "status": "passed",
+    "url": "http://127.0.0.1:8777",
+    "bundle": "index-B_PlvTYW.js",
+    "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+    "title": "Sample bookcase walkthrough",
+    "revision_id": "rev_d607e963a700410e945ea0de72025316",
+    "revision_number": 2,
+    "panels": 7,
+    "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+    "saved_glb_downloads": "all three byte hashes match",
+    "launch": "scripts/launch.ps1 with explicit preserved app-development data root; timeout override removed"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "recorded_at": "2026-10-13T00:03:59.8116249-05:00",
+  "full_suite": {
+    "result": "6 passed",
+    "duration_reported": "8.5 minutes",
+    "note": "Full collection before final recovery persistence fix. Includes actual M0, M2, M3-M6 native/browser flows.",
+    "command": "$env:WOODWORK_AUTHORED_SAMPLE_PATH='C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\samples\\authored-20261013.json'\n$env:WOODWORK_TEST_URL='http://127.0.0.1:5173'\nnpm --prefix apps/web test"
+  },
+  "focused_post_fix": {
+    "authored_sample_environment": "unset; genuine authored-project fallback creation, native CAD and PDF generation also passed",
+    "result": "4 passed",
+    "duration_reported": "1.9 minutes",
+    "command": "npm --prefix apps/web run typecheck; npm --prefix apps/web test -- --grep \"stale draft recovery|hostile proposal|saved draft reopens|canonical dimensions\""
+  },
+  "production": {
+    "sheet_purchase_subtotal_usd": "95.00",
+    "network_policy": "Non-loopback browser requests aborted",
+    "revision_number": 2,
+    "project_id": "project_545b0b8ec7334c77bd0c1242719d3ff5",
+    "revision_id": "rev_436f13aa059c41a991436ea2fe658074",
+    "final_result": "1 passed in 3.5 s (test 2.4 s); awaited rebound GLB loading before screenshots",
+    "whole_project_total": "unknown; hardware, finish, tax, shipping and tools excluded",
+    "command": "$env:WOODWORK_TEST_URL='http://127.0.0.1:5173'\nnpm --prefix apps/web test -- --grep 'production port'",
+    "spec_sha256": "2c9af3b8699e2cb50dd27abb37479cc357b8780d516e5d345e0d0b938d62e922",
+    "initial_result": "1 passed in 23.1 s (test 22.2 s); generated measured PDF and stock outputs",
+    "resolved_sha256": "9064349f811b06e2dd0314e947f4fc2eeed59ce5e158f57a4c9d8bc495fcc29a",
+    "artifact_set_id": "set_91ca3012312d46d98905487bed29809c",
+    "url": "http://127.0.0.1:8777"
+  },
+  "final_build": {
+    "warning": "Large local CAD/viewer JavaScript bundle; no functional error",
+    "result": "passed (TypeScript and Vite)",
+    "command": "npm --prefix apps/web run build"
+  },
+  "import_rebuild": {
+    "result": "Actual trusted native rebuild passed; source ZIP geometry was not treated as current trusted output",
+    "elapsed_seconds": 60.8505994,
+    "peak_sampled_process_tree_rss_bytes": 880488448,
+    "project_id": "project_b7cc0f538b1147bba68ac95348b30d10",
+    "revision_id": "rev_5832fb4c4782454cab7fd8e516e093e6"
+  },
+  "visual_review": {
+    "physical_review": "not performed; construction remains physically unreviewed",
+    "live_provider": "unconfigured; only deterministic offline demo exercised",
+    "scope": "Saved complete desktop and 390 px narrow screenshots inspected; reachable controls, revision labels and scrollable table headers. Final production desktop screenshot waited for all 7 rebound GLBs."
+  },
+  "screenshots": [
+    {
+      "path": "apps/web/tests/evidence/m2-manual-workflow.png",
+      "sha256": "abc47d0730f3858d7302eea0a332eb4c255d28fd83ecb16403855ef010119681"
+    },
+    {
+      "path": "apps/web/tests/evidence/m2-narrow-workspace.png",
+      "sha256": "f7637deb3358d8708d21f606ee89785a75c2ca266030b31dfea52d971306b0c4"
+    },
+    {
+      "path": "apps/web/tests/evidence/m2-cancel-preserves-model.png",
+      "sha256": "7ae6ba5996e0d50e76f3ff9de766d6ef86d8c25ee0d8589f277b6aae2c0a65ae"
+    },
+    {
+      "path": "apps/web/tests/evidence/m2-narrow-saved-project.png",
+      "sha256": "f74786e66c9eb3b40bf5eee2ee6bd226d4b3c781c8553398b5b449414541806a"
+    },
+    {
+      "path": "apps/web/tests/evidence/m3-m6-imported-rebuilt.png",
+      "sha256": "f8f778c2db55b00581d5d335d9abbcd868869f29c2a4ec523e04288cefc85a9a"
+    },
+    {
+      "path": "apps/web/tests/evidence/m5-inert-stale-narrow.png",
+      "sha256": "f502e1587dee46a8342bcf64f4a8c91ce6c8148faebdc71e0a751d8493012751"
+    },
+    {
+      "path": "apps/web/tests/evidence/production-outputs-desktop.png",
+      "sha256": "ac9aafa2f8a491b68b3b745c3b3ccb797673bfd462ff84a68831e82f495a59a0"
+    },
+    {
+      "path": "apps/web/tests/evidence/production-outputs-narrow.png",
+      "sha256": "294df2f9407bfdb2482e87c34b8de50e7a3ce03db3ff6fe2b5395ba1425e82d0"
+    }
+  ]
+}

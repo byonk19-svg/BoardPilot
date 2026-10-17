@@ -1,0 +1,753 @@
+{
+  "scope": "M3 genuine saved-STEP documents and authored source-backed technical recipe; physical review separate",
+  "pytest": {
+    "passed": 9,
+    "elapsed_seconds": 100.91
+  },
+  "fixture_count": 9,
+  "rendered_fixture_pages": 90,
+  "fixtures": [
+    {
+      "fixture": "bookcase-3-shelves",
+      "artifact_set_id": "d808c240-7ddf-4b30-81c9-6459ae3bcc80",
+      "revision_id": "bookcase-3-shelves",
+      "spec_sha256": "461e9f72637454defb7e315a5843274cc9bff5f482c7d06ace507d1ab13e0108",
+      "resolved_sha256": "808b34b510e526e646329c1313821794ec136ecdef00f6892ea48eeb179299a4",
+      "source_artifact_set_id": "76b3e832-d66d-4879-8115-66f03ffd4e26",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "7e5c98d66d162870de08fcc6fe34f22b57615de145ef55fbb304ea9ea70d28dc",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "ba691017555198cdc2dc2a24e7b5aa26ea478b9dffdaff972343462d9e73de25",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "843be1416935c47792a3e94bbf1cf5ea23d68e896fd929452928cd4b539e668a",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "ba0a90c5fee13e79b0707852cc5f2e1da22b1b994366243def004b76c08aaf6c",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "aed5eb1f2a37bc847882f90817888afeefce85eaed6fafcf210baf104860a552"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "5719da7f45ad424dc4da0e7444220060072cfc52372406d25f28faec62a5aaa2"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "026b685af5b638b433246c984c53a626f6aa4d991d01ff77512ccc9645edadf0"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "d45df66d5c6a86ae3ec5a5356ca3784cb2abb275796382f5e4280e43a3d0096f"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "81158c289c61c0f8b09d3982b2f0b3b401918db267b3bd1d7f451e9a182bc8ca"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "7fe3d0052b591fdcebdaacce4c85685f07ee9fb052b3e7f502b8b7b09ce85e03"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "919a9386b51c52e186c0d9a75febbb24f827a25b3ee6479414e800195de822e0"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "8584b946b90916d36fb2be07b4c6e581f9e8ebf6ecbcd4f0c3e2bea5319c2f76"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "f2d2c19c78670b612f441473ba6329dd0b08508620926ff0516094aba35d22d0"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "7a63d0969994eca2ee888d0bcc14004fae2ba04a3e51a910bf6d68c259ede2be"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-4-shelves",
+      "artifact_set_id": "a5559d4a-a6ee-4f56-a370-89a9a3e3b02d",
+      "revision_id": "bookcase-4-shelves",
+      "spec_sha256": "cec76d8b7161c6c1e47fe11e35279d42c030c6c62b6fd167ddc996d3c3d5a65a",
+      "resolved_sha256": "0d04492df988d8694ecd8aabde7bf22c58b0fc5a2684c5e2253ed308aa83d4ab",
+      "source_artifact_set_id": "971600e4-c6c6-4e34-b8f3-35708a9ace43",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "462729cb872344446bb9edf11b82d3eb7df90cf996c2b4d8089ef84fd0367137",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "5c59b6e5ab88708347ce0efd0ec36584ac016ad6fa09043edc22c9620d22fe67",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "cdc30ce1bbc8d036c5a47eb9eae442b44b0c42fa60681022e0d22d1f7db351f4",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "3fa83507abf466698685fc28a0f1cf43974b4d51e02d5cd4ea2fbe15e5c47d3b",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "51496ef90f65f124b3cad259f4ecbeba3162bffe4da3c42d61f25f28590f045c"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "15c43a6399cef1470a6a5ee759a4f4fee9e1df734a027f74b6ad18387ad057c1"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "14bfcf9cc2373e303fef6e6a3955df5f4dce2914754b020bf659531826b36b7e"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "e9d67395f3cc2760d87a0dbceeed32dc4179aa2aa50704d54bb863386d4df5aa"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "122fe30764b1aa3d5d1b0eabbd2368fcd5b05692ba2fa9cefff742945b7167c4"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "4bfe4e32f2bdb43314a10f06c05a786472a799c63fffd8b7ce3638aa2d440550"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "bbc8911eacc4daa78edc4c38c71f9b0a3c54c4ca365fc51be9304ebc285d4287"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "43f1c051fc23ce2044d0accdb259504f159cfd4da564eab457c86e1b5dba3de5"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "236bc9b48eed63e87580716ca6ea0efdb2affd6fe053ef2ad755780691ea3bbc"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "a49e4337a3aa59ecc654563dcf1df96eb7c219189cf2dce51d3a4b71ba68d5a2"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-back-9mm",
+      "artifact_set_id": "21337b21-9826-4639-b667-1ec3c226b2af",
+      "revision_id": "bookcase-back-9mm",
+      "spec_sha256": "e2a297eeb4eaf050553e739b8602f74b22c3b924e44585da2f6e5aa64839ad6d",
+      "resolved_sha256": "7915e680c37d55f38291b359c670b9c8e023f7b7b6deecc75e84fa3e43ba02ef",
+      "source_artifact_set_id": "7b46ea4c-fb3b-4d4a-8e5b-d8c840400a3e",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "2f786f35a80fe9b2d8149695a11146144680eae98f0550e210b708defaa0a8d0",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "b5eec23134d824f3078ab0bb223f4370ecb38791d5a20beeec8b8d7b6822aeff",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "e5a215f6046ec8112f1cc05592e03aaa0891c674808df11a485324050cf70019",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "60387cc2391f0e98305f70c010d88676fe8b5030a5934fb26c9a097d85998a67",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "75362e1a98b833ea8997b4ff6d0144b7dc814d5b2ec416cc5c8bb06dfe0a7c0f"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "fb8c672ba3908e546566c2d90499824aa4e26770edd6a8133643b25dd005c3f1"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "0dca09176e30e64d227768db94c90fb71c2df0a71fedf5122a1b8ecf74e374e3"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "41ee65baed5726fc8350a623c6e59f733320bfd95468ceeb1974be0f9be414c8"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "e92d6c05fc0e97a8cfbcb82a18191a7cdf6a2b4d1ad988bc217febf29d66d3c3"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "1c3bebf6cc3a050a575cdaf9f13c2af18b37f9780292828aa61ad7d339873dea"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "12514a6f17b586aad9b316c4e16c73b1cf2f1b0350b64feb20d9f1c7e91651ee"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "320a8417dc1de17ef6666a505ef2bb2064771e9915d0cc17f4736cacd4afa2ff"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "dbc8b17cba2f6581a80782397409fad4d469709806d7d6dbabb63b5fea8969e7"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "75be3019d4a6c829ed28049298c0bb921197eeb761e0e7ad9692fe2a4f0a2606"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-baseline",
+      "artifact_set_id": "06c0af3f-9f09-4295-83aa-b413dad18e9b",
+      "revision_id": "bookcase-baseline",
+      "spec_sha256": "2d4c00c1478a2cc839f2c3a32bbd6d2072196de2e0f8cb736ab08d9d3560aa2b",
+      "resolved_sha256": "d81132362ea0a2b73cea1d3cffe4a6d18a5af0352a8ae83f1141f1c71643f8dc",
+      "source_artifact_set_id": "c727bd7a-72b7-4dcf-8710-0ab3474cd543",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "863ffe1faf23ac8937f01250a194d031e15e9288e4f5370d835913280b1ccab7",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "56a18c363818804318c0f982d7e9fb89a2a8eb147f99b25b5e39ae4017cb82a3",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "17f80a45c4a8b82d0060c7159ad2421dc93dff8f7d0bdcae6ee5021bad2cff86",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "0773755c84607e97c33879bdc78244295b8e15f93f60cd201fb3f015e8616bc0",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "328a4018c20e97a6566691b6a0ae86f5924e150eefab7c2d77d9b675ef74ffad"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "46aadcefa030459ccc820de8244f7b2fe625d775d45f154c2d791d084a00ba49"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "db3e9a31d2fdbe1429b90a5ba52e296885ad8b52494473244f114d918ab220be"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "597c8ac441c9abf2a73a0d25e6a0dd5d5fac1132485ca16ef3021d1f3711f3c9"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "9bbd2896653ebc21a6f64ccb7ded1876dd6c5058a2f84a6e1924f478b8715698"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "15b5778946d9ba461711dd8ffdd96522cf253fdc9e34473b2b11fecfb9a8dba9"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "ae1f17a1d623e6b8b708b572adb10e3e76819eadb76b17f4fe72f3e714cee279"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "87e1b4a3364139f20063d6ec951ff1e33d8a719ca44d021f042649df49880fe9"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "ffe48a23135f4cf5a2aa593106b73e9723a91c86d82127abd3b17cd931324508"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "020cd3364443103415960964897c858f9268f329e3a8976d89f45a1ee4701a02"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-depth-14in",
+      "artifact_set_id": "1581a271-6816-4271-a5ff-46d6ec81f8e0",
+      "revision_id": "bookcase-depth-14in",
+      "spec_sha256": "2e9d9949b68f8fad70fb239e2c856cf66ab3bc4c0894623a44dd20620af973ce",
+      "resolved_sha256": "72dd86fcab6f85e998576d780d668e671239b31a47f5129e8610c0ad475e420a",
+      "source_artifact_set_id": "859dbfa7-e910-4cde-a5b6-7a1d4429a6e7",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "44d58f393525d3f9b90b0e9fa13720de4b576a76defbdbeb4ef445081b42c5cd",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "eadbfad24d020236cebc8a9e61da1727b529213d88b35a34fb8da93a5515aac0",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "69452095b27bd1537c4ccab209d3a0014713b31f4f22ade70f2cc0d009b038fd",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "d3c87dde58cc57e307ccd0429f9b177d9141317619d05dfeff127f6ad123123a",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "37e374c40c9de845e1b622e16f28707a34e0f7bc9fc8f5bfc2f0c7a49ec58910"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "dc2f30eb30b08a71d104d0e8fd4dbb4c8cce41bf30815d3db4d6ddcd81f4945d"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "290702b8a4834a089ec5c569d4fb8961c365e0a204f150346f2c224b1d6dce62"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "ead3d6da757e74e5f6e71936c1ee5d3df6bd6972e05f7cf4e114d6d51907fc43"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "6af82017b1ad486b19ada9b779055b5c4c62fd6da5d3b5f687694f8b3ee99988"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "72d155b8299b6368916d3ba695e5ba32d025da34f3a4318445151fe829b69d65"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "d2f759b1a01773e9b19e4a395740454fd1f726c1529f5f6e231eaf9c2d609238"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "bc201ce7a7f0fae9dd16c410a5e7ca7129fd7980c889bc51aa9ddc08fe9469c5"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "5e70764593b799f54cf3ea3d00bea5cf39cd6ee9ff869827aff55c65d112d41d"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "2010b2e3d7107b733ff668f57cb8a23855dcad5b0c679a666413553e43392336"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-one-shelf",
+      "artifact_set_id": "cca803d1-8a15-4e13-82c2-f4980b5f6a87",
+      "revision_id": "bookcase-one-shelf",
+      "spec_sha256": "3fae0c7176ef61e8347b5bbac4e109d0af411a6b86f22ec6f67c4bee020e79bc",
+      "resolved_sha256": "20ab0a28f5909bdd0c5ddbeecadcad4e34780705129e4d6cfd8f3f0dce7ca31a",
+      "source_artifact_set_id": "f187e817-5c39-4e61-9242-da3f38044071",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "9c58baf70a73757552d535731456acb94edbb2d2cac53f2276ae43fb7087bac7",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "c1a7fa95e174885a2d379e016fb6e51ac4efd09c61366a4156397ddf33634aec",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "23b7b7792901e9174b2682bcc464e4904a016eda67927b9799d09ea7eeeeb517",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "e7af3d6a1aea436d8bb9ff3684c05be7cdb7385e367e832ca01df83df5ba8802",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "18879a550e651bb8b1124eddc225dc409da9cb35be3266a318a12917c25737e0"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "9ddd8d19707987b6fab0c3212fb01693fd28fcf0538d9f80e2c3c2a26cab9b06"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "638cfd683c48e851b18cd6cebe3a4b74cd572e3f9aec0cb008ee7141e00d6794"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "ad76c514c845d5849377bc72a01991854eb47742afc8002936f07480b6d2931e"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "9a8ebb234c565764791bbbbe28917ad0effa59974c9aef06d89a9a8758128057"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "22fb493e83da935c584580c687daa1b56c573299311f4a6a8fce99cffb43cf1c"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "887b3b5942335b9ea6743494d4682e5aa0036a3520df03267159734cd01b6e07"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "c05703b25bac6aef29ac9df2f5ca849f9fed0a3e2ad288a908a2592067b418d6"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "52e60931a81bfee669abe0c28ceff30917cd773dbf82d532416a3a5c8cab416f"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "98c0a15703d1d5c78c90706a6e3037e6c30963b913a1eb4f7f8c6d1727b2619b"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-thickness-19mm",
+      "artifact_set_id": "b6a43e02-9078-489f-ba4f-189ff14ef8df",
+      "revision_id": "bookcase-thickness-19mm",
+      "spec_sha256": "bb9e59756563e2b31f91f8a3c3b54ad9a84d6c7eedc7e48a4893aff6a1361ba4",
+      "resolved_sha256": "2677bec309c07b42159f468c51d5583b5367cc490c9e6b82dc81cb94e1f680d3",
+      "source_artifact_set_id": "b9af02bd-578c-4865-8723-fa9a99c77f7e",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "fdd2376bd9e4efb874211d52c76cf1964a480d21f517a739b0474a325db94b76",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "767386330c89955cb5a7448fa60b059a3386b111b7a202a05277544a8503ac0f",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "7063fbd2c6345182959fd855172c56bf2c39691f93534c1881a2a66bcfb943fe",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "639f270305ada1a30da097b3300e225082d282628fb3c839357b4d4e4614f4d2",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "d35f80e81870d461a0aefc2327264c2581d8daf5520408c1089e01b47bb3a567"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "879e9e81f25c921c96fa32c119ae3ba9256ae7f25c270663cac5a1a37d1e1f41"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "9703634f8a732e780e5910fe0bc34df18470c3738e00db81156d71755b120a48"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "e97e04e9181ecbc9fc09a37c987b1e0c5405254db3728c6aaa249c823ec7e475"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "66cb682eb8cc81291366d320dada979dba06edd426ed94847d47e7e4ee458cea"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "f29ac27f62ba281b140e8d7dd0f948f7bb90d82883c1ca47e555c2e241a8a31d"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "cc9409134f642691a010b6e07aef970bafdde9d67fb3e6d0b7065cd11a9ed548"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "5df83b928188025df53332effa7ad5e766e1a64e5b269277d9d493f4602ea3d6"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "4c4d4940516a1818ca180d6e5c372f71d6559e9437be11d25ca7ba6c2df8f79b"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "8525f95f9d206ae7cee4311aa0fbd6f6383ed515a7582b2cd1d905cfdf58e49b"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-width-36in",
+      "artifact_set_id": "d21444aa-46ae-4d37-bc4f-681218f6f14a",
+      "revision_id": "bookcase-width-36in",
+      "spec_sha256": "db85b204555a22ed12f020ec4c45e818f6edbf66edba5c60b0454c69b329d5c5",
+      "resolved_sha256": "c66e1c42dd4a1500fb099e742099b534ff34e7e6171fedde838ce44ac5d7a6ba",
+      "source_artifact_set_id": "3350dd6d-b4bb-480f-a691-3dc7b2211a3b",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "8a1c19bb96c924053cb10a9d7ea697d62bc1787980878a87f532a027542478ad",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "329602363e62235028eeb3b355d78acb7a5f8e26f113284543ffe542aabfde46",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "033b4c8692a3571239be6285c7b9b79d5ce6d320f10b75ac360416767441b88f",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "e78f29c62073c2caf69f0f6609307ecc6517700762a341cee435d40b2d192822",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "b068d02d8731523cceb5c3fd25953b6c47b0454d3d412be65b814094e7223668"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "1ee2168e1c0f0b9bc377bae6f6550bcb9bd963301eba296bb60f681a5b3681b9"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "ac0cbe34ed775167028633f3d635cfcc1e101b1d28410480fc8299c675a7dcc9"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "86a10ca3fb3801f1d5d9d01774185b2774c117b2089676a80824a97b33f6d8c8"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "0b86109500bec0ffef05b58c9c61b96f7936af92a5a1b8d4677f2a072e9e27ae"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "dbf20cde3d6ec7dbde527225fc8a199c81526c871f553db8f0592c529cab1afd"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "6a79b327e2fecaf02efd7313109923e205bd6ce4107e484ccb8d2880fd40cc72"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "52234b0496fecc5cbae0a4a4aa2ae82bf114d47ccad0705273f0e44984307810"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "c56b927812da853e1ad084dbd655122ece26423bd2d95ad9519b9d34ac3dd957"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "0f6b67acffd880ed079c3266715e85fd60d8025b874bfa87124c8c23513b8c01"
+        }
+      ]
+    },
+    {
+      "fixture": "bookcase-zero-shelves",
+      "artifact_set_id": "caedb00a-23a0-404d-8b45-f5608382d544",
+      "revision_id": "bookcase-zero-shelves",
+      "spec_sha256": "310848dc7515000cd3b994f87800f395fee34180fda905d768c86c173428c558",
+      "resolved_sha256": "e6f07f817c3d98b08d95659caa45e5bba38ad11ae17635fd205532abde969fc3",
+      "source_artifact_set_id": "aebbd579-7708-476f-91e1-c5855bd80cc1",
+      "artifact_count": 21,
+      "pdfs": [
+        {
+          "path": "design-packet.pdf",
+          "sha256": "09037457ed95df3da4e904802c9f462477e925c137b8775547a078a32fd16879",
+          "pages": 7,
+          "definition_id": null
+        },
+        {
+          "path": "drawings/panel_side-metric.pdf",
+          "sha256": "ff751a7a70a71b8d8d03a98667989cdafa9691ebeb329a58c5cfb3965b2e263c",
+          "pages": 1,
+          "definition_id": "panel_side"
+        },
+        {
+          "path": "drawings/panel_horizontal-metric.pdf",
+          "sha256": "a4325d692dcd2b19b0f7a679b5b543ddb3ee87f69f5927b374b3350533deff0a",
+          "pages": 1,
+          "definition_id": "panel_horizontal"
+        },
+        {
+          "path": "drawings/panel_back-metric.pdf",
+          "sha256": "cbbb5457b52f134938895334cbffe8663baf15d3692c469e10c7e63a7d309438",
+          "pages": 1,
+          "definition_id": "panel_back"
+        }
+      ],
+      "rendered_page_count": 10,
+      "visual_review": "passed",
+      "visual_scope": "all rendered pages inspected; full-size baseline and selected method checks plus original-resolution per-fixture contact sheets",
+      "pngs": [
+        {
+          "name": "design-packet-1.png",
+          "sha256": "978836b62bc7fe5ba5f459d7a7abb81a67e92795bc3c3b7b76edf8a69424b25e"
+        },
+        {
+          "name": "design-packet-2.png",
+          "sha256": "278850fb4387886708e976d406a1f17fd5259acee88a3230b36947d3340bbd3a"
+        },
+        {
+          "name": "design-packet-3.png",
+          "sha256": "e13a33884eadc42a8250cb7e2b0ec6e16679cc23119f60761cd442679658a344"
+        },
+        {
+          "name": "design-packet-4.png",
+          "sha256": "52c26cbaa2f5daacd6dafa43072ee3525d87ca88e974d6f573d9e6347ad28fc6"
+        },
+        {
+          "name": "design-packet-5.png",
+          "sha256": "b136e9bea43325dce8dff1061c65306ae0baaeb55ce1a042b5188c39f0ed7278"
+        },
+        {
+          "name": "design-packet-6.png",
+          "sha256": "1622029e67713ee06c6d50d77c969ec3624f477dc6a225d59a6880666f4ecf9a"
+        },
+        {
+          "name": "design-packet-7.png",
+          "sha256": "c1b7fe7fdc9d67abb163a331090722239b39d194bd2695169335fa8b0d406c6f"
+        },
+        {
+          "name": "panel_back-metric-1.png",
+          "sha256": "a1af5929a4054cae8815c866a9e86aa43060a8569e84bd25a98261059a902e7a"
+        },
+        {
+          "name": "panel_horizontal-metric-1.png",
+          "sha256": "9c1034a9cad48e163915860257bc6f80425c7018f5a504a0be04f4ecdd908ba3"
+        },
+        {
+          "name": "panel_side-metric-1.png",
+          "sha256": "09d700fa8f8d8eaf772c671638a915a526475e60e6268f6f714f49b31eff3d9c"
+        }
+      ]
+    }
+  ],
+  "authored_a4": {
+    "artifact_set_id": "set_f432d89056d742c7a10f9d3af9e1ec5f",
+    "revision_id": "rev_a5ce69cef4f84c18bc2726bad98a575d",
+    "spec_sha256": "e44d9f09f593efb98fe8cc4da6505196e45b01f9e4012e8ba5e391ae3b35d409",
+    "construction": {
+      "findings": [],
+      "physical_review": "not_reviewed",
+      "recipe_id": "kreg720_19_05_14in_bookcase",
+      "recipe_version": "1.0.0",
+      "status": "complete"
+    },
+    "rendered_pages": 16,
+    "visual_review": "passed",
+    "packet_pages": 13,
+    "pdf_sha256": "f3ad35fa678e130f28d9ef19206cfe5fc49bc14a94c4ccf8c7aeb39dfe08174e"
+  },
+  "limitations": [
+    "Physical build review not performed",
+    "Site installation requires actual wall/substrate selection",
+    "18mm/6mm reference is not promoted to the narrower 19.05mm/6.35mm authored recipe",
+    "Native dimensions are vector outlines; extraction verifies searchable provenance captions, with original vector labels visually checked"
+  ]
+}

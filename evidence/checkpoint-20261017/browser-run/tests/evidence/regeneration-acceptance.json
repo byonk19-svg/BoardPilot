@@ -1,0 +1,125 @@
+[
+  {
+    "revision": 1,
+    "revision_id": "rev_2a8ec5c55b08489ca472f04ba40b062d",
+    "artifact_set_id": "set_8da7408203244683b6422c74a298d9ca",
+    "generation_job_id": "job_2ae001f7a6614201869aac9240e198c0",
+    "generation_artifact_set_id": "set_309c7e552ffc42b5a68d483277afc413",
+    "stock_job_id": "job_e5f24ead391347e48712d0e80441ebeb",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "762"
+    },
+    "generation_seconds": 15.513878099998692,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 2,
+    "revision_id": "rev_25bbda161565481c84d3a2a9fca60e1e",
+    "artifact_set_id": "set_765fff9a1f65479c8ee4bc3ec202c0d4",
+    "generation_job_id": "job_bdbbb61e9be94be98604dc69dcb693c2",
+    "generation_artifact_set_id": "set_74f1c11204044e1393fa9d6cf0e57e69",
+    "stock_job_id": "job_b8ca91bddeca45cf9370cd2e8b4c9738",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 14.601787999999942,
+    "observed_stages": [
+      "compiling",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 3,
+    "revision_id": "rev_9ff3eb08349b43ea8d6c8e8479e1f839",
+    "artifact_set_id": "set_294c293dab4b49da956c86b8eb641b66",
+    "generation_job_id": "job_94ad7e0bec754378ae40e7f5eb84c312",
+    "generation_artifact_set_id": "set_fb4c4ccc2bec49aeb3ffd2cf2f69d2e8",
+    "stock_job_id": "job_e51211f152e44df984aac3bcb3c57be1",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 47.226040200010175,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 4,
+    "revision_id": "rev_56323c1857074e258dbcf5147d05e070",
+    "artifact_set_id": "set_ca10cf8018374fcabd138bd71b4088a2",
+    "generation_job_id": "job_7de9124452474fcfa4f5efa83d24d0d6",
+    "generation_artifact_set_id": "set_1ee596be4c7f45a991d0b1a49df8c423",
+    "stock_job_id": "job_fd539f7edd0843519769ae608e2500e0",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 34.01362129999325,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 4,
+    "revision_id": "rev_56323c1857074e258dbcf5147d05e070",
+    "artifact_set_id": "set_2bb7adf7ef7e4297babd17e69c203e0c",
+    "generation_job_id": "job_c8a829f811964443b4b88eb34044edf1",
+    "generation_artifact_set_id": "set_f93d88b2449c4fa2bbd534d2e0cbaf9e",
+    "stock_job_id": "job_bbfb55b4723d4f3fbc3f19cdf8ab956d",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 17.759066200000234,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "description": "These are normalization and semantic contract cases, not previously run application tests.",
+  "parse_valid": [
+    {
+      "input": "30 in",
+      "expected_mm": "762"
+    },
+    {
+      "input": "30 1/2 in",
+      "expected_mm": "774.7"
+    },
+    {
+      "input": "3/4 in",
+      "expected_mm": "19.05"
+    },
+    {
+      "input": "0.75 in",
+      "expected_mm": "19.05"
+    },
+    {
+      "input": "1 1/8 in",
+      "expected_mm": "28.575"
+    },
+    {
+      "input": "23 7/16 in",
+      "expected_mm": "595.3125"
+    },
+    {
+      "input": "1/64 in",
+      "expected_mm": "0.396875"
+    },
+    {
+      "input": "18 mm",
+      "expected_mm": "18"
+    },
+    {
+      "input": "2.5 cm",
+      "expected_mm": "25"
+    }
+  ],
+  "parse_invalid": [
+    "3/0 in",
+    "1/3 in",
+    "1.2345678 mm",
+    "1-1/2 in",
+    "NaN mm",
+    "Infinity in",
+    "-5 mm",
+    "__import__('os')"
+  ],
+  "semantic_invalid": [
+    {
+      "path": "dimensions.outside_width_mm",
+      "value": "36",
+      "expected_code": "INSIDE_WIDTH_NOT_POSITIVE"
+    },
+    {
+      "path": "dimensions.outside_depth_mm",
+      "value": "6",
+      "expected_code": "CARCASS_DEPTH_NOT_POSITIVE"
+    },
+    {
+      "path": "dimensions.outside_height_mm",
+      "value": "72",
+      "expected_code": "CLEAR_OPENING_NOT_POSITIVE"
+    },
+    {
+      "path": "materials.main.actual_thickness_mm",
+      "value": "0",
+      "expected_code": "THICKNESS_NOT_POSITIVE"
+    },
+    {
+      "path": "dimensions.fixed_shelf_count",
+      "value": 5,
+      "expected_code": "SCHEMA_INVALID"
+    }
+  ]
+}
+

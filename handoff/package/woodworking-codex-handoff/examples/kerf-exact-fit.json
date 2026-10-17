@@ -1,0 +1,102 @@
+{
+  "description": "Synthetic exact-fit fixture. Dimensions are millimeters, test inputs only. Blank dimensions already include any rough allowance.",
+  "sheet": {
+    "length_mm": "306.4",
+    "width_mm": "100",
+    "edge_trim_mm": "0"
+  },
+  "kerf_mm": "3.2",
+  "parts": [
+    {
+      "id": "A",
+      "length_mm": "100",
+      "width_mm": "100",
+      "grain_axis": "length"
+    },
+    {
+      "id": "B",
+      "length_mm": "100",
+      "width_mm": "100",
+      "grain_axis": "length"
+    },
+    {
+      "id": "C",
+      "length_mm": "100",
+      "width_mm": "100",
+      "grain_axis": "length"
+    }
+  ],
+  "expected_placements": [
+    {
+      "id": "A",
+      "x_mm": "0",
+      "y_mm": "0"
+    },
+    {
+      "id": "B",
+      "x_mm": "103.2",
+      "y_mm": "0"
+    },
+    {
+      "id": "C",
+      "x_mm": "206.4",
+      "y_mm": "0"
+    }
+  ],
+  "expected_cuts": [
+    {
+      "axis": "x",
+      "kerf_interval_mm": [
+        "100",
+        "103.2"
+      ],
+      "span_mm": [
+        "0",
+        "100"
+      ]
+    },
+    {
+      "axis": "x",
+      "kerf_interval_mm": [
+        "203.2",
+        "206.4"
+      ],
+      "span_mm": [
+        "0",
+        "100"
+      ]
+    }
+  ],
+  "expected_area_mm2": {
+    "parts": "30000",
+    "kerf": "640",
+    "sheet": "30640"
+  },
+  "variants": [
+    {
+      "sheet_length_mm": "306.3",
+      "fits_three": false
+    },
+    {
+      "sheet_length_mm": "300",
+      "fits_three": false
+    },
+    {
+      "sheet_length_mm": "316.4",
+      "sheet_width_mm": "110",
+      "edge_trim_mm": "5",
+      "fits_three": true,
+      "part_x_mm": [
+        "5",
+        "108.2",
+        "211.4"
+      ],
+      "part_y_mm": "5"
+    },
+    {
+      "part_rough_length_mm": "102",
+      "minimum_sheet_length_mm": "312.4"
+    }
+  ]
+}
+

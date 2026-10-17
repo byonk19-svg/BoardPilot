@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:woodworking-planner:ai-proposal:1.0.0",
+  "title": "Restricted AI proposal",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "base_revision_id": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      ]
+    },
+    "intent": {
+      "enum": [
+        "create",
+        "update",
+        "clarify",
+        "unsupported"
+      ]
+    },
+    "template_id": {
+      "const": "plywood_bookcase_v1"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "enum": [
+                  "dimensions.outside_width_mm",
+                  "dimensions.outside_height_mm",
+                  "dimensions.outside_depth_mm"
+                ]
+              },
+              "value_mm": {
+                "$ref": "#/$defs/mm"
+              }
+            },
+            "required": [
+              "field",
+              "value_mm"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "const": "dimensions.fixed_shelf_count"
+              },
+              "value_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4
+              }
+            },
+            "required": [
+              "field",
+              "value_count"
+            ]
+          }
+        ]
+      },
+      "maxItems": 4
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "enum": [
+              "dimensions.outside_width_mm",
+              "dimensions.outside_height_mm",
+              "dimensions.outside_depth_mm",
+              "dimensions.fixed_shelf_count",
+              "materials.main.actual_thickness_mm",
+              "materials.back.actual_thickness_mm"
+            ]
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "field",
+          "question"
+        ]
+      },
+      "maxItems": 3
+    },
+    "explanation": {
+      "type": "string",
+      "maxLength": 1200
+    }
+  },
+  "required": [
+    "schema_version",
+    "base_revision_id",
+    "intent",
+    "template_id",
+    "changes",
+    "questions",
+    "explanation"
+  ],
+  "$defs": {
+    "mm": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{0,5}[1-9])?$",
+      "maxLength": 18,
+      "description": "Normalized nonnegative decimal millimeters, at most six fractional digits. No exponent, leading zeros, trailing fractional zeros, or sign. Positive/range rules are semantic."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "const": "update"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "base_revision_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "enum": [
+              "clarify",
+              "unsupported"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "changes": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}
+

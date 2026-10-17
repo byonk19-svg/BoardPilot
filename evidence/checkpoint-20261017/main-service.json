@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8777",
+  "bundle": "index-B_PlvTYW.js",
+  "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+  "title": "Sample bookcase walkthrough",
+  "revision_id": "rev_d607e963a700410e945ea0de72025316",
+  "revision_number": 2,
+  "panels": 7,
+  "artifact_set_id": "set_7f4ab0937d1440a5a5c1b4e7ecbe3027",
+  "saved_glb_downloads": "all three byte hashes match",
+  "launch": "scripts/launch.ps1 with explicit preserved app-development data root; timeout override removed"
+}

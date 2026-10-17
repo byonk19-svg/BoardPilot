@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "staged_files": 342,
+  "blocked_paths": [],
+  "secret_pattern_matches": [],
+  "protected_paths_byte_identical_after_checkout": 184,
+  "handoff_index_entries": 27,
+  "verified_sample_payloads": 50,
+  "lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+  "export_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-index-20261017-final",
+  "scope": "Known secret patterns, inert ZIP members and actual Git checkout roundtrip; full reference/authored samples. Historical partial baseline evidence is not a third complete sample."
+}

@@ -1,0 +1,25 @@
+{
+  "passed": 2,
+  "failed": 3,
+  "seconds_approx": 342,
+  "failure_cause": "Two authored helper cases incorrectly required a hidden accepted-summary heading; the dependent production fixture was never created. This is a stale test contract, not a product CSS change in this review.",
+  "repair": "Require the visible summary, accepted-state label and absence of draft status; preserve all downstream assertions.",
+  "preserved_traces": "C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/checkpoint-browser-initial-failures-20261017",
+  "passed_cases": [
+    "stale draft recovery",
+    "genuine width height depth cancel retry"
+  ],
+  "first_retry": {
+    "status": "interrupted after diagnosis",
+    "cause": "Optional Revert was inspected before form revalidation completed; it disappeared before click and the default unlimited action wait stalled.",
+    "repair": "Wait for enabled form submission controls before checking Revert; bound its click to five seconds without forcing it or bypassing app readiness."
+  },
+  "second_retry": {
+    "passed": 3,
+    "failed": 1,
+    "seconds_approx": 216,
+    "failure_cause": "Hostile text was injected only in the POST response; the normal GET-by-ID refresh replaced it before the assertion.",
+    "repair": "Inject both response paths and require both injections before checking inert text/no img/no script execution.",
+    "preserved_trace": "C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/checkpoint-browser-injection-failure-20261017"
+  }
+}

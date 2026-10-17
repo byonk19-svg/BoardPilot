@@ -1,0 +1,328 @@
+{
+  "cases": [
+    {
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-review-20261017\\artifacts\\set_647aeb0db7574883942e265d580f62fd",
+      "artifact_set_id": "set_647aeb0db7574883942e265d580f62fd",
+      "cad_probe_preserved_after_exports": true,
+      "fraction_denominator": 16,
+      "jobs": {
+        "documents": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:07:46.999992+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:08:53.483366+00:00",
+          "id": "job_e9dc1919f6174db0930b3e65e05ec0a1",
+          "idempotency_key": "checkpoint-ca37cafd942646d7b0e2d6cb462e7f17",
+          "kind": "documents",
+          "metrics": {
+            "elapsed_seconds": 63.548171100002946,
+            "peak_sampled_process_tree_rss_bytes": 472477696
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "cd001efa73f48fa0e775296cc5b760648c0bbc3ea2d4e10f048a32fe212de108",
+          "result_artifact_id": null,
+          "result_artifact_set_id": "set_595e508b280a4b6ea7ec7b612660229d",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "source_artifact_set_id": "set_ed5ad19ff6af42ac8a9b5ba9f10a1e08",
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:07:47.029015+00:00",
+          "state": "succeeded"
+        },
+        "generate": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:05:07.368528+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:06:37.966910+00:00",
+          "id": "job_5002e345cf074c2ab716884f21b1cbc0",
+          "idempotency_key": "checkpoint-8b02414e9e614552a6ea51296a9a6507",
+          "kind": "generate",
+          "metrics": {
+            "elapsed_seconds": 90.34395099998801,
+            "peak_sampled_process_tree_rss_bytes": 805134336
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "f1959cabad7b9860b7ee9fcc8ddb04d49174710e3e5606d25d9dc04bcb3ed402",
+          "result_artifact_id": null,
+          "result_artifact_set_id": "set_ed5ad19ff6af42ac8a9b5ba9f10a1e08",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "source_artifact_set_id": null,
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:05:07.420071+00:00",
+          "state": "succeeded"
+        },
+        "package": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:09:20.792886+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:09:25.811265+00:00",
+          "id": "job_eace00a785964a98816cac29860cf020",
+          "idempotency_key": "checkpoint-6482cbadb72b4676b56c9f661192b0bf",
+          "kind": "package",
+          "metrics": {
+            "elapsed_seconds": 4.865054800000507,
+            "peak_sampled_process_tree_rss_bytes": 71512064
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "ab2112a7275b7f923504b8a22bdcc0332f8b48ba9778287d566d870ed4d4a6f1",
+          "result_artifact_id": "artifact_7b0538f8ca15431c95a0dd2e9bb77733",
+          "result_artifact_set_id": null,
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "source_artifact_set_id": "set_647aeb0db7574883942e265d580f62fd",
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:09:20.818018+00:00",
+          "state": "succeeded"
+        },
+        "stock": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:08:53.699187+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:09:04.144001+00:00",
+          "id": "job_2be93fe0eb624e669c8430a8909cf3bf",
+          "idempotency_key": "checkpoint-8051a21782294b0182af3e251f33a0d3",
+          "kind": "stock",
+          "metrics": {
+            "elapsed_seconds": 8.779276500019478,
+            "peak_sampled_process_tree_rss_bytes": 72790016
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "3ab1fbd543b8cd3680aa6bdfb6e688d822ab8ec0a0984f17a32a70a8ea4b85ee",
+          "result_artifact_id": null,
+          "result_artifact_set_id": "set_647aeb0db7574883942e265d580f62fd",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "source_artifact_set_id": "set_595e508b280a4b6ea7ec7b612660229d",
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:08:53.721629+00:00",
+          "state": "succeeded"
+        }
+      },
+      "native_geometry": "passed",
+      "pdfs": [
+        {
+          "artifact_id": "b590404b-0c65-4d2f-8dbf-25c5e38ab9b4",
+          "definition_id": null,
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "design-packet.pdf",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "sha256": "97d8c8637a55a7eeb0e9d18b5cec8aa994add7968ed12e7f3a816a4c076f4f50",
+          "size_bytes": 12687,
+          "spec_sha256": "0cf363332a405942fd15f460708c5d206b6e7859c33271d0c4cf432649ec2da5"
+        },
+        {
+          "artifact_id": "90dda5c5-28d4-4035-a967-53f7b79ce915",
+          "definition_id": "panel_side",
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "drawings/panel_side-metric.pdf",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "sha256": "e77f9cdc7b135d4e8e28e44f146182551b2a476b0beabec79cb03151bfed0320",
+          "size_bytes": 355553,
+          "spec_sha256": "0cf363332a405942fd15f460708c5d206b6e7859c33271d0c4cf432649ec2da5"
+        },
+        {
+          "artifact_id": "4676b633-ecb9-4bfc-8d1e-a3c8fa1c45ab",
+          "definition_id": "panel_horizontal",
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "drawings/panel_horizontal-metric.pdf",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "sha256": "a8c9010bac4f5d5883e904c5049019c1ebb0a8c6008c0e780c327bb8fefba782",
+          "size_bytes": 362163,
+          "spec_sha256": "0cf363332a405942fd15f460708c5d206b6e7859c33271d0c4cf432649ec2da5"
+        },
+        {
+          "artifact_id": "b617b49c-b329-4436-9cd3-ec4106f5abaf",
+          "definition_id": "panel_back",
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "drawings/panel_back-metric.pdf",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "sha256": "6b4f1f6c88c8161e8a3db146ec4151769ff6eafa5158ef3a8dac68cf17327e3d",
+          "size_bytes": 351986,
+          "spec_sha256": "0cf363332a405942fd15f460708c5d206b6e7859c33271d0c4cf432649ec2da5"
+        },
+        {
+          "artifact_id": "a84c43eb-482a-44e1-b2bc-c36ae846bf0d",
+          "definition_id": null,
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "stock-layout.pdf",
+          "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+          "sha256": "1ff7933d1daa0e57c97ed845ff8e1eae90d32a1f54071decf4cae83c5765e3a5",
+          "size_bytes": 8892,
+          "spec_sha256": "0cf363332a405942fd15f460708c5d206b6e7859c33271d0c4cf432649ec2da5"
+        }
+      ],
+      "revision_id": "rev_719681b650c844d09484dcd9db7ab5e9",
+      "units": "mm",
+      "zip": {
+        "artifact_set_id": "set_647aeb0db7574883942e265d580f62fd",
+        "payload_count": 26,
+        "status": "passed"
+      }
+    },
+    {
+      "artifact_directory": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\checkpoint-review-20261017\\artifacts\\set_542663fd58a84c11bab2a6c12ff1ecf7",
+      "artifact_set_id": "set_542663fd58a84c11bab2a6c12ff1ecf7",
+      "cad_probe_preserved_after_exports": true,
+      "fraction_denominator": 16,
+      "jobs": {
+        "documents": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:09:43.850254+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:10:06.370887+00:00",
+          "id": "job_f48468616ef143b9a3fdcf20ea91b446",
+          "idempotency_key": "checkpoint-be5b98bf831943e2a3114b4cfe3e7058",
+          "kind": "documents",
+          "metrics": {
+            "elapsed_seconds": 21.496235099999467,
+            "peak_sampled_process_tree_rss_bytes": 473063424
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "4fcef7d89d7e03283810841279941274e2c057e1081060377fcf4321350b851f",
+          "result_artifact_id": null,
+          "result_artifact_set_id": "set_a17ba60346d24785959868050088449d",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "source_artifact_set_id": "set_ac4a31121cbf480a96e69401e462d697",
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:09:43.877430+00:00",
+          "state": "succeeded"
+        },
+        "generate": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:09:26.179752+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:09:43.744129+00:00",
+          "id": "job_70bdf0b37dc344b0b3b070ee184afde7",
+          "idempotency_key": "checkpoint-ebf030496a864d28847e80012db64022",
+          "kind": "generate",
+          "metrics": {
+            "elapsed_seconds": 17.404306200012797,
+            "peak_sampled_process_tree_rss_bytes": 470736896
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "9658414a66ff5b6db4985b6088429404071ce61f5bbddafacc3c0f3df94915b0",
+          "result_artifact_id": null,
+          "result_artifact_set_id": "set_ac4a31121cbf480a96e69401e462d697",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "source_artifact_set_id": null,
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:09:26.205483+00:00",
+          "state": "succeeded"
+        },
+        "package": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:10:15.625074+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:10:19.301435+00:00",
+          "id": "job_ca98fdc92cda418f94ee020457b4e689",
+          "idempotency_key": "checkpoint-4e0cd86b42df4f5bb38d43521256df73",
+          "kind": "package",
+          "metrics": {
+            "elapsed_seconds": 3.552723300002981,
+            "peak_sampled_process_tree_rss_bytes": 70500352
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "ab59a73e9e5ff3d629f852f7bfa56e6d9eef03bf34ffd76fc96f2d1b5730b56f",
+          "result_artifact_id": "artifact_f0452d001b274deda5570827eae26ef0",
+          "result_artifact_set_id": null,
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "source_artifact_set_id": "set_542663fd58a84c11bab2a6c12ff1ecf7",
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:10:15.651205+00:00",
+          "state": "succeeded"
+        },
+        "stock": {
+          "attempt": 1,
+          "created_at": "2026-10-17T15:10:06.471017+00:00",
+          "diagnostic_code": null,
+          "finished_at": "2026-10-17T15:10:12.092776+00:00",
+          "id": "job_84fc3acbf7744a11bf77cef784c17cf3",
+          "idempotency_key": "checkpoint-441fd3fab46d4f59b569bee24b2b0ed5",
+          "kind": "stock",
+          "metrics": {
+            "elapsed_seconds": 4.399563299986767,
+            "peak_sampled_process_tree_rss_bytes": 72044544
+          },
+          "owner_session": "session_32c30e85bbe4453caa0c391f258f8aa9",
+          "request_sha256": "68212c5824e8e1f89cf28030489c9609432a053314ca707b07ea78223c1d5ddf",
+          "result_artifact_id": null,
+          "result_artifact_set_id": "set_542663fd58a84c11bab2a6c12ff1ecf7",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "source_artifact_set_id": "set_a17ba60346d24785959868050088449d",
+          "stage": "publishing",
+          "started_at": "2026-10-17T15:10:06.493291+00:00",
+          "state": "succeeded"
+        }
+      },
+      "native_geometry": "passed",
+      "pdfs": [
+        {
+          "artifact_id": "3c4a1fdf-4d20-4438-8aac-32a18d2a0395",
+          "definition_id": null,
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "design-packet.pdf",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "sha256": "3bc312ba32f8b615e56d5b6aeb851d76244d9d229c3bb46cb9bfda0aad9e8647",
+          "size_bytes": 12903,
+          "spec_sha256": "ed71b9805c3dc1cbf3f5d7c3a71f4f31f5935a1faa5fbfaa55b33473a2b52abf"
+        },
+        {
+          "artifact_id": "bbfa0506-3d37-45b0-ae9b-4e8c3545bb4c",
+          "definition_id": "panel_side",
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "drawings/panel_side-metric.pdf",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "sha256": "adc04d740c3f345fcda4f3577362e222ba80fdc02b6eb24a29e6ad75ada2f61a",
+          "size_bytes": 350424,
+          "spec_sha256": "ed71b9805c3dc1cbf3f5d7c3a71f4f31f5935a1faa5fbfaa55b33473a2b52abf"
+        },
+        {
+          "artifact_id": "0bd56663-3c24-462f-a53f-a3e23f6b141e",
+          "definition_id": "panel_horizontal",
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "drawings/panel_horizontal-metric.pdf",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "sha256": "62cdd313b866ecb454a6f8db7e9d93ca3ff2c7d1b99d0be3e8310289ee3791d1",
+          "size_bytes": 357034,
+          "spec_sha256": "ed71b9805c3dc1cbf3f5d7c3a71f4f31f5935a1faa5fbfaa55b33473a2b52abf"
+        },
+        {
+          "artifact_id": "41243f29-0550-4aeb-9502-c9ed378caf1a",
+          "definition_id": "panel_back",
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "drawings/panel_back-metric.pdf",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "sha256": "211b3094da93f5ddaaa6cbe198399d498a857dce2e4215e2b1395f20ab5d3aca",
+          "size_bytes": 346857,
+          "spec_sha256": "ed71b9805c3dc1cbf3f5d7c3a71f4f31f5935a1faa5fbfaa55b33473a2b52abf"
+        },
+        {
+          "artifact_id": "8f921c76-a6cf-433d-a94e-f1cccf5bfa69",
+          "definition_id": null,
+          "kind": "pdf",
+          "mime_type": "application/pdf",
+          "relative_path": "stock-layout.pdf",
+          "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+          "sha256": "ff99aa5c8077c0b97463398b066e4fb518426619e59e22f2e0136513676854bf",
+          "size_bytes": 8916,
+          "spec_sha256": "ed71b9805c3dc1cbf3f5d7c3a71f4f31f5935a1faa5fbfaa55b33473a2b52abf"
+        }
+      ],
+      "revision_id": "rev_efaa288f131f47eb92554426e7c77750",
+      "units": "dual",
+      "zip": {
+        "artifact_set_id": "set_542663fd58a84c11bab2a6c12ff1ecf7",
+        "payload_count": 26,
+        "status": "passed"
+      }
+    }
+  ],
+  "status": "passed",
+  "visual_review": "all 32 rendered pages reviewed by agent in contact sheets; physical review not performed"
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "project_name": "Reference plywood bookcase",
+  "template": {
+    "id": "plywood_bookcase_v1",
+    "version": "1.0.0"
+  },
+  "display": {
+    "preferred_unit": "in",
+    "fraction_denominator": 64
+  },
+  "dimensions": {
+    "outside_width_mm": "762",
+    "outside_height_mm": "914.4",
+    "outside_depth_mm": "304.8",
+    "fixed_shelf_count": 2
+  },
+  "materials": {
+    "main": {
+      "material_id": "plywood_main",
+      "name": "Example main plywood",
+      "kind": "plywood",
+      "nominal_label": "3/4 in plywood (label only)",
+      "actual_thickness_mm": "19",
+      "face_grain": "along_L"
+    },
+    "back": {
+      "material_id": "plywood_back",
+      "name": "Example back plywood",
+      "kind": "plywood",
+      "nominal_label": "1/4 in plywood (label only)",
+      "actual_thickness_mm": "6",
+      "face_grain": "along_L"
+    }
+  },
+  "construction": {
+    "panel_geometry": "butt_panels",
+    "back_style": "applied_full",
+    "shelf_spacing": "equal_clear",
+    "edge_banding": "none",
+    "recipe": null
+  },
+  "manufacturing": {
+    "saw_kerf_mm": "3.2",
+    "rough_allowance_per_edge_mm": "0",
+    "sheet_edge_trim_mm": "10",
+    "stock_sheets": [
+      {
+        "stock_id": "main_sheet",
+        "material_id": "plywood_main",
+        "length_mm": "2440",
+        "width_mm": "1220",
+        "grain_axis": "length",
+        "unit_price": null,
+        "currency": "USD"
+      },
+      {
+        "stock_id": "back_sheet",
+        "material_id": "plywood_back",
+        "length_mm": "2440",
+        "width_mm": "1220",
+        "grain_axis": "length",
+        "unit_price": null,
+        "currency": "USD"
+      }
+    ]
+  },
+  "documents": {
+    "paper_size": "letter",
+    "schedule_units": "dual",
+    "native_part_drawing_units": "mm"
+  }
+}
+

@@ -1,0 +1,22 @@
+[
+  {
+    "entry": "part.py",
+    "seconds": 26.3697437
+  },
+  {
+    "entry": "asymmetric.py",
+    "seconds": 24.0341332
+  },
+  {
+    "entry": "two_instances.py",
+    "seconds": 10.681819
+  },
+  {
+    "entry": "part_drawing.py",
+    "seconds": 11.4463881
+  },
+  {
+    "entry": "part.py warm no-op",
+    "seconds": 2.1108408
+  }
+]

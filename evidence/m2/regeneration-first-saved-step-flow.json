@@ -1,0 +1,121 @@
+[
+  {
+    "revision": 1,
+    "revision_id": "rev_e486f29da4e94cf69736aad94f8868ed",
+    "artifact_set_id": "set_d8213b64511d4ee59377bacc1c80c1c4",
+    "generation_job_id": "job_784d935e9e5e423e8b04403c0c94d8e6",
+    "generation_artifact_set_id": "set_dddc2d5dd2b64383992c21563f298134",
+    "stock_job_id": "job_5348959a979a485bab1d68aeeef92021",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "762"
+    },
+    "generation_seconds": 18.13367300000391,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 2,
+    "revision_id": "rev_3dec4111fe154c7285e7457487d43927",
+    "artifact_set_id": "set_e5bebfa412b84f31af3107390234cb5e",
+    "generation_job_id": "job_213bd23f94b140308b2e0ebd3d272343",
+    "generation_artifact_set_id": "set_4de8651be64c492dafb3955b499dacb1",
+    "stock_job_id": "job_35cf01da882c425bbb2b02fab391a6f2",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 17.71327150000434,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_back_panel",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 3,
+    "revision_id": "rev_38c9d37e56c647f0ab0e4ba482914dbe",
+    "artifact_set_id": "set_ea5f47dd42b749eaafc625c0118998bc",
+    "generation_job_id": "job_459e818541054da9b4684a5cd2e1a5b0",
+    "generation_artifact_set_id": "set_dd10ced5012c499789c1e13990d522d2",
+    "stock_job_id": "job_50bb40ca8f1146c2a14a109c409155a8",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 16.132579999997688,
+    "observed_stages": [
+      "compiling",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 4,
+    "revision_id": "rev_cf8b2f852d3944248557f31d0c68ceab",
+    "artifact_set_id": "set_32f1b1f76a5240508a9005d0a0219eb2",
+    "generation_job_id": "job_1f2b6fc837e84f38adbdf49c5b842d0a",
+    "generation_artifact_set_id": "set_8b3d4b4e31fc429d92b17843187f3b7e",
+    "stock_job_id": "job_8c719767e3d04ccb88f5cca2a6434c71",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 19.574167200000375,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 4,
+    "revision_id": "rev_cf8b2f852d3944248557f31d0c68ceab",
+    "artifact_set_id": "set_300ff0fcd63740908cff2a1644cb3a56",
+    "generation_job_id": "job_3ddce7bcebb8404b9ee85d90f50d4b33",
+    "generation_artifact_set_id": "set_aafe16b934c34cc5a6456140dfadfef5",
+    "stock_job_id": "job_cb582de25a1d4855a0be3270dd815671",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 31.403891800000565,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  }
+]

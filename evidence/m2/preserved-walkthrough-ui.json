@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+  "revision": 2,
+  "dimensions_in": {
+    "width": 36,
+    "height": 36,
+    "depth": 12
+  },
+  "physical_panels_loaded": 7,
+  "stock_pdf_available": true,
+  "html_cache_control": "no-cache",
+  "scripts": [
+    "/assets/index-BPQwIJdq.js"
+  ],
+  "screenshot": "../../output/playwright/regeneration-user-project-preserved.png"
+}

@@ -1,0 +1,628 @@
+{
+  "scope": "M1 nine supplied project fixture artifact sets, independent fresh saved-CAD and source-ledger revalidation",
+  "status": "passed",
+  "fixture_count": 9,
+  "elapsed_seconds": 18.506105899999966,
+  "fixtures": [
+    {
+      "fixture": "bookcase-baseline.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-baseline",
+      "manifest_sha256": "ac07a2d5239bbd86e78ce1d120e32274c54de5867d0882e0495b8fe0231fe58d",
+      "artifact_count": 15,
+      "spec_sha256": "2d4c00c1478a2cc839f2c3a32bbd6d2072196de2e0f8cb736ab08d9d3560aa2b",
+      "resolved_sha256": "d81132362ea0a2b73cea1d3cffe4a6d18a5af0352a8ae83f1141f1c71643f8dc",
+      "assembly": {
+        "solid_count": 7,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 29635528.32,
+        "union_volume_mm3": 29635528.319999963,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 298.8,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 316.8,
+          "z_max_mm": 597.6,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 615.6,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 280.79999999999995,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 21,
+      "permitted_contact_count": 14,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-width-36in.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-width-36in",
+      "manifest_sha256": "f5795042c70e20403927ea80d3ac972d2553f8d066e996dddb882011c0261d7f",
+      "artifact_count": 15,
+      "spec_sha256": "db85b204555a22ed12f020ec4c45e818f6edbf66edba5c60b0454c69b329d5c5",
+      "resolved_sha256": "c66e1c42dd4a1500fb099e742099b534ff34e7e6171fedde838ce44ac5d7a6ba",
+      "assembly": {
+        "solid_count": 7,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            914.4,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 33750328.32,
+        "union_volume_mm3": 33750328.32000001,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 298.8,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 878.4,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 316.8,
+          "z_max_mm": 597.6,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 878.4,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 615.6,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 280.79999999999995,
+          "clear_width_mm": 878.4,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 21,
+      "permitted_contact_count": 14,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-thickness-19mm.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-thickness-19mm",
+      "manifest_sha256": "089c4ca4725586ca6ba00852bf40212a21d875ea5d0946def41cdb5fae806dd7",
+      "artifact_count": 15,
+      "spec_sha256": "bb9e59756563e2b31f91f8a3c3b54ad9a84d6c7eedc7e48a4893aff6a1361ba4",
+      "resolved_sha256": "2677bec309c07b42159f468c51d5583b5367cc490c9e6b82dc81cb94e1f680d3",
+      "assembly": {
+        "solid_count": 7,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 31004271.360000003,
+        "union_volume_mm3": 31004271.360000014,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 19.0,
+          "z_max_mm": 298.466667,
+          "clear_height_mm": 279.466667,
+          "clear_width_mm": 724.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 317.466667,
+          "z_max_mm": 596.933333,
+          "clear_height_mm": 279.466666,
+          "clear_width_mm": 724.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 615.933333,
+          "z_max_mm": 895.4,
+          "clear_height_mm": 279.46666700000003,
+          "clear_width_mm": 724.0,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 21,
+      "permitted_contact_count": 14,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-depth-14in.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-depth-14in",
+      "manifest_sha256": "0fa52a8f6335e3668a8c1ef8ff81984446f7398804618a028af2038fbf6ae42a",
+      "artifact_count": 15,
+      "spec_sha256": "2e9d9949b68f8fad70fb239e2c856cf66ab3bc4c0894623a44dd20620af973ce",
+      "resolved_sha256": "72dd86fcab6f85e998576d780d668e671239b31a47f5129e8610c0ad475e420a",
+      "assembly": {
+        "solid_count": 7,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            355.6,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 33963200.64,
+        "union_volume_mm3": 33963200.63999998,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 298.8,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 349.6
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 316.8,
+          "z_max_mm": 597.6,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 349.6
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 615.6,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 280.79999999999995,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 349.6
+        }
+      ],
+      "pair_check_count": 21,
+      "permitted_contact_count": 14,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-zero-shelves.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-zero-shelves",
+      "manifest_sha256": "b0358f1f1b212f96bdcb4d3c07054139a57e90b32d96dddd5b708df528523d7c",
+      "artifact_count": 15,
+      "spec_sha256": "310848dc7515000cd3b994f87800f395fee34180fda905d768c86c173428c558",
+      "resolved_sha256": "e6f07f817c3d98b08d95659caa45e5bba38ad11ae17635fd205532abde969fc3",
+      "assembly": {
+        "solid_count": 5,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 21826091.52,
+        "union_volume_mm3": 21826091.51999999,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 878.4,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 10,
+      "permitted_contact_count": 8,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-one-shelf.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-one-shelf",
+      "manifest_sha256": "bbfeeae67766de87f0b2581a94f602661730af97189d9b4cb0c5504fdc27ad7a",
+      "artifact_count": 15,
+      "spec_sha256": "3fae0c7176ef61e8347b5bbac4e109d0af411a6b86f22ec6f67c4bee020e79bc",
+      "resolved_sha256": "20ab0a28f5909bdd0c5ddbeecadcad4e34780705129e4d6cfd8f3f0dce7ca31a",
+      "assembly": {
+        "solid_count": 6,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 25730809.92,
+        "union_volume_mm3": 25730809.92000001,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 448.2,
+          "clear_height_mm": 430.2,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 466.2,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 430.2,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 15,
+      "permitted_contact_count": 11,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-back-9mm.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-back-9mm",
+      "manifest_sha256": "feea3cb478f9680dcaeb03882e585e95c2bcf6009bfc066dc9d4666eb0ffcc17",
+      "artifact_count": 15,
+      "spec_sha256": "e2a297eeb4eaf050553e739b8602f74b22c3b924e44585da2f6e5aa64839ad6d",
+      "resolved_sha256": "7915e680c37d55f38291b359c670b9c8e023f7b7b6deecc75e84fa3e43ba02ef",
+      "assembly": {
+        "solid_count": 7,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 31470275.52,
+        "union_volume_mm3": 31470275.519999977,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 298.8,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 295.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 316.8,
+          "z_max_mm": 597.6,
+          "clear_height_mm": 280.8,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 295.8
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 615.6,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 280.79999999999995,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 295.8
+        }
+      ],
+      "pair_check_count": 21,
+      "permitted_contact_count": 14,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-3-shelves.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-3-shelves",
+      "manifest_sha256": "53b8d02cef6436a8d028c0ee35d8284b9bcf9bd25e41093125440c06a84db3bf",
+      "artifact_count": 15,
+      "spec_sha256": "461e9f72637454defb7e315a5843274cc9bff5f482c7d06ace507d1ab13e0108",
+      "resolved_sha256": "808b34b510e526e646329c1313821794ec136ecdef00f6892ea48eeb179299a4",
+      "assembly": {
+        "solid_count": 8,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 33540246.72,
+        "union_volume_mm3": 33540246.72,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 224.1,
+          "clear_height_mm": 206.1,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 242.1,
+          "z_max_mm": 448.2,
+          "clear_height_mm": 206.1,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 466.2,
+          "z_max_mm": 672.3,
+          "clear_height_mm": 206.09999999999997,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 3,
+          "z_min_mm": 690.3,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 206.10000000000002,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 28,
+      "permitted_contact_count": 17,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    },
+    {
+      "fixture": "bookcase-4-shelves.json",
+      "status": "passed",
+      "directory": "C:\\Users\\byonk\\AppData\\Local\\WoodworkingPlanner\\m1-corpus\\136753dd910c4c10a6f20f15bfbac7a4\\bookcase-4-shelves",
+      "manifest_sha256": "cd94375d8b9e6734407941fbd247285c772992f1f18de9e05f70e4083759c4c5",
+      "artifact_count": 15,
+      "spec_sha256": "cec76d8b7161c6c1e47fe11e35279d42c030c6c62b6fd167ddc996d3c3d5a65a",
+      "resolved_sha256": "0d04492df988d8694ecd8aabde7bf22c58b0fc5a2684c5e2253ed308aa83d4ab",
+      "assembly": {
+        "solid_count": 9,
+        "world_aabb_mm": {
+          "min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max": [
+            762.0,
+            304.8,
+            914.4
+          ]
+        },
+        "part_volume_mm3": 37444965.12,
+        "union_volume_mm3": 37444965.12000005,
+        "numerical_contact_overlap_mm3": 0.0
+      },
+      "openings": [
+        {
+          "opening_index": 0,
+          "z_min_mm": 18.0,
+          "z_max_mm": 179.28,
+          "clear_height_mm": 161.28,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 1,
+          "z_min_mm": 197.28,
+          "z_max_mm": 358.56,
+          "clear_height_mm": 161.28,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 2,
+          "z_min_mm": 376.56,
+          "z_max_mm": 537.84,
+          "clear_height_mm": 161.28000000000003,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 3,
+          "z_min_mm": 555.84,
+          "z_max_mm": 717.12,
+          "clear_height_mm": 161.27999999999997,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        },
+        {
+          "opening_index": 4,
+          "z_min_mm": 735.12,
+          "z_max_mm": 896.4,
+          "clear_height_mm": 161.27999999999997,
+          "clear_width_mm": 726.0,
+          "clear_depth_mm": 298.8
+        }
+      ],
+      "pair_check_count": 36,
+      "permitted_contact_count": 20,
+      "versions": {
+        "adapter": "1.0.0",
+        "app": "0.1.0",
+        "build123d": "0.11.1",
+        "cadgen": "0.7.21",
+        "compiler": "1.0.0",
+        "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+        "node": "24.13.0",
+        "ocp": "7.9.3.1.1",
+        "python": "3.13.9",
+        "recipe_fingerprint": null,
+        "template": "1.0.0"
+      }
+    }
+  ],
+  "corpus_pytest_result": {
+    "passed": 23,
+    "elapsed_seconds": 854.86
+  },
+  "limitations": [
+    "No document or stock artifacts requested in these geometry sets",
+    "No physical construction review"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "project_id": "project_26ad37413dc040deb6b0d479c438e8a3",
+  "project_title": "Sample bookcase walkthrough",
+  "revision_id": "rev_dcc281e8dc014c2fab05e5d108a64e97",
+  "revision_number": 1,
+  "job_id": "job_df9da831384b46b4a8cb8892adccaf61",
+  "artifact_set_id": "set_18b35851c4db451ab27a6fff2a974825",
+  "state": "succeeded",
+  "elapsed_seconds": 285.9085895999742,
+  "peak_sampled_process_tree_rss_bytes": 882245632,
+  "configured_cad_timeout_seconds": 300,
+  "default_120_second_performance_bound_met": false,
+  "browser_observations": {
+    "loaded_panel_instances": 7,
+    "model_and_cut_list_revision": 1,
+    "width_preview_input": "36 in",
+    "horizontal_panel_length_before_mm": "726",
+    "horizontal_panel_length_after_mm": "878.4",
+    "apply_button_enabled": true,
+    "draft_reverted_and_project_reopened": true,
+    "final_width": "30 in",
+    "final_height": "36 in",
+    "final_depth": "12 in",
+    "new_dimension_revision_committed": false,
+    "screenshot": "output/playwright/sample-bookcase-walkthrough.png"
+  },
+  "focused_tests": {"command": ".venv/Scripts/python.exe -m pytest tests/test_worker.py tests/test_process.py -q", "passed": 15},
+  "backend_tests": {"command": ".venv/Scripts/python.exe -m pytest -q", "passed": 216, "skipped": 38, "warnings": 2, "elapsed_seconds": 41.36},
+  "limitations": ["Saved corpus environment variables were not set for this backend invocation; skips are not newly executed native tests.", "The in-app browser control timed out; import and rendered verification used the separate Playwright browser against the same local project store. Refresh the user's tab and select the saved walkthrough project."]
+}
