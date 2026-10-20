@@ -1,5 +1,109 @@
 # Implementation status
 
+## 2026-10-20 Local desktop launcher
+
+Implemented `.scratch/local-launcher/PRD.md` with Matt's implement, TDD, and
+independent Standards/Spec review. The installed **Woodworking Planner** desktop
+shortcut starts this checkout's prepared runtime without a console, waits for
+readiness, and opens the default browser. Repeated/concurrent launches reuse the
+matching service; a different checkout/store on the port is preserved with an
+error. The data directory is explicit, so opening outside Codex keeps the user's
+existing packaged-app project store. No downloads, provider calls, dependencies,
+login tasks, security-setting changes, or cloud actions were added.
+
+Passed launcher gates and verification:
+
+- Seven native Windows launcher tests: readiness/reuse, concurrent processes,
+  restart/session recovery, store conflict, startup failure/retry, bounded
+  startup cleanup/retry, and safe/idempotent shortcut installation.
+- Real browser/service restart: cold start 4.089 s; warm reuse 0.130 s; old CSRF
+  session renewed; draft saved/restored; accepted revision and cut list unchanged;
+  seven genuine panels loaded; zero attempted external requests.
+- Actual desktop shortcut installed and invoked through Windows ShellExecute;
+  Chrome opened localhost:8777, no console window, loopback-only listener. Repeat
+  launch kept PID 31152. Sample bookcase revision 3, dimensions/materials,
+  preferred files, project record, draft contents and base stayed unchanged.
+  Browser autosave refreshed only the draft timestamp; the served PDF hash is
+  still bf33e8c609826ba4d2d2d807c97c327722e1026c980eec7dc8c01f61ca3efcb2.
+- Canonical backend: **294 passed, 22 existing native opt-in skips**, 197.16 s.
+  Production TypeScript/Vite build passed (unchanged hashed JS/CSS). Two existing
+  Python warnings and the existing large-bundle advisory remain nonblocking.
+- Standards review: 0 findings. Spec review: 0 actionable findings.
+
+Full production-browser run (all native opt-ins enabled): **51 passed, 1 failed,
+0 skipped/flaky**, 1558.488 s. The sole failure was the final reload's default
+five-second link wait while saved-manifest verification was still pending. All
+native files/hash/revision assertions had already passed. A controlled 8-second
+manifest-delay replay reproduced that wait failure and recovered correctly in
+13.375 s. The test now awaits exact **Plans ready · revision 2** with a 30-second
+bound, retaining every file/job/revision assertion and native worker deadline.
+The complete affected native workflow then passed **1/1**, 115.834 s, and final
+frontend typecheck passed. All 52 case behaviors are covered across these runs;
+a clean rerun of the entire 52 after this test-only repair was not performed.
+Both independent reviewers rechecked the repair with 0 findings.
+The original nine-fixture native corpora are separate existing gates; their 22
+opt-in skips are not new passes from this launcher task. Windows reboot and
+other operating systems were not tested. Initial setup on a new machine remains
+separate from offline daily launching. No push performed.
+
+Exact run commands (repository root unless a directory is stated):
+
+```powershell
+.venv/Scripts/python.exe -m pytest -q tests/test_launcher.py --junitxml=.verification/local-launcher-20261020/launcher-results.xml
+.venv/Scripts/python.exe -m diagnostics.launcher_smoke --source 'C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/checkpoint-cad-20261017-serial/bookcase-baseline' --store 'C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/launcher-verification-20261020-b' --output '.verification/local-launcher-20261020/browser-reconnect'
+./scripts/install-launcher.ps1 -DataRoot 'C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/app-development'
+Start-Process -FilePath 'C:/Users/byonk/OneDrive/Desktop/Woodworking Planner.lnk' -WindowStyle Hidden
+$env:WOODWORK_PACKAGE_SOURCE='C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/regeneration-verification-20261014-b/artifacts/set_4de8651be64c492dafb3955b499dacb1'
+$env:WOODWORK_DOCUMENT_SOURCE_ROOT='C:/Users/byonk/AppData/Local/WoodworkingPlanner/m3-documents/117e30a5123c420394d3e8b7018ef1fd'
+$env:PYTEST_ADDOPTS='--junitxml=C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/backend-results.xml'
+./scripts/verify.ps1
+```
+
+The browser suite uses a fresh isolated store at
+`.../WoodworkingPlanner/launcher-browser-suite-20261020`, seeded by
+`diagnostics.recovery.seed` from the same genuine baseline above. Its API was
+started with `woodwork.launcher.launch(config, open_browser=lambda url: True)`
+using config port 8790. Production Vite preview, from `apps/web`:
+
+```powershell
+$env:WOODWORK_API_URL='http://127.0.0.1:8790'
+& 'C:/Program Files/nodejs/node.exe' node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 5173 --strictPort
+```
+
+From `.verification/local-launcher-20261020/browser-run`:
+
+```powershell
+$env:WOODWORK_TEST_URL='http://127.0.0.1:5173'
+$env:WOODWORK_PRODUCTION_URL='http://127.0.0.1:5173'
+$env:WOODWORK_RUN_REGENERATION_FLOW='1'
+$env:WOODWORK_BEGINNER_EVIDENCE_ROOT='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/real-beginner'
+$env:WOODWORK_PLANS_EVIDENCE_ROOT='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/real-plans'
+$env:PLAYWRIGHT_JSON_OUTPUT_NAME='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/frontend-results.json'
+& 'C:/Program Files/nodejs/node.exe' 'C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/node_modules/@playwright/test/cli.js' test --config='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/playwright.config.ts' --reporter=list,json --trace=on --output='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/full-browser-results'
+```
+
+See `docs/LAUNCH.md`, `docs/LOCAL-LAUNCHER-VERIFICATION.md`, and
+`evidence/local-launcher-20261020/`. Full reports/traces are in the ignored
+`.verification/local-launcher-20261020/`. Pre-existing document-corpus changes
+and audit artifacts are preserved and excluded from this task's staged delta.
+
+
+
+Affected native workflow retest (same browser-run directory):
+
+```powershell
+$env:WOODWORK_TEST_URL='http://127.0.0.1:5173'
+$env:WOODWORK_PRODUCTION_URL='http://127.0.0.1:5173'
+$env:WOODWORK_PLANS_EVIDENCE_ROOT='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/real-plans-retest'
+$env:PLAYWRIGHT_JSON_OUTPUT_NAME='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/frontend-retest.json'
+& 'C:/Program Files/nodejs/node.exe' 'C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/node_modules/@playwright/test/cli.js' test --config='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/playwright.config.ts' --grep='offline measurements' --reporter=list,json --trace=on --output='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/local-launcher-20261020/browser-retest'
+```
+
+From `apps/web`, after that test-only repair: `npm.cmd run typecheck`.
+The original failure trace, controlled replay, final clean targeted report, and
+native output inspection remain under the verification root. Only the owned
+8790 test API and 5173 preview are stopped; the user's 8777 service stays ready.
+
 ## 2026-10-20 Plans beside the saved model
 
 Completed `.scratch/plans-access/PRD.md` using implement -> TDD -> independent

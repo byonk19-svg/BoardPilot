@@ -123,7 +123,7 @@ def create_app(data_root=None,*,start_dispatcher=True,testing=False):
         if path.is_file():
             try:last=json.loads(path.read_text(encoding='utf-8'))
             except (ValueError,OSError):pass
-        return {**app.state.runtime,'data_root':str(root),'last_preflight':last,'status':'unavailable' if app.state.runtime['missing_components'] else ('ready' if last and last.get('status')=='passed' else 'preflight_available')}
+        return {**app.state.runtime,'data_root':str(root),'application_root':str(Path(__file__).resolve().parents[5]),'last_preflight':last,'status':'unavailable' if app.state.runtime['missing_components'] else ('ready' if last and last.get('status')=='passed' else 'preflight_available')}
     @app.post(PREFIX+'/runtime/preflight',status_code=202)
     def preflight(body:Empty):
         job=store.queue_preflight();dispatcher.notify();return {'job':job}

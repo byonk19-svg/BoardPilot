@@ -1,0 +1,127 @@
+[
+  {
+    "revision": 1,
+    "revision_id": "rev_f0bdb3d7e024494cab0baa22eba65752",
+    "artifact_set_id": "set_070b0f79517d41be98361c25965931f2",
+    "generation_job_id": "job_5b55d61c0ddb4657afe92b76b8d9770b",
+    "generation_artifact_set_id": "set_02b89ba92ae24ff3bc9610e7e68e7d5b",
+    "stock_job_id": "job_a62a7579a4624b1dbb996e628228bbaa",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "762"
+    },
+    "generation_seconds": 24.049104899982922,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 2,
+    "revision_id": "rev_b2833b91324f46c2990dccbef7a31400",
+    "artifact_set_id": "set_32bbeaf5928b4efd838ddddf61a6ff80",
+    "generation_job_id": "job_549177ba15c74372ba65856181de8178",
+    "generation_artifact_set_id": "set_df7812f71fd9470eb92dc381aa793eb0",
+    "stock_job_id": "job_22e2cb605141446b9c13f400a9d962f6",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "914.4",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 26.042033699981403,
+    "observed_stages": [
+      "validating",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 3,
+    "revision_id": "rev_b8391f2b70c14fb390b767e13e3db82d",
+    "artifact_set_id": "set_c5412b34bcf64bb99965e94fd1aea0d9",
+    "generation_job_id": "job_2f831a76d55c4015b6cd4f11355a83d4",
+    "generation_artifact_set_id": "set_49df4a4b2c4a4fa6ad207088fdf07708",
+    "stock_job_id": "job_2f7dbac4dba542e08613f89a6752d252",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "304.8",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 36.89364890003344,
+    "observed_stages": [
+      "generating_geometry",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 4,
+    "revision_id": "rev_65441ad383674a0e92dacf48242c8baf",
+    "artifact_set_id": "set_b5a33cde1bf04c6b97db8511f7c19e70",
+    "generation_job_id": "job_39e4dbffc11f42049bc60e2a2a54940f",
+    "generation_artifact_set_id": "set_fadd61c8f5bf4ddb994373b9bf13e0b6",
+    "stock_job_id": "job_7ed9d503de4545f5a0a8608e6620517d",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 75.24488300003577,
+    "observed_stages": [
+      "validating",
+      "generating_geometry",
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  },
+  {
+    "revision": 4,
+    "revision_id": "rev_65441ad383674a0e92dacf48242c8baf",
+    "artifact_set_id": "set_df47f984ef6d45a2a8a97c9735d27663",
+    "generation_job_id": "job_b5bc0b8da539400db7abab8b5b739d82",
+    "generation_artifact_set_id": "set_3dbbc4d907dc40c9937646adc9167cf3",
+    "stock_job_id": "job_5428444089474656998f0bebea1ad95d",
+    "dimensions": {
+      "fixed_shelf_count": 2,
+      "outside_depth_mm": "355.6",
+      "outside_height_mm": "1066.8",
+      "outside_width_mm": "914.4"
+    },
+    "generation_seconds": 28.782608700043056,
+    "observed_stages": [
+      "generating_side_panels",
+      "generating_horizontal_panels",
+      "generating_back_panel",
+      "assembling_geometry",
+      "inspecting_geometry",
+      "verifying_artifacts",
+      "publishing"
+    ]
+  }
+]

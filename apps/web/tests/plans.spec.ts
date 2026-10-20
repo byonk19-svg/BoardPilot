@@ -396,7 +396,10 @@ with zipfile.ZipFile(sys.argv[1]) as z:
     await expect(page.getByRole('link',{name:label+' · revision 2',exact:true})).toHaveAttribute('href','/api/v1/artifacts/'+artifact.artifact_id+'/download');
   }
   expect(await (await page.request.get((await page.getByRole('link',{name:'Download cut list · revision 2',exact:true}).getAttribute('href'))!)).text()).toBe(csvBefore);
-  await page.reload();await expect(download).toBeVisible();
+  await page.reload();
+  // Reopening verifies saved manifest hashes before exposing the frozen bundle.
+  await expect(page.getByRole('status',{name:'Plans progress'})).toHaveText('Plans ready · revision 2',{timeout:30000});
+  await expect(download).toBeVisible();
   expect((await (await page.request.get('/api/v1/revisions/'+revisionId)).json()).jobs.filter((job:Job)=>job.idempotency_key?.startsWith('plans:'))).toHaveLength(3);
   await download.scrollIntoViewIfNeeded();await page.screenshot({path:'tests/evidence/get-plans-desktop.png',fullPage:true});
   await page.setViewportSize({width:390,height:844});await download.focus();await expect(download).toBeFocused();

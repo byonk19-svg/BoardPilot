@@ -1,5 +1,48 @@
 # Native Windows launch
 
+## Open without a terminal
+
+Double-click **Woodworking Planner** on the desktop. The installed shortcut
+starts the service in the background, waits for it to become ready, and opens
+**http://127.0.0.1:8777/** in your default browser. It uses only the prepared
+runtime and built app; launching never downloads or installs anything.
+
+Choose **Sample bookcase walkthrough** under **Saved projects** if it is not
+already selected. This browser will remember your last opened project. Your
+sample remains revision 3, 36 × 36 × 12 inches, with its Build guide PDF.
+
+Closing the browser leaves the local service running. Double-click the shortcut
+again to reopen it. After a Windows restart the shortcut starts the service
+again; there is no automatic login task or system service. If an existing tab
+has a connection error, reopen the shortcut, then reload the tab (or use
+**Reconnect local service** when that button is shown). Saved designs and
+recoverable drafts stay in the same data directory.
+
+The installed entry is `%USERPROFILE%/OneDrive/Desktop/Woodworking Planner.lnk`
+on this machine. Its target is this checkout's `.venv/Scripts/pythonw.exe`, so
+no terminal window is needed. Settings are in
+`<the authoritative data directory>/desktop-launcher.json`; startup logs are
+beside it under `logs/`, and a launcher failure is recorded in
+`launcher-error.log` and shown in a Windows dialog. Port/store conflicts preserve
+the existing service and projects. The launcher never resets data.
+
+To install or repair the shortcut after setup,
+run once in PowerShell with the **same** data directory reported by
+`/api/v1/runtime`:
+
+```powershell
+./scripts/install-launcher.ps1 -DataRoot 'C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/app-development'
+```
+
+On another machine, substitute its actual local data directory. An existing
+shortcut/config that points elsewhere is preserved with an error; select a
+different shortcut filename using `-ShortcutPath '<absolute filename>.lnk'`.
+If the checkout has moved, the old settings must be reconciled before reinstalling;
+keep the same project data directory. No changes to Windows script
+security, network, startup, or firewall settings are needed.
+
+## Terminal setup and diagnostics
+
 Run these commands from `C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform` in PowerShell. Verified: Windows, Python 3.13.9, cadgen 0.7.21, build123d 0.11.1, OCP 7.9.3.1.1, Node 24.13.0, Playwright 1.63.0. The CAD upstream commit is `24573128ceaab564f497d7c12f995c41784c9539`. No WSL release gate is claimed.
 
 ## First setup
@@ -40,7 +83,7 @@ The regular preflight runs a real baseline STEP/GLB build and saved-geometry ins
 
 Open **http://127.0.0.1:8777**. Stop with **Ctrl+C**. A second service cannot claim the same data root. An active interrupted job is reconciled on next startup; saved revisions and committed artifacts survive.
 
-To reopen the existing **Sample bookcase walkthrough** and its revision-2 stock
+To reopen the existing **Sample bookcase walkthrough** and its revision-3 build
 plan on this machine, keep its authoritative data root. The stabilized service
 uses the normal 120-second deadline:
 

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "old_five_second_wait_failed": true,
+  "explicit_ready_wait_passed": true,
+  "delayed_manifest_reads": 1,
+  "elapsed_ms": 13375
+}

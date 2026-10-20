@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "unrelated_artifact_hashes_preserved": 21,
+  "preexisting_status_and_checkpoint_changes_preserved": true,
+  "user_project_revision_and_draft_contents_preserved": true,
+  "project_timestamps_compared_as_instants_due_to_PowerShell_timezone_rendering": true,
+  "native_plans_retest_payloads_independently_checked": true,
+  "ai_default": "disabled",
+  "user_app_ready": true,
+  "test_services_stopped": true
+}

@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "cold_start_seconds": 4.089,
+  "reuse_seconds": 0.13,
+  "existing_tab_reconnected": true,
+  "csrf_session_renewed": true,
+  "draft_saved_and_restored": true,
+  "accepted_revision_unchanged": true,
+  "cut_list_unchanged": true,
+  "loaded_panels": 7,
+  "external_requests": [],
+  "project_id": "m1-acceptance",
+  "revision_id": "bookcase-baseline",
+  "api_events": [
+    {
+      "url": "http://127.0.0.1:8777/api/v1/templates",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/session",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/inputs/normalize",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/specs/validate",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline/manifest",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/artifacts/73fff77a-fe72-478d-832d-7d847724d995/download",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/artifacts/94a53827-2b96-480d-8c0f-c4dffd6d9095/download",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/artifacts/0c6deaa1-9ece-48f5-9b2a-9b1c32f1d6b4/download",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/inputs/normalize",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/specs/validate",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance/draft",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/inputs/normalize",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/specs/validate",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance/draft",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance/draft",
+      "status": 403
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/session",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance/draft",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/inputs/normalize",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/specs/validate",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance/draft",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/templates",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline/manifest",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/revisions/bookcase-baseline",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/artifacts/73fff77a-fe72-478d-832d-7d847724d995/download",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/artifacts/0c6deaa1-9ece-48f5-9b2a-9b1c32f1d6b4/download",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/artifacts/94a53827-2b96-480d-8c0f-c4dffd6d9095/download",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/session",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/inputs/normalize",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/specs/validate",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8777/api/v1/projects/m1-acceptance/draft",
+      "status": 200
+    }
+  ],
+  "store": "C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\launcher-verification-20261020-b"
+}

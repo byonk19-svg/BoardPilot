@@ -1,0 +1,6 @@
+{
+  "target": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.venv\\Scripts\\pythonw.exe",
+  "shortcut": "C:\\Users\\byonk\\OneDrive\\Desktop\\Woodworking Planner.lnk",
+  "working_directory": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform",
+  "arguments": "-m woodwork.launcher --config \"C:\\Users\\byonk\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\WoodworkingPlanner\\app-development\\desktop-launcher.json\""
+}

@@ -1,0 +1,89 @@
+{
+  "project_id": "project_6476b6f35f644d4e9f9b7a9d6c9fb23f",
+  "revision_id": "rev_51214cb76d7443c38be8d4cd70a1425c",
+  "jobs": [
+    {
+      "id": "job_acd50a918bdd49e1a043d1a58f766eb0",
+      "revision_id": "rev_51214cb76d7443c38be8d4cd70a1425c",
+      "kind": "package",
+      "state": "succeeded",
+      "stage": "publishing",
+      "attempt": 1,
+      "idempotency_key": "plans:480c646c-f2d7-4204-81f6-e29204185ad5:package:0",
+      "request_sha256": "3c2446902af97b7c547dc658c69702335b98cb655a51f27d9a8945a918eb6b1a",
+      "source_artifact_set_id": "set_88617a0e856441bfb11ee4a7be0ef644",
+      "owner_session": "session_147358b0fac24e8e942c97f36c2f6c79",
+      "created_at": "2026-10-20T21:24:19.073532+00:00",
+      "started_at": "2026-10-20T21:24:19.092959+00:00",
+      "finished_at": "2026-10-20T21:24:21.205024+00:00",
+      "diagnostic_code": null,
+      "result_artifact_set_id": null,
+      "result_artifact_id": "artifact_6f8218b9b49748f89e29a03e92fa55ec",
+      "metrics": {
+        "elapsed_seconds": 2.0253188999486156,
+        "peak_sampled_process_tree_rss_bytes": 71491584
+      }
+    },
+    {
+      "id": "job_e77583fad31a4d459cfa3bf36409d971",
+      "revision_id": "rev_51214cb76d7443c38be8d4cd70a1425c",
+      "kind": "stock",
+      "state": "succeeded",
+      "stage": "publishing",
+      "attempt": 1,
+      "idempotency_key": "plans:480c646c-f2d7-4204-81f6-e29204185ad5:stock:0",
+      "request_sha256": "f26ccd0be991b63b27bc6f5ba3b81894f1d526997ebae27d228649de509c49f1",
+      "source_artifact_set_id": "set_61d0985c89cc4e87ac9fff757d2aafaa",
+      "owner_session": "session_147358b0fac24e8e942c97f36c2f6c79",
+      "created_at": "2026-10-20T21:24:12.881700+00:00",
+      "started_at": "2026-10-20T21:24:12.922971+00:00",
+      "finished_at": "2026-10-20T21:24:16.940852+00:00",
+      "diagnostic_code": null,
+      "result_artifact_set_id": "set_88617a0e856441bfb11ee4a7be0ef644",
+      "result_artifact_id": null,
+      "metrics": {
+        "elapsed_seconds": 2.8856491000042297,
+        "peak_sampled_process_tree_rss_bytes": 72556544
+      }
+    },
+    {
+      "id": "job_0eb8e7ecf9c74adfbb3cd64308e10e8c",
+      "revision_id": "rev_51214cb76d7443c38be8d4cd70a1425c",
+      "kind": "documents",
+      "state": "succeeded",
+      "stage": "publishing",
+      "attempt": 1,
+      "idempotency_key": "plans:480c646c-f2d7-4204-81f6-e29204185ad5:documents:0",
+      "request_sha256": "07b7f694b3a75283742503cf6bfe117c890bae6af968cacbafb18010f46c8d74",
+      "source_artifact_set_id": "set_8f2193b8c3f84eed987e67ba01eeb361",
+      "owner_session": "session_147358b0fac24e8e942c97f36c2f6c79",
+      "created_at": "2026-10-20T21:23:33.304091+00:00",
+      "started_at": "2026-10-20T21:23:33.329959+00:00",
+      "finished_at": "2026-10-20T21:24:11.182162+00:00",
+      "diagnostic_code": null,
+      "result_artifact_set_id": "set_61d0985c89cc4e87ac9fff757d2aafaa",
+      "result_artifact_id": null,
+      "metrics": {
+        "elapsed_seconds": 36.656898399989586,
+        "peak_sampled_process_tree_rss_bytes": 474710016
+      }
+    }
+  ],
+  "inspection": {
+    "status": "passed",
+    "revision_id": "rev_51214cb76d7443c38be8d4cd70a1425c",
+    "artifact_set_id": "set_88617a0e856441bfb11ee4a7be0ef644",
+    "payload_count": 25,
+    "zip_sha256": "48e1629e8e7a3f7906cf4e0be681e1fb98faab5942eb0eadce90823484a4733b",
+    "pdf_pages": {
+      "design-packet.pdf": 7,
+      "drawings/panel_back-metric.pdf": 1,
+      "drawings/panel_horizontal-metric.pdf": 1,
+      "drawings/panel_side-metric.pdf": 1,
+      "stock-layout.pdf": 8
+    },
+    "every_payload_hash_and_revision_checked": true
+  },
+  "reload_during_drawings": true,
+  "lost_stock_acknowledgement_recovered": true
+}
