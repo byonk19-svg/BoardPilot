@@ -106,6 +106,10 @@ def recipe_state(spec, catalog):
         if not Fraction(str(bounds[0])) <= Fraction(target) <= Fraction(str(bounds[1])):
             applicable = False
             findings.append(finding("RECIPE_INCOMPATIBLE", "Measured parameters are outside the installed recipe's supported range.", path))
+    shelf_range=entry.get('applicability',{}).get('shelf_count')
+    if shelf_range and not shelf_range[0]<=spec.dimensions.fixed_shelf_count<=shelf_range[1]:
+        applicable=False
+        findings.append(finding('RECIPE_INCOMPATIBLE','The shelf count is outside this method\'s supported range.','dimensions.fixed_shelf_count'))
     complete = bool(entry.get("technical_completeness", False)) and applicable
     return {"status": "recipe_incompatible" if not applicable else ("recipe_complete" if complete else "recipe_incomplete"),
             "fingerprint": fingerprint, "findings": findings, "technical_completeness": complete,

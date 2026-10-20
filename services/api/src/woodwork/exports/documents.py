@@ -24,7 +24,7 @@ from woodwork.exports.core import artifact_record, canonical_bytes, sha256_file,
 from woodwork.exports.dimensions import format_schedule, schedule_formatting, saved_schedule_formatting
 from woodwork.recipes import public_catalog, resolve_recipe
 
-DOCUMENTS_VERSION = "1.1.0"
+DOCUMENTS_VERSION = "1.2.0"
 MARGIN = 42
 
 
@@ -342,7 +342,30 @@ def validate_documents(out_dir, spec, resolved, metadata):
         dims = definition["finished_mm"]
         require(f"L {dims['length_mm']} W {dims['width_mm']} T {dims['thickness_mm']}" in native_text, "Native PDF measured provenance caption mismatch")
         pdfs.append({"path": relative, "pages": 1, "paper": "a4_landscape", "units": "mm", "sha256": sha256_file(out_dir / relative), "native_dimension_text": "vector_outlines_not_text_extractable", "native_dimension_visual_review": "required_separately", "searchable_provenance": "application_caption"})
-    return {"status": "passed", "revision_id": metadata["revision_id"], "spec_sha256": metadata["spec_sha256"], "resolved_sha256": resolved["resolved_sha256"], "source_artifact_set_id": source_id, "assembly_sha256": sha256_file(out_dir / "assembly.step"), "pdfs": pdfs,
+    guide_evidence = None
+    from woodwork.recipes.beginner_catalog import BEGINNER_ID
+    selection = spec['construction']['recipe']
+    recipe = resolve_recipe(spec, resolved)
+    if selection and selection['id'] == BEGINNER_ID and recipe['status'] == 'complete':
+        guide = json.loads((out_dir / 'beginner-guide.json').read_text(encoding='utf-8'))
+        require(all(guide.get(key) == value for key, value in {
+            'revision_id': metadata['revision_id'], 'spec_sha256': metadata['spec_sha256'],
+            'resolved_sha256': resolved['resolved_sha256'], 'recipe_fingerprint': recipe['fingerprint'],
+        }.items()), 'Beginner guide revision binding mismatch')
+        pages = guide.get('steps', [])
+        require(len(pages) == len(recipe['operations']), 'Beginner guide step coverage mismatch')
+        for index, (item, operation) in enumerate(zip(pages, recipe['operations']), 1):
+            require(item.get('operation_id') == operation['operation_id'] and item.get('title') == operation['title'] and item.get('diagram') == operation['diagram'], 'Beginner guide operation mismatch')
+            page = item.get('page')
+            require(isinstance(page, int) and 1 <= page <= len(reader.pages), 'Beginner guide page invalid')
+            page_text = ' '.join(reader.pages[page-1].extract_text().split())
+            require(item.get('figure_label') == f"Figure {index} - {operation['title']}" and item['figure_label'] in page_text, 'Beginner guide illustration missing')
+            require(reader.pages[page-1].get_contents().get_data().count(b' re') >= 2, 'Beginner guide illustration vectors missing')
+            require(all(' '.join(action.split()) in page_text for action in operation['actions']), 'Beginner guide instructions differ from checked recipe')
+        require(len({p['page'] for p in pages}) == len(pages), 'Beginner steps must have distinct illustrated pages')
+        require(all(metadata['revision_id'] in page.extract_text() and metadata['spec_sha256'] in page.extract_text() for page in reader.pages), 'Beginner page revision binding missing')
+        guide_evidence = {'status': 'passed', 'illustrated_operations': len(pages), 'physical_build': 'not_performed'}
+    return {"status": "passed", "revision_id": metadata["revision_id"], "spec_sha256": metadata["spec_sha256"], "resolved_sha256": resolved["resolved_sha256"], "source_artifact_set_id": source_id, "assembly_sha256": sha256_file(out_dir / "assembly.step"), "pdfs": pdfs, "beginner_guide": guide_evidence,
             "visual_review": "required_separately", "native_units": "mm", "application_units": policy['units'],
             "application_fraction_denominator": policy['fraction_denominator'] if policy['units'] == 'dual' else None}
 
@@ -364,7 +387,20 @@ def add_documents(source_dir, out_dir, metadata, spec, resolved, *, progress=Non
     recipe = resolve_recipe(spec, resolved)
     if progress:
         progress("generating_documents")
-    page_count = Packet(out_dir / "design-packet.pdf", spec, resolved, metadata, verified["geometry"], recipe).save()
+    from woodwork.recipes.beginner_catalog import BEGINNER_ID
+    packet_type = Packet
+    beginner = recipe['recipe_id'] == BEGINNER_ID and recipe['status'] == 'complete'
+    if beginner:
+        from .beginner_packet import BeginnerPacket
+        packet_type = BeginnerPacket
+    packet = packet_type(out_dir / "design-packet.pdf", spec, resolved, metadata, verified["geometry"], recipe)
+    page_count = packet.save()
+    if beginner:
+        write_json(out_dir / 'beginner-guide.json', {
+            'revision_id': metadata['revision_id'], 'spec_sha256': metadata['spec_sha256'],
+            'resolved_sha256': resolved['resolved_sha256'], 'recipe_fingerprint': recipe['fingerprint'],
+            'steps': packet.guide_page_map,
+        })
     generate_native_drawings(out_dir, resolved, metadata)
     recipe_record = {"revision_id": metadata["revision_id"], "spec_sha256": metadata["spec_sha256"], "resolved_sha256": resolved["resolved_sha256"], **recipe}
     write_json(out_dir / "construction-recipe.json", recipe_record)
@@ -374,6 +410,8 @@ def add_documents(source_dir, out_dir, metadata, spec, resolved, *, progress=Non
     if progress:
         progress("verifying_documents")
     inputs = {"spec_sha256": metadata["spec_sha256"], "resolved_sha256": metadata["resolved_sha256"], "source_artifact_set_id": source["artifact_set_id"], "geometry_build_key_sha256": source["build_key_sha256"], "geometry_inputs": json.loads((source_dir / "build-inputs.json").read_text()), "documents_version": DOCUMENTS_VERSION, "native_drawing_version": NATIVE_DRAWING_VERSION, "document_options": spec["documents"], "recipe_fingerprint": recipe["fingerprint"], "schedule_formatting": schedule_formatting(spec), "renderer_sha256": {"documents": sha256_file(Path(__file__)), "native_drawing": sha256_file(Path(__file__).parents[1] / "cad_adapter/native_drawing.py"), "dimensions": sha256_file(Path(__file__).with_name('dimensions.py'))}}
+    if beginner:
+        inputs['renderer_sha256']['beginner_packet'] = sha256_file(Path(__file__).with_name('beginner_packet.py'))
     write_json(out_dir / "build-inputs.json", inputs)
     evidence = validate_documents(out_dir, spec, resolved, metadata)
     write_json(out_dir / "document-validation.json", evidence)
@@ -383,6 +421,8 @@ def add_documents(source_dir, out_dir, metadata, spec, resolved, *, progress=Non
     write_json(out_dir / "step-instance-map.json", sidecar)
     for relative in ("step-instance-map.json", "materials.json", "build-inputs.json", "construction-recipe.json", "document-validation.json"):
         records[relative] = artifact_record(out_dir, relative, "json", "application/json", metadata)
+    if beginner:
+        records['beginner-guide.json'] = artifact_record(out_dir, 'beginner-guide.json', 'json', 'application/json', metadata)
     records["design-packet.pdf"] = artifact_record(out_dir, "design-packet.pdf", "pdf", "application/pdf", metadata)
     for definition in resolved["part_definitions"]:
         relative = f"drawings/{definition['definition_id']}-metric.pdf"

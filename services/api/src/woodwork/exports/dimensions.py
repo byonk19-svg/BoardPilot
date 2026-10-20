@@ -45,7 +45,8 @@ def saved_schedule_formatting(inputs: dict, spec: dict, kind: str) -> dict:
         # These renderers always emitted dual units with 64ths, regardless of
         # the preferences saved in their source spec. Check their actual output.
         return {'units': 'dual', 'fraction_denominator': 64}
-    require(inputs[field] == '1.1.0', 'Unsupported schedule renderer version')
+    supported = ('1.1.0', '1.2.0') if kind == 'documents' else ('1.1.0',)
+    require(inputs[field] in supported, 'Unsupported schedule renderer version')
     expected = schedule_formatting(spec)
     require(inputs.get('schedule_formatting') == expected, 'Schedule formatting differs from immutable revision')
     if kind == 'documents':

@@ -1,5 +1,50 @@
 # Implementation status
 
+## 2026-10-19 Beginner guide for the existing sample
+
+Completed the authorized exact-sample method and guide. The app now offers
+`beginner_screws_18_6_36in_bookcase@1.0.0`: through-side screw-and-glue joints
+for actual 18 mm main plywood and a shallow flush-screwed 6 mm applied back.
+Outside size remains 914.4 x 914.4 x 304.8 mm, with two shelves/seven panels.
+Different sizes remain incompatible; no stock substitution is performed.
+
+- New guide: **25 pages / 10 illustrated assembly steps**, plain A-G cut list,
+  tools/bit/depth settings, named marking edges, supports/clamping, squaring,
+  glue curing, exact back worksheet, source/adaptation limits and technical appendix.
+- Focused checks: **58 passed**. Final canonical backend: **287 passed, 22
+  explicit native opt-in skips**, 66.72 s; two known warnings. Strict
+  TypeScript/production build passed (`index-BJSs3BXN.js`); existing chunk warning remains.
+- Full frontend: **42/43 passed in 835.085 s**, zero skips. The lone failure
+  was a 5-second reload assertion after successful CAD/documents/stock/ZIP and
+  archive checks. After waiting for the loaded model/restored links, the
+  complete native beginner case passed again in **59.3 s**. All **43 distinct
+  cases passed across the full run and corrected targeted rerun**; this is not
+  reported as a clean single-run full-suite pass.
+- Five genuine regeneration builds, cancellation/retry and independent native
+  geometry/export/package checks passed. Legacy selected and incompatible
+  design packets still work. The existing Kreg recipe fingerprint is unchanged.
+- User sample **revision 3**, `rev_a53502a973b646e6a311fdcee3ebe92f`, generated
+  all four jobs successfully. Entire dimensions/material objects and every
+  other spec field except recipe selection match revision 2. Prior revision,
+  preferred set and original PDF are preserved. Model, cut list, drawings,
+  stock, guide and ZIP have the same revision/spec hashes.
+- Rendered and visually checked all **25 final guide pages**, three native
+  metric sheets and six stock PDF pages. Independent ZIP inspection checked
+  every member/hash/revision, exact cuts and all ten illustrated operations.
+- Downloads: `C:/Users/byonk/Downloads/Sample-Bookcase-Revision-3-Beginner-Plans.pdf`
+  and matching `.zip`. PDF SHA-256
+  `bf33e8c609826ba4d2d2d807c97c327722e1026c980eec7dc8c01f61ca3efcb2`.
+  Codex PDF preview requested; app returned queued.
+
+Exact commands, source/method limits, launch steps and evidence paths:
+[beginner verification](BEGINNER-BOOKCASE-VERIFICATION.md).
+Recorded results: [verification JSON](../evidence/beginner-guide-20261019/verification.json).
+Local detailed evidence: `.verification/beginner-guide-20261019/`.
+Physical build, load testing, actual offcut/stock checks, site restraint and
+beginner participant evaluation remain human gates. No physical approval or
+load rating is claimed. Runtime stays local/offline; CAD pins and dependencies
+are unchanged. No push or deployment.
+
 ## 2026-10-17 Get plans workflow
 
 Completed and verified against `.scratch/get-plans/PRD.md`. Get plans now prepares

@@ -1,0 +1,108 @@
+{
+  "status": "passed",
+  "scope": "Exact saved sample beginner guide; no physical build or participant trial",
+  "backend": {
+    "passed": 287,
+    "skipped": 22,
+    "failed": 0,
+    "seconds": 66.712
+  },
+  "build": {
+    "typescript": "passed",
+    "production": "passed",
+    "bundle": "index-BJSs3BXN.js",
+    "existing_large_chunk_warning": true
+  },
+  "browser": {
+    "full_run": {
+      "startTime": "2026-10-20T00:50:54.866Z",
+      "duration": 835084.934,
+      "expected": 42,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "corrected_targeted_rerun": {
+      "startTime": "2026-10-20T01:05:07.936Z",
+      "duration": 60516.436,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "distinct_cases_passed": 43,
+    "note": "Initial 5s reload assertion failed after all four jobs/archive checks succeeded; corrected wait rerun passed. Full run was 42/43, not a clean 43/43 single run."
+  },
+  "sample": {
+    "status": "passed",
+    "revision_id": "rev_a53502a973b646e6a311fdcee3ebe92f",
+    "spec_sha256": "08b92f7aebb68d4cf617cb1d3280d21040ab2cf4113aea038809cb38ba9b39fb",
+    "resolved_sha256": "240779dcc6a9b013f19462664e33862ab4568270fc42a098a15ba886f3e9393e",
+    "guide_pages": 25,
+    "illustrated_steps": 10,
+    "every_payload_hash_and_revision_checked": true,
+    "cut_groups": {
+      "('914.4', '298.8', '18')": 2,
+      "('878.4', '298.8', '18')": 4,
+      "('914.4', '914.4', '6')": 1
+    },
+    "zip_sha256": "25a4656acfe93e908f906aa7dbc6d986144f579264d169e881c2a140f2a3c96d",
+    "physical_build": "not_performed"
+  },
+  "unchanged": {
+    "dimensions": true,
+    "entire_material_records": true,
+    "all_other_spec_fields_except_recipe": true,
+    "prior_revision_2_preferred_set": true,
+    "prior_revision_2_pdf": true
+  },
+  "delivered_pdf": {
+    "path": "C:/Users/byonk/Downloads/Sample-Bookcase-Revision-3-Beginner-Plans.pdf",
+    "sha256": "bf33e8c609826ba4d2d2d807c97c327722e1026c980eec7dc8c01f61ca3efcb2",
+    "rendered_pages": 25,
+    "visually_reviewed_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "codex_preview_request": "queued"
+  },
+  "companion_visual_review": {
+    "native_metric_drawings": 3,
+    "stock_pdf_pages": 6
+  },
+  "recipe_fingerprint": "ba802e7e0deb0d52814460c55bbd99121e3f44a8e7a28de80b70dbe455ebfc42",
+  "remaining_human_gates": [
+    "matching offcut drill/drive check",
+    "actual stock/workholding/cure checks",
+    "physical assembly and load testing",
+    "site-specific restraint installation",
+    "beginner participant evaluation"
+  ],
+  "verification_root": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\beginner-guide-20261019",
+  "regeneration_export_validation": "passed",
+  "no_push": true,
+  "offline_runtime": true
+}

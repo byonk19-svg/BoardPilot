@@ -1,0 +1,30 @@
+{
+  "reviews": [
+    "backend_geometry_and_method",
+    "document_renderer_and_integration"
+  ],
+  "resolved_findings": [
+    {
+      "issue": "Recipe dispatch could be bypassed by altering all joint methods",
+      "fix": "Dispatch by resolved recipe identity; unknown methods rejected",
+      "regression": "unknown_methods"
+    },
+    {
+      "issue": "Required pilot stage could be removed from an otherwise valid DAG",
+      "fix": "Exact versioned operation contract",
+      "regression": "missing_pilots and changed_instructions"
+    },
+    {
+      "issue": "Front offset was not bound to the entry coordinate",
+      "fix": "Bind front offset and local layout plane to actual entry",
+      "regression": "front_offset"
+    },
+    {
+      "issue": "Incompatible selection could not export an ordinary design packet",
+      "fix": "Require beginner-guide checks only for complete recipe",
+      "regression": "test_document_selection_and_step_coverage[False]"
+    }
+  ],
+  "legacy_source_files_untouched": true,
+  "physical_review": "not_performed"
+}

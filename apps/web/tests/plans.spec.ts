@@ -231,8 +231,10 @@ test('offline measurements to Update design to Get plans survives reload and los
   expect(manifest.revision_id).toBe(revisionId);expect(manifest.validation.documents).toBe('passed');expect(manifest.validation.stock_layout).toBe('passed');
   const zip=await (await page.request.get((await download.getAttribute('href'))!)).body();
   const repo=fileURLToPath(new URL('../../../',import.meta.url));
-  const zipPath=join(repo,'.verification/get-plans-20261017/accepted-project.zip');
-  const manifestPath=join(repo,'.verification/get-plans-20261017/accepted-manifest.json');
+  const evidenceRoot=process.env.WOODWORK_PLANS_EVIDENCE_ROOT||join(repo,'.verification/get-plans-20261017');
+  await mkdir(evidenceRoot,{recursive:true});
+  const zipPath=join(evidenceRoot,'accepted-project.zip');
+  const manifestPath=join(evidenceRoot,'accepted-manifest.json');
   await writeFile(zipPath,zip);await writeFile(manifestPath,JSON.stringify(manifest));
   const inspected=JSON.parse(execFileSync(join(repo,'.venv/Scripts/python.exe'),['-c',`
 import sys,json,zipfile,hashlib,io

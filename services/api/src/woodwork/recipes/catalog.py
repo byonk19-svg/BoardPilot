@@ -46,7 +46,8 @@ def installed_catalog():
     folder = Path(__file__).parent
     entry["generator_sources"] = {name: hashlib.sha256((folder / name).read_bytes()).hexdigest() for name in ("graph.py", "planning.py")}
     entry["generator_sha256"] = hashlib.sha256(b"".join(name.encode() + b"\0" + (folder / name).read_bytes() for name in ("graph.py", "planning.py"))).hexdigest()
-    return {(RECIPE_ID, RECIPE_VERSION): entry}
+    from .beginner_catalog import BEGINNER_ID, BEGINNER_VERSION, beginner_entry
+    return {(RECIPE_ID, RECIPE_VERSION): entry, (BEGINNER_ID, BEGINNER_VERSION): beginner_entry()}
 
 
 def public_catalog():
