@@ -1,5 +1,46 @@
 # Implementation status
 
+## 2026-10-20 Plans beside the saved model
+
+Completed `.scratch/plans-access/PRD.md` using implement -> TDD -> independent
+Standards/Spec review. Get plans is beside the wide desktop model and before the
+narrow viewer; the narrow navigation includes Plans. Its shortcut, Tab order,
+visible focus and Enter download were exercised in the in-app browser.
+
+- The complete illustrated packet is labelled **Build guide PDF**. Ordinary,
+  incompatible and unselected packets retain the design-PDF label.
+- Promoted PDF/stock links appear once, cut-list CSV stays at its cut list, and
+  additional files remain accessible. Bundle links keep their frozen manifest
+  even if a newer individual output set exists on the same revision.
+- Shared activity now includes recovery discovery, restored individual jobs,
+  uncertain acknowledgements, same-request reconnect, cancellation and scoped
+  cleanup. Regression tests first reproduced the review findings, then passed.
+- Focused plans: **19 passed**. Backend: **287 passed, 22 native opt-in skips**,
+  56.61 seconds, two known warnings. Final TypeScript/production build passed
+  (`index-Cjk3dr8-.js`, `index-2LPnstGN.css`); existing chunk warning remains.
+- Full production frontend: **52 passed, zero failed/skipped/flaky**, in one
+  **636.924-second** run. Includes genuine CAD/PDF/ZIP, legacy method and
+  incompatible packets, import/rebuild, recovery, keyboard/narrow layout and
+  five native regeneration builds. Independent native/export/package checking
+  also passed. The keyboard guide download matches the exact PDF in the ZIP.
+- Standards: **0 open findings**. Spec: **0 open findings**. The shared recovery
+  issue was resolved and re-reviewed before the full browser gate.
+- Original **Sample bookcase walkthrough** remains revision **3**. Entire
+  saved revision, preferred set, dimensions/materials and draft contents are
+  unchanged; the guide artifact is still
+  `159621f3-7cc4-4135-97e6-5f60c9d2e001`. No backend/CAD/recipe/renderer or
+  dependency pins changed. Prior audit and document-corpus files are preserved.
+
+Exact run commands, limits and launch steps:
+[plans access verification](PLANS-ACCESS-VERIFICATION.md).
+Evidence: [results](../evidence/plans-access-20261020/verification.json),
+[review](../evidence/plans-access-20261020/review.md), and inspected desktop/mobile
+screenshots in that directory. Detailed traces, JUnit, archives and public-API
+checks are in `.verification/plans-access-20261020/`.
+Mobile was browser-emulated; no physical touch-device or screen-reader trial is
+claimed. Temporary test services are stopped; the original local app remains on
+8777. Local/offline only; no push or deployment.
+
 ## 2026-10-19 Beginner guide for the existing sample
 
 Completed the authorized exact-sample method and guide. The app now offers

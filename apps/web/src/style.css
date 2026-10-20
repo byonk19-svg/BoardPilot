@@ -19,4 +19,14 @@ button.primary:hover{background:oklch(44% .065 160);border-color:oklch(44% .065 
 #measurements,#saved-model,#cut-list{scroll-margin-top:16px}
 @media(max-width:760px){.design-shortcuts{display:flex;gap:20px;padding:10px 16px;margin:0;border-bottom:1px solid oklch(84% .018 90);font-size:13px}.parameters .assembly-readiness{max-width:60ch}}
 
-.plans{margin:18px 0 22px}.project-outputs .plans .primary{width:auto;min-width:220px}.plans-progress{margin-top:14px;font-size:14px;font-weight:600}.plans-steps{display:flex;flex-wrap:wrap;gap:12px 28px;padding-left:20px;font-size:13px}.plans-steps li span{display:block;font-size:12px;color:oklch(43% .03 160)}.individual-outputs{margin:18px 0}.individual-outputs .button-row{margin-top:12px}@media(max-width:760px){.plans-steps{display:block}.plans-steps li{margin:10px 0}.project-outputs .plans .primary{width:100%}}
+.model-with-plans{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:20px;align-items:start}
+.model-with-plans>.inspection{grid-column:1;grid-row:1;grid-template-columns:minmax(0,1fr)}
+.model-with-plans>.inspection:has(.revision-details:not([open])){grid-template-columns:minmax(0,1fr)}
+.plans{grid-column:2;grid-row:1;margin:0;padding:14px;border:1px solid oklch(81% .018 90);border-radius:5px;background:oklch(98% .007 90);min-width:0;scroll-margin-top:16px}
+.plans:focus-visible{outline:3px solid oklch(57% .09 165);outline-offset:3px}
+.plans .primary,.plans .download{width:100%;text-align:center}
+.plans-progress{margin-top:14px;font-size:14px;font-weight:600}
+.plans-steps{padding-left:20px;font-size:13px}.plans-steps li{margin:7px 0}.plans-steps li span{font-size:12px;color:oklch(43% .03 160);margin-left:6px}
+.individual-outputs{margin:18px 0}.individual-outputs .button-row{margin-top:12px}
+@media(max-width:1100px){.model-with-plans{grid-template-columns:minmax(0,1fr)}.plans{grid-column:1;grid-row:1}.model-with-plans>.inspection{grid-column:1;grid-row:2}}
+@media(max-width:760px){.design-shortcuts{gap:16px;flex-wrap:wrap}}

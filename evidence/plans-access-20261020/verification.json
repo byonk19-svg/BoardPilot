@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "baseline": "b4cbc4d0daf49ee4f47f30a56aa71c564f084ef5",
+  "backend": {
+    "passed": 287,
+    "skipped": 22,
+    "failed": 0,
+    "seconds": 56.61
+  },
+  "build": {
+    "typescript": "passed",
+    "production": "passed",
+    "bundle": "index-Cjk3dr8-.js",
+    "css": "index-2LPnstGN.css",
+    "existing_large_chunk_warning": true
+  },
+  "frontend": {
+    "startTime": "2026-10-20T13:13:06.137Z",
+    "duration": 636923.6740000001,
+    "expected": 52,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "focused_plans_passes": 19,
+  "native_bookcase": {
+    "status": "passed",
+    "revision_id": "rev_8858bb3d87ee4b6481f3d50dff182b7a",
+    "spec_sha256": "90b3c941defc0ed710a852f52920a474c3870feb79235b2c1f6e2766f5f246e1",
+    "resolved_sha256": "28bf25673a230494aa8a9c311fda95f783b5fbca19888d8be31d8e322059f7e0",
+    "guide_pages": 25,
+    "illustrated_steps": 10,
+    "every_payload_hash_and_revision_checked": true,
+    "cut_groups": {
+      "('914.4', '298.8', '18')": 2,
+      "('878.4', '298.8', '18')": 4,
+      "('914.4', '914.4', '6')": 1
+    },
+    "zip_sha256": "87f01f4e338def4bb821bb9a0f71ffb0cd628e7d916aa11440490c366b3526a0",
+    "physical_build": "not_performed"
+  },
+  "regeneration_export_check": {
+    "status": "passed",
+    "revision_id": "rev_01748860b55d4eaba1f6ea011c40b13c",
+    "native_geometry": "passed",
+    "package": {
+      "artifact_set_id": "set_0bc1e6e5c1c04ee78bab23ba1cb4c519",
+      "payload_count": 26,
+      "status": "passed"
+    }
+  },
+  "keyboard": {
+    "plans_shortcut_enter_then_tab": "Get plans",
+    "next_tab": "Build guide PDF",
+    "guide_enter_download": "passed",
+    "download_matches_exact_zip_pdf": true,
+    "pdf_sha256": "490577174beead6ac3525f46023f89c88d158d801cb43dfdd71b55b2e6eb1a95"
+  },
+  "desktop_width": 1280,
+  "narrow_viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "page_overflow_at_narrow_width": false,
+  "original_user_sample": {
+    "revision": 3,
+    "entire_revision_unchanged": true,
+    "dimensions_and_materials_unchanged": true,
+    "draft_contents_unchanged": true,
+    "preferred_set_unchanged": true,
+    "guide_artifact_unchanged": "159621f3-7cc4-4135-97e6-5f60c9d2e001"
+  },
+  "reviews": {
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "recovery_finding": "resolved and regression-tested"
+  },
+  "limits": [
+    "Mobile verified by browser viewport emulation, not a physical touch device",
+    "No screen-reader trial",
+    "No new physical construction or load approval"
+  ],
+  "offline_native_browser_requests_block_non_loopback": true,
+  "no_push": true,
+  "detailed_evidence_root": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.verification\\plans-access-20261020"
+}

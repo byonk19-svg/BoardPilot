@@ -25,13 +25,16 @@ test('exact sample creates genuine CAD and illustrated plans offline on one revi
   await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
   const download=page.getByRole('link',{name:'Download plans ZIP · revision 1',exact:true});
   await expect(download).toBeVisible({timeout:250000});
+  const guide=page.getByRole('link',{name:'Build guide PDF · revision 1',exact:true});
+  await expect(guide).toHaveCount(1);await guide.focus();await expect(guide).toBeFocused();
+  await expect(page.getByRole('link',{name:'Measured design PDF · revision 1',exact:true})).toHaveCount(0);
   const {jobs}=await (await page.request.get('/api/v1/revisions/'+revisionId)).json();
   expect(jobs.every((j:{state:string})=>j.state==='succeeded')).toBe(true);
   const pack=jobs.find((j:{kind:string})=>j.kind==='package');
   const {manifest}=await (await page.request.get('/api/v1/revisions/'+revisionId+'/manifest?artifact_set_id='+pack.source_artifact_set_id)).json();
   expect(manifest.construction.status).toBe('complete');
   const repo=fileURLToPath(new URL('../../../',import.meta.url));
-  const out=join(repo,'.verification/beginner-guide-20261019');await mkdir(out,{recursive:true});
+  const out=process.env.WOODWORK_BEGINNER_EVIDENCE_ROOT||join(repo,'.verification/beginner-guide-20261019');await mkdir(out,{recursive:true});
   await writeFile(join(out,'accepted-project.zip'),await (await page.request.get((await download.getAttribute('href'))!)).body());
   await writeFile(join(out,'accepted-manifest.json'),JSON.stringify(manifest,null,2));
   await writeFile(join(out,'accepted-revision.json'),JSON.stringify(revision,null,2));

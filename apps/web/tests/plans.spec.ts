@@ -21,12 +21,17 @@ async function open(page:Page,id:string){
 
 // Protocol tests inject transport/job outcomes at HTTP boundaries. They do not
 // certify generated files; the final native case below inspects actual output.
-async function protocol(page:Page,options:{failStock?:boolean;wrongRevision?:boolean;unplaceable?:boolean;holdDocuments?:boolean;cancelLag?:boolean}={}){
+async function protocol(page:Page,options:{failStock?:boolean;wrongRevision?:boolean;unplaceable?:boolean;holdDocuments?:boolean;cancelLag?:boolean;illustrated?:boolean;publishPreferred?:boolean;methodStatus?:string;loseIndividualAck?:boolean}={}){
   const {project,container,manifest}=await sample(page);
   const jobs:Job[]=[];const requests:{kind:string;source:string;key:string}[]=[];
   const sets=new Map<string,Manifest>();
   let released=!options.holdDocuments;
   let cancellingPolls=0;
+  let lostIndividualAck=false;
+  if(options.publishPreferred)await page.route('**/api/v1/revisions/'+container.revision.id+'/manifest',route=>{
+    const published=sets.get('plans-stock')||manifest;
+    return route.fulfill({json:{artifact_set_id:published.artifact_set_id,manifest:published}});
+  });
   await page.route('**/api/v1/revisions/'+container.revision.id,route=>route.fulfill({json:{...container,jobs:[...jobs].reverse().concat(container.jobs)}}));
   await page.route('**/api/v1/revisions/'+container.revision.id+'/manifest?*',route=>{
     const id=new URL(route.request().url()).searchParams.get('artifact_set_id')!;
@@ -35,17 +40,27 @@ async function protocol(page:Page,options:{failStock?:boolean;wrongRevision?:boo
   await page.route('**/api/v1/revisions/'+container.revision.id+'/jobs',async route=>{
     const body=route.request().postDataJSON();const kind=body.kind;
     requests.push({kind,source:body.source_artifact_set_id,key:body.idempotency_key});
+    const existing=jobs.find(j=>j.idempotency_key===body.idempotency_key);
+    if(existing){await route.fulfill({json:{job:existing}});return;}
     const failed=kind==='stock'&&options.failStock&&requests.filter(r=>r.kind==='stock').length===1;
     const job:Job={id:'plans-job-'+jobs.length,revision_id:options.wrongRevision?'other-revision':container.revision.id,kind,state:failed?'failed':kind==='documents'&&!released?'running':'succeeded',stage:kind==='documents'?'generating_documents':'publishing',idempotency_key:body.idempotency_key,source_artifact_set_id:body.source_artifact_set_id,result_artifact_set_id:'plans-'+kind,diagnostic_code:failed?'WORKER_TIMEOUT':null};
     jobs.push(job);
     const derived=structuredClone(manifest);derived.artifact_set_id='plans-'+kind;
     derived.capabilities.push('documents');derived.validation.documents='passed';
     derived.artifacts.push({artifact_id:'plans-pdf',kind:'pdf',relative_path:'design-packet.pdf',definition_id:null});
+    if(options.illustrated){
+      derived.construction={...derived.construction,status:'complete'};
+      derived.artifacts.push({artifact_id:'plans-guide',kind:'json',relative_path:'beginner-guide.json',definition_id:null});
+    }
+    if(options.methodStatus)derived.construction.status=options.methodStatus;
     if(kind==='stock'){
       derived.capabilities.push('stock_layout');derived.validation.stock_layout=options.unplaceable?'unplaceable':'passed';
       derived.artifacts.push({artifact_id:'plans-stock-pdf',kind:'pdf',relative_path:'stock-layout.pdf',definition_id:null});
     }
     sets.set(derived.artifact_set_id,derived);
+    if(options.loseIndividualAck&&!lostIndividualAck&&!body.idempotency_key.startsWith('plans:')){
+      lostIndividualAck=true;await route.abort('failed');return;
+    }
     await route.fulfill({json:{job}});
   });
   await page.route('**/api/v1/revisions/'+container.revision.id+'/package',async route=>{
@@ -63,14 +78,135 @@ async function protocol(page:Page,options:{failStock?:boolean;wrongRevision?:boo
     const job=jobs.find(job=>route.request().url().endsWith('/'+job.id+'/cancel'))!;
     job.state=options.cancelLag?'cancelling':'cancelled';return route.fulfill({json:{job}});
   });
-  return {project,container,manifest,jobs,requests,release:()=>{released=true;}};
+  return {project,container,manifest,jobs,requests,sets,release:()=>{released=true;}};
 }
 
-test('Get plans is the primary packet action and individual tools remain available',async({page})=>{
+test('Get plans stays beside the desktop model and is keyboard reachable above the narrow viewer',async({page})=>{
+  await page.setViewportSize({width:1280,height:900});
   const {project}=await sample(page);await open(page,project.id);
+  const plans=page.getByRole('region',{name:'Get plans',exact:true});
+  const viewer=page.getByRole('region',{name:'3D model viewer',exact:true});
+  const p=(await plans.boundingBox())!,v=(await viewer.boundingBox())!;
+  expect(p.x).toBeGreaterThanOrEqual(v.x+v.width-1);
+  expect(Math.abs(p.y-v.y)).toBeLessThan(50);
+  await expect(page.getByRole('button',{name:'Get plans · revision 1',exact:true})).toBeInViewport();
   await expect(page.getByRole('button',{name:/^Generate measured PDF/})).toBeHidden();
   await page.getByText('Individual output tools',{exact:true}).click();
   await expect(page.getByRole('button',{name:/^Generate measured PDF/})).toBeVisible();
+  await page.setViewportSize({width:390,height:844});
+  const shortcut=page.getByRole('link',{name:'Plans',exact:true});
+  await shortcut.focus();await shortcut.press('Enter');
+  await expect(page).toHaveURL(/#plans$/);
+  await page.keyboard.press('Tab');
+  const action=page.getByRole('button',{name:'Get plans · revision 1',exact:true});
+  await expect(action).toBeFocused();await expect(action).toBeInViewport();
+  const narrowPlans=(await plans.boundingBox())!,narrowViewer=(await viewer.boundingBox())!;
+  expect(narrowPlans.y+narrowPlans.height).toBeLessThanOrEqual(narrowViewer.y+1);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('the illustrated guide is named once and promoted downloads are not repeated in additional files',async({page})=>{
+  const flow=await protocol(page,{illustrated:true,publishPreferred:true});await open(page,flow.project.id);
+  await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
+  const guide=page.getByRole('link',{name:'Build guide PDF · revision 1',exact:true});
+  await expect(guide).toHaveCount(1);
+  await expect(guide).toHaveAttribute('href','/api/v1/artifacts/plans-pdf/download');
+  await expect(page.getByRole('region',{name:'Documents and project package'})).toContainText('Technical fabrication method complete');
+  await expect(page.getByRole('link',{name:/Download cut list|Plans cut list CSV/})).toHaveCount(1);
+  await page.getByText(/^(All|Additional) revision files$/).click();
+  const hrefs=await page.getByRole('link').evaluateAll(links=>links.map(a=>a.getAttribute('href')!).filter(href=>href.includes('/api/v1/artifacts/')));
+  expect(hrefs.length).toBeGreaterThan(4);
+  expect(new Set(hrefs).size).toBe(hrefs.length);
+});
+
+for(const [illustrated,methodStatus] of [[false,'complete'],[true,'incompatible'],[true,'recipe_unselected']] as const){
+  test(`a ${methodStatus} packet with illustrated marker ${illustrated} keeps an honest design-PDF label`,async({page})=>{
+    const flow=await protocol(page,{illustrated,methodStatus,publishPreferred:true});await open(page,flow.project.id);
+    await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
+    await expect(page.getByRole('link',{name:'Measured design PDF · revision 1',exact:true})).toHaveAttribute('href','/api/v1/artifacts/plans-pdf/download');
+    await expect(page.getByRole('link',{name:/Build guide PDF/})).toHaveCount(0);
+  });
+}
+
+test('plans and individual outputs lock each other while requests or jobs are pending',async({page})=>{
+  const flow=await protocol(page,{holdDocuments:true});await open(page,flow.project.id);
+  await page.getByText('Individual output tools',{exact:true}).click();
+  await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
+  await expect(page.getByRole('button',{name:/^Generate measured PDF/})).toBeDisabled();
+  await expect(page.getByRole('button',{name:/^Plan stock and cost/})).toBeDisabled();
+  await page.getByRole('button',{name:'Cancel plans',exact:true}).click();
+  const retry=page.getByRole('button',{name:'Retry plans · revision 1',exact:true});
+  await expect(retry).toBeEnabled();
+  let release!:()=>void;const acknowledgement=new Promise<void>(resolve=>{release=resolve;});
+  await page.route('**/api/v1/revisions/'+flow.container.revision.id+'/jobs',async route=>{
+    if(!route.request().postDataJSON().idempotency_key.startsWith('plans:'))await acknowledgement;
+    await route.fallback();
+  });
+  try{
+    await page.getByRole('button',{name:/^Generate measured PDF/}).click();
+    await expect(retry).toBeDisabled();
+  }finally{release();}
+  await expect(page.getByRole('button',{name:'Cancel output job',exact:true})).toBeVisible();
+  await expect(retry).toBeDisabled();
+  await page.getByRole('button',{name:'Cancel output job',exact:true}).click();
+  await expect(retry).toBeEnabled();
+});
+
+test('checking saved plans locks individual output submission until recovery finishes',async({page})=>{
+  const flow=await protocol(page);await open(page,flow.project.id);
+  let release!:()=>void;const recovery=new Promise<void>(resolve=>{release=resolve;});let reads=0;
+  await page.route('**/api/v1/revisions/'+flow.container.revision.id,async route=>{
+    if(++reads>1)await recovery;
+    await route.fallback();
+  });
+  try{
+    await page.reload();await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
+    await page.getByText('Individual output tools',{exact:true}).click();
+    await expect(page.getByRole('button',{name:/^Generate measured PDF/})).toBeDisabled();
+  }finally{release();}
+  await expect(page.getByRole('button',{name:/^Generate measured PDF/})).toBeEnabled();
+});
+
+test('reopening during an individual output restores its lock and cancel control',async({page})=>{
+  const flow=await protocol(page,{holdDocuments:true});await open(page,flow.project.id);
+  await page.getByText('Individual output tools',{exact:true}).click();
+  await page.getByRole('button',{name:/^Generate measured PDF/}).click();
+  await expect(page.getByRole('button',{name:'Cancel output job',exact:true})).toBeVisible();
+  await page.reload();await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
+  await expect(page.getByRole('button',{name:'Get plans · revision 1',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Cancel output job',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Cancel output job',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Get plans · revision 1',exact:true})).toBeEnabled();
+});
+
+test('a lost individual acknowledgement retains the lock and reconnects with the same request',async({page})=>{
+  const flow=await protocol(page,{holdDocuments:true,loseIndividualAck:true});await open(page,flow.project.id);
+  await page.getByText('Individual output tools',{exact:true}).click();
+  await page.getByRole('button',{name:/^Generate measured PDF/}).click();
+  await expect(page.getByRole('alert')).toBeVisible();
+  const action=page.getByRole('button',{name:'Get plans · revision 1',exact:true});
+  await expect(action).toBeDisabled();
+  await page.getByRole('button',{name:'Reconnect output',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Cancel output job',exact:true})).toBeVisible();
+  expect(flow.jobs).toHaveLength(1);expect(flow.requests).toHaveLength(2);
+  expect(flow.requests[1]).toEqual(flow.requests[0]);
+  await expect(action).toBeDisabled();
+  await page.getByRole('button',{name:'Cancel output job',exact:true}).click();
+  await expect(action).toBeEnabled();
+});
+
+test('a newer same-revision output stays additional while plans keep their exact bundled PDF',async({page})=>{
+  const flow=await protocol(page,{illustrated:true,publishPreferred:true});await open(page,flow.project.id);
+  await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
+  await expect(page.getByRole('link',{name:'Download plans ZIP · revision 1',exact:true})).toBeVisible();
+  const newer=structuredClone(flow.sets.get('plans-stock')!);newer.artifact_set_id='newer-individual-output';
+  newer.artifacts=newer.artifacts.map(a=>a.relative_path==='design-packet.pdf'?{...a,artifact_id:'newer-pdf'}:a);
+  await page.route('**/api/v1/revisions/'+flow.container.revision.id+'/manifest',route=>route.fulfill({json:{artifact_set_id:newer.artifact_set_id,manifest:newer}}));
+  await page.reload();
+  const guide=page.getByRole('link',{name:'Build guide PDF · revision 1',exact:true});
+  await expect(guide).toHaveCount(1);await expect(guide).toHaveAttribute('href','/api/v1/artifacts/plans-pdf/download');
+  await page.getByText('Additional revision files',{exact:true}).click();
+  await expect(page.getByRole('link',{name:'design-packet.pdf',exact:true})).toHaveAttribute('href','/api/v1/artifacts/newer-pdf/download');
 });
 
 test('Get plans retries the failed stock step and packages its exact cumulative result',async({page})=>{
@@ -83,7 +219,7 @@ test('Get plans retries the failed stock step and packages its exact cumulative 
   expect(flow.requests.map(r=>r.kind)).toEqual(['documents','stock','stock','package']);
   expect(flow.requests.map(r=>r.source)).toEqual([flow.manifest.artifact_set_id,'plans-documents','plans-documents','plans-stock']);
   expect(flow.requests[1].key).not.toBe(flow.requests[2].key);
-  await expect(page.getByRole('link',{name:'Plans measured PDF · revision 1',exact:true})).toHaveAttribute('href','/api/v1/artifacts/plans-pdf/download');
+  await expect(page.getByRole('link',{name:'Measured design PDF · revision 1',exact:true})).toHaveAttribute('href','/api/v1/artifacts/plans-pdf/download');
 });
 
 test('reload resumes the same run without duplicating drawings or switching source sets',async({page})=>{
@@ -255,11 +391,11 @@ with zipfile.ZipFile(sys.argv[1]) as z:
 `,zipPath,manifestPath],{encoding:'utf8'}));
   await mkdir('tests/evidence',{recursive:true});
   await writeFile('tests/evidence/get-plans-acceptance.json',JSON.stringify({project_id:projectId,revision_id:revisionId,jobs:planJobs,inspection:inspected,reload_during_drawings:true,lost_stock_acknowledgement_recovered:true},null,2)+'\n');
-  for(const [path,label] of [['design-packet.pdf','Plans measured PDF'],['stock-layout.pdf','Plans stock layout PDF'],['cut-list.csv','Plans cut list CSV']]){
+  for(const [path,label] of [['design-packet.pdf','Measured design PDF'],['stock-layout.pdf','Stock layout and cut sequence PDF'],['cut-list.csv','Download cut list']]){
     const artifact=manifest.artifacts.find((a:{relative_path:string})=>a.relative_path===path);
     await expect(page.getByRole('link',{name:label+' · revision 2',exact:true})).toHaveAttribute('href','/api/v1/artifacts/'+artifact.artifact_id+'/download');
   }
-  expect(await (await page.request.get((await page.getByRole('link',{name:'Plans cut list CSV · revision 2',exact:true}).getAttribute('href'))!)).text()).toBe(csvBefore);
+  expect(await (await page.request.get((await page.getByRole('link',{name:'Download cut list · revision 2',exact:true}).getAttribute('href'))!)).text()).toBe(csvBefore);
   await page.reload();await expect(download).toBeVisible();
   expect((await (await page.request.get('/api/v1/revisions/'+revisionId)).json()).jobs.filter((job:Job)=>job.idempotency_key?.startsWith('plans:'))).toHaveLength(3);
   await download.scrollIntoViewIfNeeded();await page.screenshot({path:'tests/evidence/get-plans-desktop.png',fullPage:true});
