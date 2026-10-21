@@ -1,5 +1,49 @@
 # Implementation status
 
+## 2026-10-20 On-demand app-audit setup
+
+Added the project-scoped `.agents/skills/app-audit` coordinator and short compatible
+AGENTS guidance. It reuses the enabled official Playwright and Impeccable user
+skills, reads the existing product/design/milestone documents, defaults to
+audit-only, and separates functional, visual, usability and scope findings.
+Reports must distinguish fresh reproduction, supplied evidence, source inference,
+design judgment, scope drift and untested areas. No new product plan was created.
+
+Setup gates passed: official creator validation; picker metadata parsing; actual
+Codex discovery from both repository and parent workspace (three target skills,
+all enabled, zero errors); existing Impeccable product/design context loading;
+offline CLI help/version checks; one-file detector smoke (valid JSON `[]`).
+A synthetic independent rehearsal identified the supplied-evidence vocabulary
+gap, now fixed and revalidated. It was not an audit of the running app.
+
+Prepared Impeccable CLI 3.0.3 in the npm cache and PyYAML 6.0.3 in an isolated
+validator directory. Existing Playwright CLI 0.1.22, project Playwright 1.63.0 and
+Chromium were reused. Core setup prerequisites are present. No overlay was
+injected or verified; current CLI help has no `live` command. A parent-workspace
+junction exposes the one canonical project skill to this chat's cwd. No app
+behavior, app dependencies, saved records or native CAD contracts changed.
+No full app/browser audit or CAD suite was run for this skill-only setup.
+
+Instructions, exact tool preparation/verification details and limits:
+`docs/APP-AUDIT-SETUP.md`. Recorded evidence and repeatable discovery helper:
+`evidence/app-audit-setup-20261020/`. Discovery used only local metadata requests,
+with a process-local CLI compatibility override; no configuration write or model
+turn. Exact final checks from the application repository:
+
+```powershell
+.venv/Scripts/python.exe evidence/app-audit-setup-20261020/check-discovery.py
+$env:PYTHONPATH=(Resolve-Path .verification/app-audit-setup-20261020/validator-deps).Path
+$env:PYTHONUTF8='1'
+.venv/Scripts/python.exe C:/Users/byonk/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/app-audit
+npx.cmd --offline --no-install --package=@playwright/cli playwright-cli --version
+npx.cmd --offline --no-install --package=impeccable@3.0.3 impeccable detect --help
+npx.cmd --offline --no-install --package=impeccable@3.0.3 impeccable detect --json apps/web/src/AssemblyReadiness.tsx
+git diff --check
+```
+
+Setup is complete; an actual app audit remains on demand. Existing unrelated
+document-corpus status, review and evidence changes were preserved. No push.
+
 ## 2026-10-20 Resizing and assembly-guide warning
 
 Implemented the approved `.scratch/resize-warning/PRD.md` with Matt's implement,

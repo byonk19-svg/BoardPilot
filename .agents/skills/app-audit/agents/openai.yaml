@@ -1,0 +1,4 @@
+interface:
+  display_name: "App Audit"
+  short_description: "Audit app flows, usability, and product scope"
+  default_prompt: "Use $app-audit to review the main user journeys, interface quality, and current milestone. Audit only."

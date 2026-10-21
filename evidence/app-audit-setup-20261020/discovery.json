@@ -1,0 +1,50 @@
+[
+  {
+    "cwd": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform",
+    "skills": [
+      {
+        "name": "app-audit",
+        "path": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.agents\\skills\\app-audit\\SKILL.md",
+        "scope": "repo",
+        "enabled": true
+      },
+      {
+        "name": "impeccable",
+        "path": "C:\\Users\\byonk\\.agents\\skills\\impeccable\\SKILL.md",
+        "scope": "user",
+        "enabled": true
+      },
+      {
+        "name": "playwright",
+        "path": "C:\\Users\\byonk\\.codex\\skills\\playwright\\SKILL.md",
+        "scope": "user",
+        "enabled": true
+      }
+    ],
+    "error_count": 0
+  },
+  {
+    "cwd": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot",
+    "skills": [
+      {
+        "name": "app-audit",
+        "path": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.agents\\skills\\app-audit\\SKILL.md",
+        "scope": "repo",
+        "enabled": true
+      },
+      {
+        "name": "impeccable",
+        "path": "C:\\Users\\byonk\\.agents\\skills\\impeccable\\SKILL.md",
+        "scope": "user",
+        "enabled": true
+      },
+      {
+        "name": "playwright",
+        "path": "C:\\Users\\byonk\\.codex\\skills\\playwright\\SKILL.md",
+        "scope": "user",
+        "enabled": true
+      }
+    ],
+    "error_count": 0
+  }
+]

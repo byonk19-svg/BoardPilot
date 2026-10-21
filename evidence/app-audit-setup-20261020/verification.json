@@ -1,0 +1,98 @@
+{
+  "app_behavior_changed": false,
+  "app_dependencies_changed": false,
+  "reused_skills": [
+    {
+      "name": "playwright",
+      "path": "C:\\Users\\byonk\\.codex\\skills\\playwright\\SKILL.md",
+      "sha256": "c52cc95125b720cdc3c9829b0294c2752d4ae9b85a5282aa153da8bba929af87"
+    },
+    {
+      "name": "impeccable",
+      "path": "C:\\Users\\byonk\\.agents\\skills\\impeccable\\SKILL.md",
+      "sha256": "d80295241f7110adf5391bd60b6e1829a01660b84e50ad43a1fb54ce0a9152bf"
+    }
+  ],
+  "new_skill": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.agents\\skills\\app-audit\\SKILL.md",
+  "workspace_alias": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\.agents\\skills\\app-audit",
+  "playwright_cli": "0.1.22",
+  "playwright_test": "1.63.0",
+  "impeccable_cli": "3.0.3",
+  "static_detector_smoke": "valid JSON; not a full app audit",
+  "validator": "official skill-creator quick_validate.py passed with isolated PyYAML6.0.3",
+  "discovery_after": [
+    {
+      "cwd": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform",
+      "skills": [
+        {
+          "name": "app-audit",
+          "path": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.agents\\skills\\app-audit\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "impeccable",
+          "path": "C:\\Users\\byonk\\.agents\\skills\\impeccable\\SKILL.md",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "name": "playwright",
+          "path": "C:\\Users\\byonk\\.codex\\skills\\playwright\\SKILL.md",
+          "scope": "user",
+          "enabled": true
+        }
+      ],
+      "error_count": 0
+    },
+    {
+      "cwd": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot",
+      "skills": [
+        {
+          "name": "app-audit",
+          "path": "C:\\Users\\byonk\\OneDrive\\Documents\\ChatGPT\\BoardPilot\\woodworking-platform\\.agents\\skills\\app-audit\\SKILL.md",
+          "scope": "repo",
+          "enabled": true
+        },
+        {
+          "name": "impeccable",
+          "path": "C:\\Users\\byonk\\.agents\\skills\\impeccable\\SKILL.md",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "name": "playwright",
+          "path": "C:\\Users\\byonk\\.codex\\skills\\playwright\\SKILL.md",
+          "scope": "user",
+          "enabled": true
+        }
+      ],
+      "error_count": 0
+    }
+  ],
+  "behavioral_rehearsal": "synthetic, read-only, no app/test/browser execution; supplied-evidence label refinement applied",
+  "model_or_provider_calls_from_discovery": false,
+  "cli_compatibility": "CLI0.128 metadata checker uses process-local service_tier=flex override; no config writes or turns",
+  "missing_core_prerequisites": [],
+  "app_health": {
+    "status": "ready",
+    "schema_version": "1.0.0",
+    "database_version": 2,
+    "app_version": "0.1.0"
+  },
+  "date": "2026-10-20",
+  "source_commit": "2f98eb890f606059af64700a491d24e955d2ab25",
+  "verification_limits": [
+    "Setup only; no full app audit, browser journey or native CAD suite executed.",
+    "Chromium executable availability checked; browser launch not exercised by this setup.",
+    "Overlay not injected or verified; installed Impeccable CLI help has no live command."
+  ],
+  "downloads": [
+    "Impeccable CLI 3.0.3 into npm cache",
+    "PyYAML 6.0.3 into ignored validator-only target directory"
+  ],
+  "skill_picker_metadata": "YAML parses; display name, description length and app-audit prompt verified",
+  "context_loader": "hasProduct=true; hasDesign=true; migrated=false",
+  "push_performed": false,
+  "new_skill_sha256": "4e11b2536fa27059f117d52bf5309d41cf1974a48609ac7ea99891a18a2f0c3b"
+}
