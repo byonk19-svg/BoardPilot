@@ -117,6 +117,15 @@ SQLite, immutable artifacts, exports, imports, diagnostics and disposable caches
 
 ## Design and downloads
 
+When resizing makes the selected assembly method incompatible, a warning beside
+**Update design** shows its supported outside dimensions, measured panel
+thicknesses and shelf count. You can still update the model and cut list, then
+use **Get plans** for measured drawings. A matching **Build guide PDF** and
+assembly steps are unavailable for incompatible or incomplete settings.
+**Revert draft** sits directly below Update design and restores the accepted
+design; keyboard focus returns to Outside width. Existing downloads keep their
+own revision labels. Editing or reverting a draft does not rewrite those files.
+
 Create a bookcase, enter outside dimensions with explicit units, and enter **actual measured** main/back thickness. Nominal stock labels are metadata. Apply and generate; accepted and last-successful revision labels distinguish current parameters from a prior displayed model. Generation runs one native worker at a time, with a 120-second deadline and a bounded queue.
 
 The parts list supports individual selection without manipulating 3D. Hide/isolate/explode affect only the view. Request drawings or stock planning from a completed revision; the new cumulative set retains its geometry. A ZIP freezes one completed set. Import validates inert files and preserves provenance while assigning new local IDs; generate again using installed trusted templates before a local model becomes verified.

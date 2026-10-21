@@ -129,7 +129,7 @@ def create_app(data_root=None,*,start_dispatcher=True,testing=False):
         job=store.queue_preflight();dispatcher.notify();return {'job':job}
     @app.get(PREFIX+'/templates')
     def templates():
-        recipes=[{'id':identifier,'version':version,'title':entry.get('title',identifier),'required_tools':entry.get('required_tools',[])} for (identifier,version),entry in installed_recipes().items() if not entry.get('test_only')]
+        recipes=[{'id':identifier,'version':version,'title':entry.get('title',identifier),'required_tools':entry.get('required_tools',[]),'modeling_bounds':entry.get('modeling_bounds',{}),'shelf_count':entry.get('applicability',{}).get('shelf_count')} for (identifier,version),entry in installed_recipes().items() if not entry.get('test_only')]
         return {'templates':[{'id':'plywood_bookcase_v1','version':'1.0.0','default_spec':default_project_spec(),'bounds':MODELING_BOUNDS,'recipes':recipes}]}
     @app.post(PREFIX+'/inputs/normalize')
     def normalize(body:list[Measurement]):

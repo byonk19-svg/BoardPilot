@@ -15,6 +15,13 @@ async function waitJob(request:APIRequestContext,jobId:string){
   record=await (await request.get('/api/v1/jobs/'+jobId)).json();
   expect(record.job.state,record.job.diagnostic_code).toBe('succeeded');
 }
+async function generateMeasuredPdf(page:Page){
+  const queued=page.waitForResponse(response=>response.request().method()==='POST'&&response.url().endsWith('/jobs')&&response.request().postDataJSON().kind==='documents');
+  await page.getByRole('button',{name:/^Generate measured PDF/}).click();
+  const response=await queued;
+  expect(response.status()).toBe(202);
+  await waitJob(page.request,(await response.json()).job.id);
+}
 async function authoredProject(page:Page){
   const sample=process.env.WOODWORK_AUTHORED_SAMPLE_PATH;
   if(sample){
@@ -85,8 +92,8 @@ test('authored method, genuine PDF, offline incompatible recipe, proposals and Z
   await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
   await expect(page.getByText('Construction incompatible',{exact:true})).toBeVisible();
   await page.getByText('Individual output tools',{exact:true}).click();
-  await page.getByRole('button',{name:/^Generate measured PDF/}).click();
-  await expect(page.getByRole('link',{name:/^Measured design PDF/})).toBeVisible({timeout:60_000});
+  await generateMeasuredPdf(page);
+  await expect(page.getByRole('link',{name:/^Measured design PDF/})).toBeVisible({timeout:30_000});
   await expect(page.getByRole('link',{name:/^Measured design PDF/})).toHaveAttribute('href',/\/artifacts\//);
   await page.getByRole('button',{name:/^Plan stock and cost/}).click();
   await expect(page.getByTestId('sheet-subtotal')).toHaveText('Sheet purchase subtotal: USD 95.00',{timeout:60_000});
@@ -190,8 +197,8 @@ test('production port serves coherent PDF and stock outputs at desktop and narro
   await expect(page.getByTestId('model-revision')).toContainText('revision 2');
   const pdf=page.getByRole('link',{name:/^Measured design PDF/});
   await page.getByText('Individual output tools',{exact:true}).click();
-  if(!await pdf.count())await page.getByRole('button',{name:/^Generate measured PDF/}).click();
-  await expect(pdf).toBeVisible({timeout:60_000});
+  if(!await pdf.count())await generateMeasuredPdf(page);
+  await expect(pdf).toBeVisible({timeout:30_000});
   if(!await page.getByTestId('sheet-subtotal').count())await page.getByRole('button',{name:/^Plan stock and cost/}).click();
   await expect(page.getByTestId('sheet-subtotal')).toHaveText('Sheet purchase subtotal: USD 95.00',{timeout:60_000});
   await expect(page.getByRole('link',{name:/^Stock layout and cut sequence PDF/})).toBeVisible();

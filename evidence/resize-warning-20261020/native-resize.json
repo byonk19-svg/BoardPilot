@@ -1,0 +1,596 @@
+{
+  "status": "passed",
+  "project_id": "project_8800021ac0b646dab41a9d021c191ad4",
+  "old_revision_id": "rev_67da0264a2384619a11c2b8008384dc4",
+  "new_revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+  "old_guide_bytes_unchanged": true,
+  "csv_revision_and_dimensions_checked": true,
+  "manifest": {
+    "artifact_set_id": "set_a2713152ce1c4b2a8ff08958618a7ab9",
+    "artifacts": [
+      {
+        "artifact_id": "072a4127-18ee-42f9-8090-240afa1bf69d",
+        "definition_id": null,
+        "kind": "step",
+        "mime_type": "model/step",
+        "relative_path": "assembly.step",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "da714601c860f56745f2823fdeb2ab84991fd45b95685c3d47de8128f85ea610",
+        "size_bytes": 50854,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "12502651-324e-47c6-9dcf-23ca8dcbb759",
+        "definition_id": "panel_side",
+        "kind": "step",
+        "mime_type": "model/step",
+        "relative_path": "parts/panel_side.step",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "415b7bf0bb893a0c898acab4e132b0169e65466d685ba01900d7959cad5e5e46",
+        "size_bytes": 17058,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "f89d1522-3ef4-435e-93aa-1ad761bf1e90",
+        "definition_id": "panel_side",
+        "kind": "glb",
+        "mime_type": "model/gltf-binary",
+        "relative_path": "parts/panel_side.glb",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "bc616342ff6fa7afa81024d336d278167fa3e14ae791873faf1203dd0d0d55b2",
+        "size_bytes": 1852,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "796efaef-8764-4a9b-af90-507c05e4ec89",
+        "definition_id": "panel_horizontal",
+        "kind": "step",
+        "mime_type": "model/step",
+        "relative_path": "parts/panel_horizontal.step",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "1a3da4aa9acae8ce9033c41a7f6944eed334ef8cc7073a2b66f49b3efa970e24",
+        "size_bytes": 17028,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "92744365-a1ea-4af2-813e-e666cd0ba931",
+        "definition_id": "panel_horizontal",
+        "kind": "glb",
+        "mime_type": "model/gltf-binary",
+        "relative_path": "parts/panel_horizontal.glb",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "ecc9f6871fa66fc071ea696cdf93a7a5468039b1e7771732bfc4db123474853b",
+        "size_bytes": 1852,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "92dabb0b-7957-4c26-a9da-a5b4fcc6dc83",
+        "definition_id": "panel_back",
+        "kind": "step",
+        "mime_type": "model/step",
+        "relative_path": "parts/panel_back.step",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "f9346bd3202b568ccae279780a6a8d3a5f9aad34399e7ba837b27732e50fb6e7",
+        "size_bytes": 17044,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "09f14206-bec3-4293-b374-3147e3b623a0",
+        "definition_id": "panel_back",
+        "kind": "glb",
+        "mime_type": "model/gltf-binary",
+        "relative_path": "parts/panel_back.glb",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "a40b9039f66b8c4ea200bd956d23eac8fdec07d4ac93921a5f505bb2add9a24d",
+        "size_bytes": 1852,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "cd201a04-8913-4536-aca6-eccb93ea5eb5",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "project.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0",
+        "size_bytes": 1386,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "84c3ccc8-da11-45e6-99bb-da1d6ea45383",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "resolved-project.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "c9c428068fa5bc790d6eb6ece71f9323939db0961930b42d72a4a6d6f903bcf3",
+        "size_bytes": 18950,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "e620157e-7b41-4b95-87e5-2c6ca7f8ab80",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "materials.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "e629e5257947206a46200b29a15e1579a6a9df3c75c394e818c81e60e2f7eef3",
+        "size_bytes": 785,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "4c9630b9-b1db-4f5c-b360-3deee8f8bfd8",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "geometry-validation.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "8c5bedec8800f38ad9b0afaea18a4bf0b6c0d4b57309318f5dcb2bdff4c8cd8d",
+        "size_bytes": 9745,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "3d77e8a3-8d7d-4bf5-b93a-6f9879610b90",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "build-inputs.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "2e21edaf001d9c1a95cd9787c9007bbe9f3e2d54e0bb9ad022596f607dcad4d2",
+        "size_bytes": 4065,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "471fd265-1310-4a4a-af64-909cc7df975f",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "step-instance-map.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "e348b051b1e54c36bbb77e530682e61cbf8594faae189072bba8542b495e4cb0",
+        "size_bytes": 922,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "8e0756a5-4332-45fb-a76c-5bde8c9712d5",
+        "definition_id": null,
+        "kind": "csv",
+        "mime_type": "text/csv; charset=utf-8",
+        "relative_path": "cut-list.csv",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "b25abf98d0b0ad445b7fb27f5ac9bf51a6fac3b2efde92195f30b9ad13b3e7f3",
+        "size_bytes": 1168,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "2796e051-38ee-439f-97ce-a4f27b0dfa5b",
+        "definition_id": null,
+        "kind": "text",
+        "mime_type": "text/plain; charset=utf-8",
+        "relative_path": "readme.txt",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "ccd344fc2720a47be49f4fb216e6359c6991da5f0ee3e6649c1ced6013a919a6",
+        "size_bytes": 651,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "d6b5f21f-03e2-4845-b886-a297fb3da80e",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "construction-recipe.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "f98f1c951115e1e753eb8237ceaf995aed7ee2fb83ac0f5783eb0593ccd6b532",
+        "size_bytes": 5185,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "cdfb0e53-e661-47a3-805e-4316e661a5e3",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "document-validation.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "529578daf96e27d4ce630bc8988522f9aa4e0c2d68692c57002e3c9c9b18bbcf",
+        "size_bytes": 1663,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "a73eb15d-b263-476f-8091-fd45b00b6b4c",
+        "definition_id": null,
+        "kind": "pdf",
+        "mime_type": "application/pdf",
+        "relative_path": "design-packet.pdf",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "b11e9385f650350fb80a8474817148f037e2c8555bb1a23d2f7795acc0f60045",
+        "size_bytes": 12680,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "8d9bfcd3-cec0-455d-b6fa-3d8e5fdc0fc7",
+        "definition_id": "panel_side",
+        "kind": "pdf",
+        "mime_type": "application/pdf",
+        "relative_path": "drawings/panel_side-metric.pdf",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "80a3aada86e499eda3e7bca461d5f3093dbd8ba9806510e46cd086174bddc0a5",
+        "size_bytes": 358347,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "919ae5b1-4306-4018-a9dd-688c1e06987d",
+        "definition_id": "panel_horizontal",
+        "kind": "pdf",
+        "mime_type": "application/pdf",
+        "relative_path": "drawings/panel_horizontal-metric.pdf",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "17a968a9760ecdc6b269d7827c1abda630a8273e4333376c4cf2ab5c82adb942",
+        "size_bytes": 368855,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "d0d7efac-6691-4282-8754-8bee74601d74",
+        "definition_id": "panel_back",
+        "kind": "pdf",
+        "mime_type": "application/pdf",
+        "relative_path": "drawings/panel_back-metric.pdf",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "d8dbc86e2ce0b3b1b1b8083e6fc1c1b70839e3842e3d8902e690fa722a372e5f",
+        "size_bytes": 357512,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "60033ff9-5987-47d1-a693-009277d0cdc4",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "stock-layout.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "0e5bbf690e46171a2fb6a655b7bc11b1a9992095cd950b301dd0f17de98aa4fc",
+        "size_bytes": 11724,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "cc78c574-acc7-46f1-9f58-1808fe824480",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "cost-estimate.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "5c9f1e3e0166fdd38f3eb87fdb792b05afd59de334c825935a18548d1eb45db3",
+        "size_bytes": 970,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "80f506ce-fffd-4db5-84c2-f57f2f1183a3",
+        "definition_id": null,
+        "kind": "json",
+        "mime_type": "application/json",
+        "relative_path": "stock-validation.json",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "705636c2244daa33ce5cfab1af3367009df3e50d771221624ef9aa829b043926",
+        "size_bytes": 409,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      },
+      {
+        "artifact_id": "29dc3db5-8e16-4e56-9625-f2fef4f461e1",
+        "definition_id": null,
+        "kind": "pdf",
+        "mime_type": "application/pdf",
+        "relative_path": "stock-layout.pdf",
+        "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+        "sha256": "465df8e1dfab6eeb64858410abc5ed73d534aefc2de320643db25bbb4d56b475",
+        "size_bytes": 8890,
+        "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0"
+      }
+    ],
+    "build_key_sha256": "2e21edaf001d9c1a95cd9787c9007bbe9f3e2d54e0bb9ad022596f607dcad4d2",
+    "capabilities": [
+      "geometry",
+      "documents",
+      "stock_layout",
+      "cost_estimate"
+    ],
+    "construction": {
+      "findings": [
+        "dimensions.outside_width_mm: this method requires actual 914.4 mm; received 1016 mm."
+      ],
+      "physical_review": "not_reviewed",
+      "recipe_id": "beginner_screws_18_6_36in_bookcase",
+      "recipe_version": "1.0.0",
+      "status": "incompatible"
+    },
+    "coordinates": {
+      "cad_axes": "x_width_y_depth_z_height",
+      "cad_to_preview": "x_z_neg_y_times_0.001",
+      "cad_units": "mm",
+      "part_axes": "x_length_y_width_z_thickness",
+      "part_origin": "center",
+      "preview_units": "m"
+    },
+    "manifest_schema_version": "1.0.0",
+    "part_definitions": [
+      {
+        "definition_id": "panel_side",
+        "finished_mm": {
+          "length_mm": "914.4",
+          "thickness_mm": "18",
+          "width_mm": "298.8"
+        },
+        "grain_axis": "L",
+        "manufacturing_sha256": "6325939c0314728c53116ba59e779b21083b7571e878282af4bc4d3ee33bf64e",
+        "material_id": "plywood_main",
+        "member_instance_ids": [
+          "side_left",
+          "side_right"
+        ],
+        "quantity": 2,
+        "rough_mm": {
+          "length_mm": "914.4",
+          "thickness_mm": "18",
+          "width_mm": "298.8"
+        }
+      },
+      {
+        "definition_id": "panel_horizontal",
+        "finished_mm": {
+          "length_mm": "980",
+          "thickness_mm": "18",
+          "width_mm": "298.8"
+        },
+        "grain_axis": "L",
+        "manufacturing_sha256": "d4ad528c2bb0f24414ad51a34ae460d99bd692820461d7b8cb1d6a56c9065bcb",
+        "material_id": "plywood_main",
+        "member_instance_ids": [
+          "bottom",
+          "shelf_01",
+          "shelf_02",
+          "top"
+        ],
+        "quantity": 4,
+        "rough_mm": {
+          "length_mm": "980",
+          "thickness_mm": "18",
+          "width_mm": "298.8"
+        }
+      },
+      {
+        "definition_id": "panel_back",
+        "finished_mm": {
+          "length_mm": "914.4",
+          "thickness_mm": "6",
+          "width_mm": "1016"
+        },
+        "grain_axis": "L",
+        "manufacturing_sha256": "31dff1e26840a7aa615bf229c1d23a39adebb0bbf05708e46c0eaeafbe3ba1f8",
+        "material_id": "plywood_back",
+        "member_instance_ids": [
+          "back"
+        ],
+        "quantity": 1,
+        "rough_mm": {
+          "length_mm": "914.4",
+          "thickness_mm": "6",
+          "width_mm": "1016"
+        }
+      }
+    ],
+    "part_instances": [
+      {
+        "center_mm": {
+          "x": "9",
+          "y": "149.4",
+          "z": "457.2"
+        },
+        "definition_id": "panel_side",
+        "instance_id": "side_left",
+        "rotation_cad_rows": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "center_mm": {
+          "x": "1007",
+          "y": "149.4",
+          "z": "457.2"
+        },
+        "definition_id": "panel_side",
+        "instance_id": "side_right",
+        "rotation_cad_rows": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "center_mm": {
+          "x": "508",
+          "y": "149.4",
+          "z": "9"
+        },
+        "definition_id": "panel_horizontal",
+        "instance_id": "bottom",
+        "rotation_cad_rows": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "center_mm": {
+          "x": "508",
+          "y": "149.4",
+          "z": "307.8"
+        },
+        "definition_id": "panel_horizontal",
+        "instance_id": "shelf_01",
+        "rotation_cad_rows": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "center_mm": {
+          "x": "508",
+          "y": "149.4",
+          "z": "606.6"
+        },
+        "definition_id": "panel_horizontal",
+        "instance_id": "shelf_02",
+        "rotation_cad_rows": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "center_mm": {
+          "x": "508",
+          "y": "149.4",
+          "z": "905.4"
+        },
+        "definition_id": "panel_horizontal",
+        "instance_id": "top",
+        "rotation_cad_rows": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "center_mm": {
+          "x": "508",
+          "y": "301.8",
+          "z": "457.2"
+        },
+        "definition_id": "panel_back",
+        "instance_id": "back",
+        "rotation_cad_rows": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "project_id": "project_8800021ac0b646dab41a9d021c191ad4",
+    "resolved_sha256": "b455ed9c27f10b9feafac14629cd013e70203d12f394e26952c237fd87514224",
+    "revision_id": "rev_5e9aa38e310f4e1c98b3a61f24ba9fb2",
+    "revision_number": 2,
+    "source_artifact_set_id": "set_5475d252dd6043b582b37740be3a522f",
+    "spec_sha256": "f9b4e9ef2a72c1c1ace0b47e489c941a4765bbaf4a408c69df8945e7a6840ee0",
+    "validation": {
+      "documents": "passed",
+      "geometry": "passed",
+      "parameters": "passed",
+      "stock_layout": "passed"
+    },
+    "versions": {
+      "adapter": "1.1.0",
+      "app": "0.1.0",
+      "build123d": "0.11.1",
+      "cadgen": "0.7.21",
+      "compiler": "1.0.0",
+      "dependency_lock_sha256": "f92cdecc61c68516333b8f210b9e6db3fd279659cfb0fcfc2b135dd3c06b2618",
+      "node": "24.13.0",
+      "ocp": "7.9.3.1.1",
+      "python": "3.13.9",
+      "recipe_fingerprint": "ba802e7e0deb0d52814460c55bbd99121e3f44a8e7a28de80b70dbe455ebfc42",
+      "template": "1.0.0"
+    }
+  },
+  "inspection": {
+    "pdf_revision_checked": true,
+    "incompatible_status_printed": true,
+    "assembly_instructions_absent": true,
+    "pages": 7,
+    "pdf_sha256": "b11e9385f650350fb80a8474817148f037e2c8555bb1a23d2f7795acc0f60045"
+  },
+  "external_requests": []
+}

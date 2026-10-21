@@ -9,6 +9,16 @@ def client_for(root):
     client.headers['X-Woodwork-CSRF']=token
     return client
 
+
+def test_installed_method_exposes_its_supported_measurements_for_editor_warning(tmp_path):
+    client=client_for(tmp_path)
+    recipes=client.get('/api/v1/templates').json()['templates'][0]['recipes']
+    beginner=next(recipe for recipe in recipes if recipe['id']=='beginner_screws_18_6_36in_bookcase')
+    assert beginner['modeling_bounds']['dimensions.outside_width_mm']==['914.4','914.4']
+    assert beginner['modeling_bounds']['materials.main.actual_thickness_mm']==['18','18']
+    assert beginner['modeling_bounds']['materials.back.actual_thickness_mm']==['6','6']
+    assert beginner['shelf_count']==[2,2]
+
 def test_local_boundary_and_structured_input_validation(tmp_path):
     client=client_for(tmp_path)
     assert client.get('/api/v1/health',headers={'Host':'evil.example'}).status_code==403

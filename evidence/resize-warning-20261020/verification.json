@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "baseline": "b096a1895e10e7f8087686ec056c940ae232e758",
+  "backend": {
+    "tests": "317",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "22",
+    "time": "139.593"
+  },
+  "backend_passed": 295,
+  "initial_full_browser": {
+    "startTime": "2026-10-21T01:10:45.003Z",
+    "duration": 1107532.361,
+    "expected": 55,
+    "skipped": 1,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "affected_export_retest": {
+    "startTime": "2026-10-21T01:31:38.591Z",
+    "duration": 144008.345,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "all_57_non_optin_browser_cases_covered": true,
+  "clean_full_suite_rerun_after_test_only_repair": false,
+  "new_resize_cases_passed_in_full_run": 6,
+  "native_revision_consistency": {
+    "pdf_revision_checked": true,
+    "incompatible_status_printed": true,
+    "assembly_instructions_absent": true,
+    "pages": 7,
+    "pdf_sha256": "b11e9385f650350fb80a8474817148f037e2c8555bb1a23d2f7795acc0f60045"
+  },
+  "native_old_guide_bytes_unchanged": true,
+  "warning_text_contrast": 10.54,
+  "desktop_viewport": [
+    1280,
+    900
+  ],
+  "mobile_emulation_viewport": [
+    390,
+    844
+  ],
+  "keyboard_enter_space_tab_revert_and_focus": "passed",
+  "standards_open_findings": 0,
+  "spec_open_findings": 0,
+  "typecheck_build": "passed",
+  "bundle": "index-BjR397aQ.js",
+  "css": "index-BEo8ru8C.css",
+  "network": "local and offline",
+  "physical_phone_or_screen_reader_session": false
+}

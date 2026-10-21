@@ -5,6 +5,7 @@ import {api,ApiError,artifactUrl,requestKey,terminal,type Artifact,type Finding,
 import {changeSummary,displayUnit,formFrom,groupLabel,restoreForm,sameSpec,validateForm,type Form,type Unit,type Validated} from './forms';
 import {ProjectOutputs} from './ProjectOutputs';
 import {Plans} from './Plans';
+import {AssemblyReadiness} from './AssemblyReadiness';
 import {additionalRevisionFiles} from './downloads';
 import {OfflineProposals} from './OfflineProposals';
 import {ImportProject} from './ImportProject';
@@ -94,6 +95,7 @@ export function App(){
       const serverJob=revision.jobs?.find(j=>j.kind==='generate');
       if(serverJob&&(!preserveDraft||job?.revision_id!==revision.revision.id))setJob(serverJob);
       if(!preserveDraft){
+        validation.current++;setValidated(null);setFindings([]);setChecking(true);
         setAdvancedOpen(false);
         let localDraft=localDrafts.current[id];if(!localDraft)try{localDraft=JSON.parse(cachedValue('woodwork-local-draft-'+id)||'null');}catch{/* A malformed recovery record does not replace a valid revision. */}
         const draft=localDraft||container.draft;
@@ -236,7 +238,8 @@ export function App(){
     const i=next.spec.manufacturing.stock_sheets.length-1;for(const axis of ['length_mm','width_mm'] as const)next.measurements[`manufacturing.stock_sheets.${i}.${axis}`]={text:stock[axis]+' mm',default_unit:'mm'};next.prices[stock.stock_id]='';edit(next);
   }
   function removeStock(index:number){const next=structuredClone(form!);next.spec.manufacturing.stock_sheets=next.spec.manufacturing.stock_sheets.filter((_,i)=>i!==index) as ProjectSpec['manufacturing']['stock_sheets'];const old=form!.spec.manufacturing.stock_sheets;next.spec.manufacturing.stock_sheets.forEach((stock,i)=>{const previous=old.findIndex(s=>s.stock_id===stock.stock_id);for(const axis of ['length_mm','width_mm'])next.measurements[`manufacturing.stock_sheets.${i}.${axis}`]=form!.measurements[`manufacturing.stock_sheets.${previous}.${axis}`];});edit(next);}
-  const applyControls=<div className="apply-block"><button className="primary" type="submit" disabled={!validated||checking||busy||active}>{busy?'Saving…':active?'Updating design…':project?'Update design':'Create design'}</button>{project&&dirty&&accepted&&<button type="button" onClick={()=>{const next=formFrom(accepted.spec);keepLocalDraft(project.id,next,accepted.id);edit(next);setBaseId(accepted.id);}}>Revert draft</button>}{accepted&&baseId!==accepted.id&&<button type="button" onClick={()=>{if(project&&form)keepLocalDraft(project.id,form,accepted.id);setBaseId(accepted.id);setNotice('Draft now uses accepted revision '+accepted.number+' as its base. Review the change summary before applying.');}}>Use latest revision as base</button>}<small>{checking?'Checking your measurements…':draftSaved?'Draft saved locally.':project?'Edits are saved as a recoverable draft.':'No API key is needed.'}</small></div>;
+  const selectedRecipe=templates[0]?.recipes.find(recipe=>recipe.id===form?.spec.construction.recipe?.id&&recipe.version===form.spec.construction.recipe.version);
+  const applyControls=<div className="apply-block"><AssemblyReadiness selected={!!form?.spec.construction.recipe} recipe={selectedRecipe} status={validated?.resolved.construction_status} checking={checking} dirty={dirty} unit={unit} precision={precision} downloadRevision={manifest?.artifacts.some(a=>a.relative_path==='design-packet.pdf')?shown?.number:undefined}/><button className="primary" type="submit" aria-describedby="assembly-guide-status" disabled={!validated||checking||busy||active}>{busy?'Saving…':active?'Updating design…':project?'Update design':'Create design'}</button>{project&&dirty&&accepted&&<button className="revert-draft" type="button" onClick={()=>{const next=formFrom(accepted.spec);keepLocalDraft(project.id,next,accepted.id);edit(next);setBaseId(accepted.id);document.getElementById('dimensions-outside_width_mm')?.focus();}}>Revert draft</button>}{accepted&&baseId!==accepted.id&&<button type="button" onClick={()=>{if(project&&form)keepLocalDraft(project.id,form,accepted.id);setBaseId(accepted.id);setNotice('Draft now uses accepted revision '+accepted.number+' as its base. Review the change summary before applying.');}}>Use latest revision as base</button>}<small>{checking?'Checking your measurements…':draftSaved?'Draft saved locally.':project?'Edits are saved as a recoverable draft.':'No API key is needed.'}</small></div>;
 
   return <><header><span className="wordmark">Woodworking Planner</span><span className="muted">Local workshop · manual design</span></header>
     <div className="project-bar"><button onClick={newProject} disabled={!templates.length||busy}>New bookcase</button><label>Saved projects <select aria-label="Saved projects" disabled={busy} value={project?.id||''} onChange={event=>{if(event.target.value)void openProject(event.target.value);}}><option value="">Choose a project</option>{projects.map(item=><option key={item.id} value={item.id}>{item.title}</option>)}</select></label>{project&&<button disabled={busy} onClick={()=>void openProject(project.id)}>Reopen saved project</button>}<span className="service-label">AI disabled</span></div>
@@ -257,7 +260,6 @@ export function App(){
         <p className="help">Measure your panels; nominal stock labels do not set their thickness.</p>
         <div className="measurement-grid">{(['main','back'] as const).map(role=>measure(`materials.${role}.actual_thickness_mm`,`Actual ${role} thickness (mm)`))}</div>
       </fieldset>
-      <p className="assembly-readiness" data-testid="recipe-state">{validated?(validated.resolved.construction_status==='recipe_unselected'?'Assembly method still needed; checked dimensions are not assembly instructions.':validated.resolved.construction_status==='recipe_complete'?'Technical fabrication method complete; physical review pending':'Construction method '+validated.resolved.construction_status.replace('recipe_','')+'. Geometry remains available.'):form.spec.construction.recipe?'Assembly method selected; correct measurements to recheck fabrication readiness.':'Assembly method still needed; checked dimensions are not assembly instructions.'}</p>
       {applyControls}
       <details className="advanced-settings" open={advancedOpen} onToggle={event=>setAdvancedOpen(event.currentTarget.open)}>
         <summary>Advanced settings</summary><div className="details-body">

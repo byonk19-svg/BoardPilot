@@ -1,5 +1,98 @@
 # Implementation status
 
+## 2026-10-20 Resizing and assembly-guide warning
+
+Implemented the approved `.scratch/resize-warning/PRD.md` with Matt's implement,
+TDD and independent Standards/Spec reviews, plus accessibility guidance. One
+warning sits beside Update design and the prominent Revert draft button. It
+explains when a matching Build guide PDF/assembly steps will not apply, shows
+installed method bounds/actual thicknesses/shelf count, and distinguishes Update
+from Get plans. Checked draft/design state stays separate from saved downloads.
+No recipe, CAD, dimension, material, provider or dependency changes were made.
+
+Completed checks: public catalog metadata red/green; five focused desktop/mobile/
+keyboard/invalid/pending/fallback/project-switch cases; canonical backend
+295 passed / 22 existing opt-in skips (139.59 s); production typecheck/build.
+Review's stale project-switch finding was reproduced red and fixed by clearing
+old validation on form restoration and suppressing status while checking. Both
+review rechecks have zero open findings.
+
+Full 58-case browser run: **55 passed, 2 failed, 1 explicit opt-in skip**,
+1107.532 s, no flakies. The six new resizing cases all passed,
+including real CAD/documents for the 36-to-40 change, preserved old guide bytes,
+new revision-bound CSV/PDF, and no assembly instructions for the incompatible
+size. The affected two legacy export cases passed after the helper repair:
+**2/2 passed**, 144.008 s. All 57 non-opt-in case behaviors are
+covered across those runs. The entire 58 was not rerun after the test-only
+synchronization repair; original full and focused results stay separate.
+The broad run found a test-only 60-second PDF wait while a real native job
+succeeded in 69.758 s under the unchanged 120-second deadline. Its dependent
+revision-2 fixture case cascaded. The helper now observes the actual POST 202
+job, asserts terminal success, then retains download/file checks. Initial full
+results and affected native retests will remain distinct evidence.
+
+The user's revision 3, spec/model/preferred outputs and draft contents/base were
+compared before/after and stayed unchanged. The current service was restarted
+only after confirming no active jobs, using the same authoritative data root.
+App is ready on port 8777; draft autosave timestamps may refresh on opening.
+Unrelated 21 artifact hashes and checkpoint-review edits are preserved.
+
+Exact commands (repository root unless stated):
+
+```powershell
+.venv/Scripts/python.exe -m pytest -q tests/test_api.py -k installed_method
+$env:WOODWORK_PACKAGE_SOURCE='C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/regeneration-verification-20261014-b/artifacts/set_4de8651be64c492dafb3955b499dacb1'
+$env:WOODWORK_DOCUMENT_SOURCE_ROOT='C:/Users/byonk/AppData/Local/WoodworkingPlanner/m3-documents/117e30a5123c420394d3e8b7018ef1fd'
+$env:PYTEST_ADDOPTS='--junitxml=C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/backend-results.xml'
+./scripts/verify.ps1
+```
+
+Final production build from apps/web: `npm.cmd run build`.
+Isolated final root: `.../WoodworkingPlanner/resize-warning-final-20261020`,
+seeded using diagnostics.recovery.seed from genuine baseline geometry at
+`.../WoodworkingPlanner/checkpoint-cad-20261017-serial/bookcase-baseline`.
+Its API starts via woodwork.launcher.launch(config, open_browser=lambda url: True),
+config port 8790. Production preview from apps/web:
+
+```powershell
+$env:WOODWORK_API_URL='http://127.0.0.1:8790'
+& 'C:/Program Files/nodejs/node.exe' node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 5173 --strictPort
+```
+
+From .verification/resize-warning-20261020/browser-run:
+
+```powershell
+$env:WOODWORK_TEST_URL='http://127.0.0.1:5173'
+$env:WOODWORK_PRODUCTION_URL='http://127.0.0.1:5173'
+$env:WOODWORK_BEGINNER_EVIDENCE_ROOT='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/native-beginner'
+$env:WOODWORK_PLANS_EVIDENCE_ROOT='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/native-plans'
+$env:WOODWORK_RESIZE_EVIDENCE_ROOT='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/native-resize'
+$env:PLAYWRIGHT_JSON_OUTPUT_NAME='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/frontend-final.json'
+& 'C:/Program Files/nodejs/node.exe' 'C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/node_modules/@playwright/test/cli.js' test --config='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/playwright.config.ts' --reporter=list,json --trace=on --output='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/full-browser-final'
+```
+
+Legacy five-build regeneration remains an explicit opt-in skip in this run;
+new genuine 36-to-40 guide/CAD/CSV/PDF revision checks run by default. Skips are not
+counted as passes. Physical phone, screen-reader announcements and construction/
+load approval remain separate; no compliance or physical certification claimed.
+See docs/RESIZE-WARNING-VERIFICATION.md. Local/offline only, no push.
+
+
+Affected native export retest from the same browser-run directory:
+
+```powershell
+$env:WOODWORK_TEST_URL='http://127.0.0.1:5173'
+$env:WOODWORK_PRODUCTION_URL='http://127.0.0.1:5173'
+$env:PLAYWRIGHT_JSON_OUTPUT_NAME='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/export-retest.json'
+& 'C:/Program Files/nodejs/node.exe' 'C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/node_modules/@playwright/test/cli.js' test --config='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/apps/web/playwright.config.ts' m3-m6.spec.ts --grep='authored method, genuine PDF|production port serves coherent' --reporter=list,json --trace=on --output='C:/Users/byonk/OneDrive/Documents/ChatGPT/BoardPilot/woodworking-platform/.verification/resize-warning-20261020/legacy-export-retest'
+```
+
+Final `npm.cmd run typecheck` from apps/web passed. Warning body contrast is
+10.54:1 for its actual foreground/background. Screenshots at 1280x900 and
+390x844 were saved and visually inspected; Enter/Space/Tab and post-revert focus
+were tested. The updated user app stays ready at port 8777; owned 8790/5173 test helpers
+are stopped after verification. Compact evidence: evidence/resize-warning-20261020.
+
 ## 2026-10-20 Local desktop launcher
 
 Implemented `.scratch/local-launcher/PRD.md` with Matt's implement, TDD, and

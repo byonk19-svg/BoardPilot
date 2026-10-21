@@ -11,6 +11,13 @@ button.primary:hover{background:oklch(44% .065 160);border-color:oklch(44% .065 
 .exact-measurement{display:block;margin-top:4px;line-height:1.4;font-variant-numeric:tabular-nums}
 .measurement-grid .field input,.measurement-grid .field select{width:100%}
 .assembly-readiness{font-size:12px;line-height:1.5;margin:14px 0;color:oklch(40% .03 160)}
+.apply-block .assembly-readiness{width:100%;margin:0 0 3px}
+.assembly-readiness.assembly-warning{font-size:14px;line-height:1.5;color:#49351c;background:#fff3d9;border-left:4px solid #936319;padding:12px}
+.assembly-warning>strong{display:block;font-size:15px;line-height:1.35}
+.assembly-warning p{margin:9px 0 0;overflow-wrap:anywhere}
+.assembly-warning .method-limits{margin-top:11px;padding-top:9px;border-top:1px solid #ceb88f;font-variant-numeric:tabular-nums}
+.method-limits>span{font-weight:600}.method-limits p{margin:3px 0 0}
+.apply-block .revert-draft{width:100%;min-height:44px;font-weight:600}
 .parameters .apply-block{margin:16px 0 4px;padding:0;border:0}
 .advanced-settings{margin-top:18px}
 .advanced-settings>summary{font-size:14px}

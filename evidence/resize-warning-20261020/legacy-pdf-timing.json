@@ -1,0 +1,9 @@
+{
+  "classification": "verification harness timing mismatch",
+  "observed_worker_status": "succeeded",
+  "observed_worker_seconds": 69.75837249995675,
+  "old_ui_wait_seconds": 60,
+  "native_worker_deadline_seconds": 120,
+  "repair": "Await actual queued document job using existing success-checking helper, then assert visible download within30s.",
+  "runtime_or_recipe_changes": false
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "isolated_api_stopped": true,
+  "main_app_ready": true,
+  "user_revision_model_preferred_files_and_draft_contents_unchanged": true,
+  "user_build_guide_sha256": "bf33e8c609826ba4d2d2d807c97c327722e1026c980eec7dc8c01f61ca3efcb2",
+  "ai_default_disabled": true,
+  "unrelated_artifacts_preserved": 21,
+  "checkpoint_review_preserved": true
+}
