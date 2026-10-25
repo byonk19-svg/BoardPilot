@@ -1,5 +1,5 @@
 import type {ProjectSpec} from './contracts';
-import {api,ApiError,type Resolved} from './api';
+import {api,ApiError,type Finding,type Resolved} from './api';
 import {formatDualMeasurement} from './measurements';
 
 export type Unit='in'|'mm';
@@ -51,11 +51,16 @@ export async function validateForm(form:Form):Promise<Validated>{
   const normalized=await api<{values:{field:string;value_mm:string}[];errors:unknown[]}>('/inputs/normalize',paths.map(field=>({field,...form.measurements[field]})));
   const spec=structuredClone(form.spec);
   for(const field of paths){const row=normalized.values.find(value=>value.field===field);if(!row)throw new Error('The measurement service returned an incomplete result.');writeValue(spec,field,row.value_mm);}
+  const priceFindings:Finding[]=[];
   for(const [i,stock] of spec.manufacturing.stock_sheets.entries()){
     const text=(form.prices[stock.stock_id]||'').trim();
-    if(text&&!/^\d+(?:\.\d{1,2})?$/.test(text))throw new ApiError(422,[{field:`manufacturing.stock_sheets.${i}.unit_price`,message:'Enter a nonnegative USD price with at most two decimal places.'}],'Check the sheet price.');
+    if(text&&!/^\d+(?:\.\d{1,2})?$/.test(text)){
+      priceFindings.push({field:`manufacturing.stock_sheets.${i}.unit_price`,message:`Sheet ${i+1} price: Enter a nonnegative USD price with at most two decimal places.`});
+      continue;
+    }
     if(text){const [whole,fraction='']=text.split('.');stock.unit_price=BigInt(whole).toString()+'.'+fraction.padEnd(2,'0');}else stock.unit_price=null;
   }
+  if(priceFindings.length)throw new ApiError(422,priceFindings,'Check the sheet prices.');
   return api<Validated>('/specs/validate',spec);
 }
 export function sameSpec(a:ProjectSpec,b:ProjectSpec){const canonical=(value:unknown):unknown=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).sort(([a],[b])=>a.localeCompare(b)).map(([key,value])=>[key,canonical(value)])):value;return JSON.stringify(canonical(a))===JSON.stringify(canonical(b));}

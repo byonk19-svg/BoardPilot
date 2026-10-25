@@ -9,12 +9,12 @@ async function openVerifiedSample(page:Page){
   await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
   const revert=page.getByRole('button',{name:'Revert draft',exact:true});
   if(await revert.count())await revert.click({timeout:5000});
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
 }
 
 test('basic measurements stay visible while specialist controls are disclosed on demand',async({page})=>{
   await openVerifiedSample(page);
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   for(const label of ['Outside width','Outside height','Outside depth','Fixed shelves','Actual main thickness (mm)','Actual back thickness (mm)']){
     await expect(page.getByLabel(label,{exact:true})).toBeVisible();
   }
@@ -28,7 +28,7 @@ test('basic measurements stay visible while specialist controls are disclosed on
   }
   await page.getByText('Advanced settings',{exact:true}).click();
   await expect(page.getByLabel('Saw kerf (mm)',{exact:true})).toBeHidden();
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeVisible();
 });
 
 test('invalid measurements remain recoverable and errors in Advanced reveal their controls',async({page})=>{
@@ -40,7 +40,7 @@ test('invalid measurements remain recoverable and errors in Advanced reveal thei
   await expect(page.getByLabel('Outside width',{exact:true})).toHaveValue('1/3 in');
   await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeDisabled();
   await page.getByRole('button',{name:'Revert draft',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   await page.getByText('Advanced settings',{exact:true}).click();
   await page.getByLabel('Saw kerf (mm)',{exact:true}).fill('-2 mm');
   await page.getByText('Advanced settings',{exact:true}).click();
@@ -49,14 +49,14 @@ test('invalid measurements remain recoverable and errors in Advanced reveal thei
   await expect(page.getByLabel('Saw kerf (mm)',{exact:true})).toHaveAttribute('aria-invalid','true');
   await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeDisabled();
   await page.getByLabel('Saw kerf (mm)',{exact:true}).fill('3.2 mm');
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   await page.getByLabel('Installed recipe',{exact:true}).selectOption({index:1});
   await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
   await page.getByLabel('Outside width',{exact:true}).fill('1/3');
   await expect(page.getByRole('alert')).toContainText('denominator');
   await expect(page.getByTestId('recipe-state')).toHaveText('Assembly method selected; correct measurements to recheck fabrication readiness.');
   await page.getByRole('button',{name:'Revert draft',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
 });
 
 test('a recovered draft uses its own precision without relabeling the saved cut list',async({page})=>{
@@ -78,12 +78,12 @@ test('a recovered draft uses its own precision without relabeling the saved cut 
   await expect(page.getByTestId('cut-list')).toContainText('28 37/64 in');
   await page.unroute('**/api/v1/projects/'+projectId);
   await page.getByRole('button',{name:'Revert draft',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
 });
 
 test('display units preserve a pending measurement while the model and cut list retain their saved dimensions',async({page})=>{
   await openVerifiedSample(page);
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   await expect(page.getByTestId('model-size')).toContainText('30 in W × 36 in H × 12 in D');
   const csvLink=page.getByRole('link',{name:/Download cut list/});
   const href=(await csvLink.getAttribute('href'))!;
@@ -134,8 +134,8 @@ test('the basic editor creates coherent genuine CAD and reaches the model and cu
   expect(jobs.find((job:{kind:string})=>job.kind==='generate').metrics.elapsed_seconds).toBeLessThan(120);
   await expect(page.getByTestId('cut-list')).toContainText('876.4 × 349.6 × 19 mm');
   await expect(page.getByLabel('Main nominal label',{exact:true})).toBeHidden();
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
-  await page.getByRole('button',{name:'Update design',exact:true}).hover();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
+  await page.getByRole('button',{name:'Up to date',exact:true}).hover();
   await page.screenshot({path:'tests/evidence/simple-editor-desktop.png',fullPage:true});
   for(const width of [535,390]){
     await page.setViewportSize({width,height:844});

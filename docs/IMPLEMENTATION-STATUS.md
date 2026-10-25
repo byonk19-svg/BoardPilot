@@ -1,5 +1,141 @@
 # Implementation status
 
+## 2026-10-24 Up-to-date designs
+
+The primary form control now reads Up to date and is disabled when validated
+inputs match the accepted revision and its displayed, revision-matched model
+has passed geometry checks. The submission handler also guards this state, so
+Enter or a form submit cannot queue a redundant revision/build. Real edits still
+enable Update design; new or not-yet-built revisions still offer generation.
+An older model cannot make a newer accepted revision appear up to date.
+
+Explicit Retry is unchanged and remains usable for failed, cancelled and
+interrupted generation, including when a prior verified model matches the
+accepted revision. Active retry retains progress/cancel behavior. Existing
+clean-state test assertions now expect the disabled Up to date control; dirty,
+invalid, unbuilt, recovery, download and identity assertions remain intact.
+
+Nine focused regressions pass after six expected RED failures (three preexisting
+generation-eligibility cases already passed). Strict TypeScript/production build
+and the selected 89-case frontend cohort pass, with no final failures/skips/
+flakies. A separate serial native workflow passes two genuine CAD builds, a real
+revision update, reload/lost-ack plans recovery and a hash-checked 25-payload ZIP.
+Its clean Enter/form-submit checks preserve the exact saved job list after CAD
+and plans are ready. Desktop/phone captures confirm the visible disabled state.
+
+Evidence: `.verification/up-to-date-20261024/`. Only three application state/
+submission-control edits were needed; generation/Retry, CSS, backend, geometry
+and price parsing are unchanged. Existing unrelated work is preserved. Checks
+used a fresh isolated store; owned tabs/services are closed. No full backend or
+complete frontend/native-corpus gate, physical/assistive-technology approval,
+commit, branch creation or push is claimed.
+
+## 2026-10-24 Inline stock-price errors
+
+Stock-price inputs now use the existing invalid-field styling and show an inline
+correction linked with aria-describedby, plus aria-invalid. Local price checks
+collect every invalid sheet price and identify the sheet in both the inline
+message and existing alert summary. Fixing a value removes its error association.
+Removing an earlier sheet updates the remaining error labels and IDs correctly.
+No new live regions, focus jumps, CSS, backend contracts or numeric rules were
+introduced. Empty/whitespace prices remain null (unknown); zero remains 0.00.
+
+Five new production-browser regressions first failed on the missing associations,
+then passed. Coverage includes desktop/320px/390px, multiple invalid prices,
+blocked submission, valid/blank/zero recovery, invalid-draft reload, unchanged
+accepted revision/CSV/jobs, and stock-sheet removal. Strict TypeScript/production
+build passed. The broader selected frontend cohort passed 80 cases, including
+the five new regressions, with no failures, skips or flakies. Real API validation
+also retained null, 0.00 and 12.30 as supplied. Manual desktop/phone captures and
+read-only DOM checks confirm visible corrections, linked descriptions and no
+page overflow. Actual screen-reader behavior/compliance is not certified.
+
+Evidence: `.verification/stock-price-errors-20261024/`. Existing unrelated work
+and prior App content outside the price renderer are preserved. Checks used a
+fresh isolated store; no normal-store writes, new native jobs, backend-suite
+rerun, commit or push is claimed. Owned test services and browser tabs are closed.
+
+## 2026-10-24 Panel accessible names
+
+Physical-panel buttons now include their unchanged visible names and instance
+IDs, for example Select Left side (side_left), Select Shelf 1 (shelf_01) and
+Select Applied back (back). Selection handlers, aria-pressed, visible text,
+group selection, geometry and output bindings are unchanged. Updated the four
+existing exact-name test lookups to the new contract.
+
+Three new desktop/320px/390px regressions failed on the original ID-only labels
+and passed after the change. Final strict TypeScript/production build passed.
+The final selected production frontend cohort passed 75 cases in 229.27s,
+with zero failures, skips or flakies; the related phone-focus check also passed
+10 repetitions in 40.19s. Genuine saved-geometry checks cover every displayed
+panel's name/ID, keyboard/pointer selection, cut-list synchronization, group
+selection, hide/restore, and unchanged CSV bytes and accepted revision.
+
+Initial cohort: 74 passed / 1 existing phone-focus timing failure. Its trace
+showed the final preferred-manifest refresh overlapping Tab. The test now waits
+for enabled Check plans before navigating, retaining every focus assertion.
+A repetition attempt then exposed accumulated fixture projects pushing the seed
+outside the 50-project listing. Retained those logs and created a fresh isolated
+store with the repository's genuine-geometry seed helper before the clean runs.
+No application behavior was changed for either verification issue.
+
+Evidence: `.verification/panel-labels-20261024/`. All existing unrelated work and
+the exact prior App/test contents outside the intended deltas were preserved.
+No normal-store writes, new native CAD/export jobs, backend-suite rerun,
+screen-reader/speech-control certification, commit or push is claimed. The
+native M2 workflow's two selectors were updated; its four-build flow was not
+rerun for this name-only change.
+
+## 2026-10-24 Choose assembly method
+
+Added a secondary Choose assembly method button immediately after the missing-
+method status, outside its live region. It opens the existing Advanced settings
+and focuses Installed recipe after rendering, including when Advanced is already
+open. It is a non-submit button and appears only when no method is selected.
+No method is chosen automatically, and raw measurements, validation, saved-model
+identity, immutable downloads and compatibility warnings remain unchanged.
+
+Five new regressions failed because the action was absent, then passed after
+the change. Strict TypeScript/production build passed. The final production
+frontend run passed 71 selected cases in 316.70s, with no failures, skips or
+flakies. Coverage includes desktop/320px/390px keyboard and pointer access,
+already-open refocusing, invalid raw drafts, unchanged genuine saved CSV/model
+state, and unselected/compatible/incompatible method states. Direct production
+browser checks confirmed selector focus and unchanged inputs on desktop and
+phone layouts. No fresh CAD/export or backend-suite rerun is claimed for this
+client-side navigation action.
+
+Evidence: `.verification/choose-method-20261024/` (baseline-relative diff,
+red/green/production logs, screenshots, raw-value observations and preservation
+checks). Verification used a fresh isolated local store, never the user's
+port-8777 store. Existing uncommitted work, including the phone-view shortcut,
+was preserved. No commit or push. The panel accessible-name audit item remains
+outside this change.
+
+## 2026-10-24 Phone 3D-view shortcut
+
+Fixed the first remaining app-audit action only. The narrow 3D view link now
+targets a dedicated, focusable viewer group instead of the saved-model label
+above Plans. Its accessible name/description retain the displayed model's
+revision and dimensions, with the existing focus treatment and scroll margin.
+Tab continues to Front; the separate Plans shortcut still reaches its ZIP.
+The plans-before-viewer layout, larger phone controls and existing work remain
+intact. No CAD, export, material, method or backend behavior changed.
+
+Verified the two new 320/390px regressions fail on the old destination, then
+pass after the fix. On the production build, 65 selected frontend checks passed
+in 157.64s, followed by the genuine shared-GLB selection check: 1 passed in 3.70s.
+No failures, skips or flakies in those final runs. Strict TypeScript/production
+build passed. Direct keyboard/pointer checks on copied genuine completed plans
+show the entire canvas visible at both widths, viewer focus, usable Tab order,
+retained revision context and no horizontal overflow. No fresh CAD/export or
+backend suite rerun is claimed for this DOM-navigation-only change.
+
+Evidence, exact baseline-relative diff, red/green/production logs, screenshots
+and preservation checks: `.verification/viewer-shortcut-20261024/`.
+Verification used a fresh isolated local store, not the user's port-8777 store.
+The other two audit recommendations were not implemented. No commit or push.
+
 ## 2026-10-20 On-demand app-audit setup
 
 Added the project-scoped `.agents/skills/app-audit` coordinator and short compatible
@@ -380,6 +516,46 @@ Exact commands, launch/use instructions, review scope and limitations:
 `docs/EDITOR-USABILITY.md`. Evidence: `evidence/simple-editor-20261017/`.
 Keep local; no push, deployment, paid provider or CAD pin changes. Physical/human
 accessibility/release approval remain separate; combined Get plans is deferred.
+
+## 2026-10-17 remaining document corpus verification
+
+The nine document regeneration cases left open at the first local checkpoint are
+now **completed and verified** against source commit `dece1036` and its passing
+serial CAD corpus. **Nine passed, zero failed, zero skipped in 168.74 seconds.**
+No application or test-code fix was needed. No pin, assertion or runtime policy
+was changed, and no push was performed.
+
+- All nine supplied examples produced a coherent seven-page design packet and
+  three genuine native metric drawings: **36 PDFs / 90 pages**, all rendered by
+  Poppler. Paper sizes, dimension labels, revision/spec/resolved hashes and saved
+  STEP provenance pass document and artifact-set validation.
+- Before/after hashes confirm all **144 source files** (payloads plus manifests)
+  are unchanged. Every derived STEP/GLB payload equals its source bytes. Outputs
+  and renderings are in a new local app-data folder, separate from the user's
+  project store and earlier verification outputs.
+- The agent inspected **45 targeted pages** in 12 contact sheets: each fixture's
+  overview and grouped-cut page, plus all 27 native drawings. Displayed dimensions,
+  quantities and layouts were correct and unclipped. All 90 pages were rendered;
+  the other 45 were not separately visually inspected in this follow-up.
+- Evidence: `evidence/document-corpus-20261017/verification.json`,
+  `pytest-results.xml` and `source-inventory.json`. These record individual cases,
+  PDF hashes/page counts, input integrity, exact output locations and review scope.
+
+Exact run command (repository cwd; the output folder must be new):
+
+```powershell
+Remove-Item Env:WOODWORK_RUN_CAD_CORPUS,Env:WOODWORK_CAD_CORPUS_ROOT -ErrorAction SilentlyContinue
+$env:WOODWORK_RUN_DOCUMENT_CORPUS='1'
+$env:WOODWORK_GEOMETRY_CORPUS_ROOT='C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/checkpoint-cad-20261017-serial'
+$env:WOODWORK_DOCUMENT_CORPUS_ROOT='C:/Users/byonk/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/WoodworkingPlanner/document-corpus-20261017'
+.venv/Scripts/python.exe -m pytest tests/test_documents.py::test_genuine_document_fixture_corpus -vv --tb=short --junitxml "$env:WOODWORK_DOCUMENT_CORPUS_ROOT/pytest-results.xml"
+```
+
+This closes the document-corpus regeneration gap described in the historical
+checkpoint record below. Physical fabrication/load/site-installation, human
+accessibility validation and release approval remain separate. Live AI stays
+disabled. The original local commit is unchanged; this follow-up adds only local
+verification evidence and documentation.
 
 ## 2026-10-17 review and first local checkpoint
 

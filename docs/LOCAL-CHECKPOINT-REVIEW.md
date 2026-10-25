@@ -1,5 +1,12 @@
 # First local checkpoint review
 
+Follow-up: the nine document-corpus cases left open at this checkpoint passed
+on 2026-10-17: **nine passed in 168.74 seconds**, with 36 PDFs / 90 rendered pages
+and 45 targeted pages visually inspected. No code fix was needed. See the latest
+entry in `docs/IMPLEMENTATION-STATUS.md` and
+`evidence/document-corpus-20261017/verification.json`. The original dated results
+and limitations below describe the checkpoint when first committed.
+
 Working goal (2026-10-17): review the existing application, resolve defects that
 prevent a sound checkpoint, run fresh backend/build and real browser/native CAD
 verification, inspect the full staged initial tree, then create the first local

@@ -36,9 +36,18 @@ def read_json(url):
 
 def stop_owned(result):
     if result and result['started_pid']:
-        process = psutil.Process(result['started_pid'])
-        process.terminate()
-        process.wait(timeout=10)
+        try:
+            process = psutil.Process(result['started_pid'])
+            owned = [process, *process.children(recursive=True)]
+        except psutil.NoSuchProcess:
+            return
+        for process in reversed(owned):
+            try:
+                process.terminate()
+            except psutil.NoSuchProcess:
+                pass
+        _, alive = psutil.wait_procs(owned, timeout=10)
+        assert not alive, f'Owned service processes did not stop: {[process.pid for process in alive]}'
 
 
 def test_cold_start_opens_only_after_ready_and_second_click_reuses_saved_store(tmp_path):
@@ -96,9 +105,17 @@ def test_restart_keeps_saved_design_and_refreshes_the_browser_session(tmp_path):
         request = urllib.request.Request(url + 'api/v1/projects', data=body,
                                          headers={'Content-Type': 'application/json', 'X-Woodwork-CSRF': csrf})
         created = read_json(request)
+        process = psutil.Process(result['started_pid'])
+        owned = [process, *process.children(recursive=True)]
         stop_owned(result)
         result = None
+        _, alive = psutil.wait_procs(owned, timeout=0)
+        assert not alive, f'Owned service processes survived shutdown: {[process.pid for process in alive]}'
+        with socket.socket() as probe:
+            probe.settimeout(1)
+            assert probe.connect_ex(('127.0.0.1', json.loads(config.read_text())['port'])) != 0
         result = launch(config, open_browser=lambda url: True)
+        assert not result['reused']
         restored = read_json(url + 'api/v1/projects/' + created['project']['id'])
         assert restored['project']['latest_accepted_revision_id'] == created['revision']['id']
         assert read_json(url + 'api/v1/session')['csrf_token'] != csrf

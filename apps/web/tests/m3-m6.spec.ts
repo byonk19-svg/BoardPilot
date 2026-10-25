@@ -48,9 +48,10 @@ async function showAuthored(page:Page,projectId:string){
   await expect(page.getByTestId('model-revision')).toBeVisible();
   // Reopening first revalidates the form. Its temporary Revert control can
   // disappear when validation finishes, so wait for actionable form controls.
-  await expect(page.getByRole('button',{name:/^Update design$/})).toBeEnabled();
+  await expect(page.locator('.apply-block>small')).not.toHaveText('Checking your measurements…');
   const revert=page.getByRole('button',{name:'Revert draft',exact:true});
   if(await revert.count())await revert.click({timeout:5000});
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   // The accepted summary intentionally hides its redundant heading. Verify the
   // accepted state and visible summary instead of requiring that hidden title.
   await expect(page.getByTestId('draft-summary')).toBeVisible();

@@ -18,29 +18,41 @@ export class ApiError extends Error {
   constructor(public status:number, public findings:Finding[], message:string){super(message);}
 }
 
+export class ServiceUnavailableError extends Error {
+  constructor(){super('The local service is unavailable. Open the Woodworking Planner desktop shortcut, then try again. Your inputs and selected files are kept.');}
+}
+
+async function fetchLocal(url:string,options?:RequestInit){
+  try{return await fetch(url,options);}
+  catch{throw new ServiceUnavailableError();}
+}
+
+async function responseJson(response:Response,fallback='This operation could not be completed.'){
+  let data;
+  try{data=await response.json();}
+  catch{throw new ServiceUnavailableError();}
+  if(!data||typeof data!=='object')throw new ServiceUnavailableError();
+  if(!response.ok){const error=data.error||{};const findings:Finding[]=error.details?.findings||data.errors||[];throw new ApiError(response.status,findings,error.message||findings[0]?.message||fallback);}
+  return data;
+}
+
 let csrf='';
-async function session(){const response=await fetch('/api/v1/session');if(!response.ok)throw new Error('The local service is unavailable. Start the application and reconnect.');const data=await response.json();csrf=data.csrf_token;}
+async function session(){const response=await fetchLocal('/api/v1/session');if(!response.ok)throw new ServiceUnavailableError();const data=await responseJson(response);if(typeof data.csrf_token!=='string'||!data.csrf_token)throw new ServiceUnavailableError();csrf=data.csrf_token;}
 export async function api<T>(path:string, body?:unknown, method=body===undefined?'GET':'POST'):Promise<T>{
   const mutation=method!=='GET';
   if(mutation&&!csrf)await session();
-  const send=()=>fetch('/api/v1'+path,{method,headers:mutation?{'Content-Type':'application/json','X-Woodwork-CSRF':csrf}:{},body:body===undefined?undefined:JSON.stringify(body)});
-  let response:Response;
-  try {response=await send();if(response.status===403&&mutation){await session();response=await send();}}
-  catch {throw new Error('The local service is unavailable. Your last saved design remains available when it reconnects.');}
-  const data=await response.json();
-  if(!response.ok){const error=data.error||{};const findings:Finding[]=error.details?.findings||data.errors||[];throw new ApiError(response.status,findings,error.message||findings[0]?.message||'This operation could not be completed.');}
-  return data as T;
+  const send=()=>fetchLocal('/api/v1'+path,{method,headers:mutation?{'Content-Type':'application/json','X-Woodwork-CSRF':csrf}:{},body:body===undefined?undefined:JSON.stringify(body)});
+  let response=await send();
+  if(response.status===403&&mutation){await session();response=await send();}
+  return await responseJson(response) as T;
 }
 export const artifactUrl=(id:string)=>'/api/v1/artifacts/'+encodeURIComponent(id)+'/download';
 export const requestKey=()=>crypto.randomUUID();
 
 export async function uploadApi<T>(path:string,file:Blob):Promise<T>{
   if(!csrf)await session();
-  const send=()=>fetch('/api/v1'+path,{method:'POST',headers:{'Content-Type':'application/octet-stream','X-Woodwork-CSRF':csrf},body:file});
-  let response:Response;
-  try{response=await send();if(response.status===403){await session();response=await send();}}
-  catch{throw new Error('The local service is unavailable. Your project file remains on your computer.');}
-  const data=await response.json();
-  if(!response.ok){const error=data.error||{};throw new ApiError(response.status,error.details?.findings||[],error.message||'The project package could not be validated.');}
-  return data as T;
+  const send=()=>fetchLocal('/api/v1'+path,{method:'POST',headers:{'Content-Type':'application/octet-stream','X-Woodwork-CSRF':csrf},body:file});
+  let response=await send();
+  if(response.status===403){await session();response=await send();}
+  return await responseJson(response,'The project package could not be validated.') as T;
 }

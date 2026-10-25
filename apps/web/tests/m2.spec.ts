@@ -12,9 +12,9 @@ test('manual design, genuine selection, coherent revision edits and persisted re
   await expect(page.getByTestId('model-revision')).toContainText('revision 1', {timeout:120_000});
   await expect(page.getByTestId('asset-loaded')).toHaveText('7 part instances loaded');
   await expect(page.getByTestId('cut-list')).toContainText('726');
-  await page.getByRole('button', {name:'Select side_left', exact:true}).click();
+  await page.getByRole('button', {name:'Select Left side (side_left)', exact:true}).click();
   await expect(page.getByTestId('selected-ids')).toHaveText('side_left');
-  await page.getByRole('button', {name:'Select shelf_01', exact:true}).click();
+  await page.getByRole('button', {name:'Select Shelf 1 (shelf_01)', exact:true}).click();
   await expect(page.getByTestId('selected-ids')).toHaveText('shelf_01');
   await page.getByRole('button', {name:'Select Horizontal panels', exact:true}).click();
   await expect(page.getByTestId('selected-ids')).toHaveText('bottom, shelf_01, shelf_02, top');

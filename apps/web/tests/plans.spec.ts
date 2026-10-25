@@ -105,6 +105,40 @@ test('Get plans stays beside the desktop model and is keyboard reachable above t
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 
+for(const width of [320,390]){
+  test(`phone 3D shortcut reaches the actual viewer with ready plans at ${width}px`,async({page})=>{
+    await page.setViewportSize({width,height:844});
+    const flow=await protocol(page,{illustrated:true,publishPreferred:true});await open(page,flow.project.id);
+    await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
+    const download=page.getByRole('link',{name:'Download plans ZIP · revision 1',exact:true});
+    await expect(download).toBeVisible();
+    await expect(page.getByRole('button',{name:'Check plans · revision 1',exact:true})).toBeEnabled();
+    const shortcut=page.getByRole('link',{name:'3D view',exact:true});
+    const destination=page.getByRole('group',{name:'3D view · revision 1',exact:true});
+    const viewer=page.getByRole('region',{name:'3D model viewer',exact:true});
+    for(const activation of ['keyboard','pointer']){
+      if(activation==='keyboard'){await shortcut.focus();await shortcut.press('Enter');}
+      else await shortcut.click();
+      await expect(viewer.locator('canvas')).toBeInViewport({ratio:.8});
+      await expect(destination).toBeFocused();
+      await expect(destination).toHaveAccessibleDescription(/Last successful model · revision 1/);
+      await page.keyboard.press('Tab');
+      await expect(viewer.getByRole('button',{name:'Front',exact:true})).toBeFocused();
+      const plans=page.getByRole('region',{name:'Get plans',exact:true});
+      const plansBounds=(await plans.boundingBox())!,viewerBounds=(await viewer.boundingBox())!;
+      expect(plansBounds.y+plansBounds.height).toBeLessThanOrEqual(viewerBounds.y+1);
+      await page.getByRole('link',{name:'Plans',exact:true}).press('Enter');
+      await expect(plans).toBeFocused();await page.keyboard.press('Tab');
+      await expect(download).toBeFocused();await expect(download).toBeInViewport();
+    }
+    await shortcut.press('Enter');
+    await expect(destination).toBeFocused();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    expect(flow.requests.map(request=>request.kind)).toEqual(['documents','stock','package']);
+    await page.screenshot({path:test.info().outputPath(`viewer-shortcut-${width}.png`)});
+  });
+}
+
 test('the illustrated guide is named once and promoted downloads are not repeated in additional files',async({page})=>{
   const flow=await protocol(page,{illustrated:true,publishPreferred:true});await open(page,flow.project.id);
   await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
@@ -118,6 +152,80 @@ test('the illustrated guide is named once and promoted downloads are not repeate
   expect(hrefs.length).toBeGreaterThan(4);
   expect(new Set(hrefs).size).toBe(hrefs.length);
 });
+
+test('ready plans lead with the frozen ZIP and keep rechecking secondary',async({page})=>{
+  await page.setViewportSize({width:1280,height:900});
+  const flow=await protocol(page,{illustrated:true,publishPreferred:true});await open(page,flow.project.id);
+  const action=page.getByRole('button',{name:'Get plans · revision 1',exact:true});
+  await page.mouse.move(0,0);
+  const primaryColor=await action.evaluate(element=>getComputedStyle(element).backgroundColor);
+  await action.click();
+  await page.mouse.move(0,0);
+  const download=page.getByRole('link',{name:'Download plans ZIP · revision 1',exact:true});
+  await expect(download).toHaveCount(1);
+  await expect(download).toHaveAttribute('href','/api/v1/artifacts/plans-zip-artifact/download');
+  expect(await download.evaluate(element=>getComputedStyle(element).backgroundColor)).toBe(primaryColor);
+  const check=page.getByRole('button',{name:'Check plans · revision 1',exact:true});
+  await expect(check).toBeEnabled();
+  expect(await check.evaluate(element=>getComputedStyle(element).backgroundColor)).not.toBe(primaryColor);
+  await expect(page.getByRole('button',{name:'Get plans · revision 1',exact:true})).toHaveCount(0);
+  await page.getByRole('region',{name:'Get plans',exact:true}).focus();
+  await page.keyboard.press('Tab');await expect(download).toBeFocused();
+  await page.keyboard.press('Tab');await expect(check).toBeFocused();
+  const requestCount=flow.requests.length;
+  const checked=page.waitForResponse(response=>response.url().endsWith('/manifest?artifact_set_id=plans-stock')&&response.request().method()==='GET');
+  await check.press('Enter');
+  expect((await checked).status()).toBe(200);
+  await expect(page.getByRole('status',{name:'Plans progress'})).toHaveText('Plans ready · revision 1');
+  await expect(download).toHaveCount(1);
+  await expect(download).toHaveAttribute('href','/api/v1/artifacts/plans-zip-artifact/download');
+  expect(flow.requests).toHaveLength(requestCount);
+});
+
+for(const width of [320,390]){
+  test(`phone controls have comfortable targets and preserve view operations at ${width}px`,async({page})=>{
+    await page.setViewportSize({width,height:844});
+    const flow=await protocol(page,{illustrated:true});await open(page,flow.project.id);
+    const controls=[
+      page.getByRole('button',{name:'New bookcase',exact:true}),
+      page.getByLabel('Saved projects'),page.getByLabel('Project name'),
+      page.getByLabel('Outside width',{exact:true}),page.getByLabel('Display units'),
+      page.getByRole('button',{name:'Get plans · revision 1',exact:true}),
+      ...['Front','Side','Top','Isometric','Fit','Hide selected','Isolate','Restore'].map(name=>page.getByRole('button',{name,exact:true})),
+      page.getByLabel('Explode view'),page.getByRole('button',{name:'Select Left side (side_left)',exact:true}),
+      page.getByRole('link',{name:'Download cut list · revision 1',exact:true}),
+      page.getByRole('link',{name:'Plans',exact:true}),
+    ];
+    for(const control of controls){
+      const bounds=await control.boundingBox();
+      expect(bounds).not.toBeNull();
+      expect(bounds!.height).toBeGreaterThanOrEqual(44);
+      expect(bounds!.width).toBeGreaterThanOrEqual(44);
+    }
+    expect(await page.getByLabel('Outside width',{exact:true}).evaluate(element=>Number.parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(16);
+    expect(await page.getByRole('button',{name:'Fit',exact:true}).evaluate(element=>Number.parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(14);
+    await page.getByRole('button',{name:'Select Left side (side_left)',exact:true}).press('Enter');
+    await expect(page.getByTestId('selected-ids')).toHaveText('side_left');
+    await page.getByRole('button',{name:'Hide selected',exact:true}).press('Enter');
+    await expect(page.getByTestId('visible-instances')).toHaveText('6 panels visible');
+    await page.getByRole('button',{name:'Restore',exact:true}).press('Space');
+    await expect(page.getByTestId('visible-instances')).toHaveText('7 panels visible');
+    await page.getByRole('button',{name:'Get plans · revision 1',exact:true}).click();
+    const download=page.getByRole('link',{name:'Download plans ZIP · revision 1',exact:true});
+    await expect(download).toBeVisible();
+    for(const name of ['Download plans ZIP','Build guide PDF','Stock layout and cut sequence PDF']){
+      const link=page.getByRole('link',{name:name+' · revision 1',exact:true});
+      const bounds=await link.boundingBox();
+      expect(bounds!.height).toBeGreaterThanOrEqual(44);
+      expect(bounds!.width).toBeGreaterThanOrEqual(44);
+    }
+    await page.getByRole('link',{name:'Plans',exact:true}).press('Enter');
+    await page.keyboard.press('Tab');
+    await expect(download).toBeFocused();await expect(download).toBeInViewport();
+    expect(await download.evaluate(element=>getComputedStyle(element).outlineStyle)).not.toBe('none');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  });
+}
 
 for(const [illustrated,methodStatus] of [[false,'complete'],[true,'incompatible'],[true,'recipe_unselected']] as const){
   test(`a ${methodStatus} packet with illustrated marker ${illustrated} keeps an honest design-PDF label`,async({page})=>{
@@ -325,12 +433,14 @@ test('offline measurements to Update design to Get plans survives reload and los
   await page.getByLabel('Project name').fill('Get plans acceptance '+Date.now());
   await page.getByRole('button',{name:'Create design',exact:true}).click();
   await expect(page.getByTestId('model-revision')).toContainText('revision 1',{timeout:120000});
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   for(const [label,value] of [['Outside width','36 in'],['Outside height','42 in'],['Outside depth','14 in'],['Actual main thickness (mm)','19 mm']])await page.getByLabel(label,{exact:true}).fill(value);
   await page.getByLabel('Fixed shelves',{exact:true}).selectOption('3');
   await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
   await page.getByRole('button',{name:'Update design',exact:true}).click();
   await expect(page.getByTestId('model-revision')).toContainText('revision 2',{timeout:120000});
   await expect(page.getByTestId('asset-loaded')).toHaveText('8 part instances loaded');
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   const projectId=await page.getByLabel('Saved projects').inputValue();
   const {project}=await (await page.request.get('/api/v1/projects/'+projectId)).json();
   const revisionId=project.latest_successful_revision_id;
@@ -401,6 +511,10 @@ with zipfile.ZipFile(sys.argv[1]) as z:
   await expect(page.getByRole('status',{name:'Plans progress'})).toHaveText('Plans ready · revision 2',{timeout:30000});
   await expect(download).toBeVisible();
   expect((await (await page.request.get('/api/v1/revisions/'+revisionId)).json()).jobs.filter((job:Job)=>job.idempotency_key?.startsWith('plans:'))).toHaveLength(3);
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
+  const jobIds=(await (await page.request.get('/api/v1/revisions/'+revisionId)).json()).jobs.map((job:Job)=>job.id);
+  await page.getByLabel('Outside width',{exact:true}).press('Enter');await page.locator('form').dispatchEvent('submit');
+  expect((await (await page.request.get('/api/v1/revisions/'+revisionId)).json()).jobs.map((job:Job)=>job.id)).toEqual(jobIds);
   await download.scrollIntoViewIfNeeded();await page.screenshot({path:'tests/evidence/get-plans-desktop.png',fullPage:true});
   await page.setViewportSize({width:390,height:844});await download.focus();await expect(download).toBeFocused();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

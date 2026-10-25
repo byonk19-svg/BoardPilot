@@ -23,17 +23,37 @@ button.primary:hover{background:oklch(44% .065 160);border-color:oklch(44% .065 
 .advanced-settings>summary{font-size:14px}
 .advanced-settings .details-body>fieldset:first-child{margin-top:8px}
 .design-shortcuts{display:none}
-#measurements,#saved-model,#cut-list{scroll-margin-top:16px}
+#measurements,#saved-model,#model-viewer,#cut-list{scroll-margin-top:16px}
 @media(max-width:760px){.design-shortcuts{display:flex;gap:20px;padding:10px 16px;margin:0;border-bottom:1px solid oklch(84% .018 90);font-size:13px}.parameters .assembly-readiness{max-width:60ch}}
 
 .model-with-plans{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:20px;align-items:start}
 .model-with-plans>.inspection{grid-column:1;grid-row:1;grid-template-columns:minmax(0,1fr)}
 .model-with-plans>.inspection:has(.revision-details:not([open])){grid-template-columns:minmax(0,1fr)}
 .plans{grid-column:2;grid-row:1;margin:0;padding:14px;border:1px solid oklch(81% .018 90);border-radius:5px;background:oklch(98% .007 90);min-width:0;scroll-margin-top:16px}
-.plans:focus-visible{outline:3px solid oklch(57% .09 165);outline-offset:3px}
+.plans:focus-visible,#model-viewer:focus-visible{outline:3px solid oklch(57% .09 165);outline-offset:3px}
 .plans .primary,.plans .download{width:100%;text-align:center}
 .plans-progress{margin-top:14px;font-size:14px;font-weight:600}
 .plans-steps{padding-left:20px;font-size:13px}.plans-steps li{margin:7px 0}.plans-steps li span{font-size:12px;color:oklch(43% .03 160);margin-left:6px}
 .individual-outputs{margin:18px 0}.individual-outputs .button-row{margin-top:12px}
 @media(max-width:1100px){.model-with-plans{grid-template-columns:minmax(0,1fr)}.plans{grid-column:1;grid-row:1}.model-with-plans>.inspection{grid-column:1;grid-row:2}}
 @media(max-width:760px){.design-shortcuts{gap:16px;flex-wrap:wrap}}
+
+.plans a.primary{display:flex;align-items:center;justify-content:center;min-height:44px}
+.plans a.primary:hover{background:oklch(44% .065 160);border-color:oklch(44% .065 160)}
+@media(max-width:760px){
+  button,.download,.output-links a,.downloads a,.design-shortcuts a{min-height:44px;min-width:44px}
+  button,.download,.output-links a,.downloads a{font-size:14px;line-height:1.4;padding:10px 12px}
+  .download,.output-links a,.downloads a,.design-shortcuts a{display:inline-flex;align-items:center;justify-content:center}
+  .field input,.field select,.project-bar select,.offline-proposals textarea{min-height:44px;font-size:16px}
+  summary{min-height:44px;padding:12px 0}
+  .viewer-toolbar button{font-size:14px;padding:10px 12px}
+  .viewer-toolbar label{min-height:44px;font-size:14px}
+  .viewer-toolbar input[type=range]{height:44px;min-width:44px}
+  .viewer-caption{font-size:13px}
+  .part-picker button{font-size:14px;padding:8px 10px}
+  .part-picker small{font-size:12px}
+  tbody th button{font-size:14px;padding:8px 10px}
+  .plans .button-row>button{width:100%}
+  .check-label{min-height:44px;font-size:14px}
+  .check-label input{width:24px;height:24px}
+}

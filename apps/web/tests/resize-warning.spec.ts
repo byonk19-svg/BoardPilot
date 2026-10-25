@@ -152,7 +152,7 @@ test('genuine resized plans keep the old guide intact and bind new CAD CSV and m
   const csvUrl=(await page.getByRole('link',{name:'Download cut list · revision 1',exact:true}).getAttribute('href'))!;
   const oldCsv=await (await page.request.get(csvUrl)).text();
   const status=page.getByRole('status',{name:'Assembly guide availability',exact:true});
-  await expect(page.getByRole('button',{name:'Update design',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Up to date',exact:true})).toBeDisabled();
   await page.getByLabel('Outside width',{exact:true}).fill('40 in');
   await expect(status).toContainText('Existing downloads for revision 1 still describe that revision.');
   await expect(page.getByTestId('model-size')).toContainText('36 in W');

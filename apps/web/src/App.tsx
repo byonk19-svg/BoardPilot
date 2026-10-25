@@ -1,7 +1,7 @@
 import {useEffect,useRef,useState} from 'react';
 import type {ProjectSpec,StockSheet} from './contracts';
 import {Viewer} from './Viewer';
-import {api,ApiError,artifactUrl,requestKey,terminal,type Artifact,type Finding,type Job,type Manifest,type Project,type Revision,type Template} from './api';
+import {api,ApiError,ServiceUnavailableError,artifactUrl,requestKey,terminal,type Artifact,type Finding,type Job,type Manifest,type Project,type Revision,type Template} from './api';
 import {changeSummary,displayUnit,formFrom,groupLabel,restoreForm,sameSpec,validateForm,type Form,type Unit,type Validated} from './forms';
 import {ProjectOutputs} from './ProjectOutputs';
 import {Plans} from './Plans';
@@ -14,6 +14,10 @@ import {formatMeasurement,formatDualMeasurement,fractionDenominators} from './me
 
 const partLabel:Record<string,string>={side_left:'Left side',side_right:'Right side',bottom:'Bottom',top:'Top',back:'Applied back',shelf_01:'Shelf 1',shelf_02:'Shelf 2',shelf_03:'Shelf 3',shelf_04:'Shelf 4'};
 type SavedDraft={base_revision_id:string;raw:unknown};
+
+class MissingProjectError extends Error {
+  constructor(public projectId:string){super('This saved project is not available in this local store. Choose another saved project, try opening it again, or start a new bookcase.');}
+}
 
 // Browser storage is a recovery convenience; the local service owns revisions.
 function cachedValue(key:string){try{return localStorage.getItem(key);}catch{return null;}}
@@ -31,7 +35,7 @@ export function App(){
   const [baseId,setBaseId]=useState<string|null>(null);
   const [validated,setValidated]=useState<Validated|null>(null);
   const [findings,setFindings]=useState<Finding[]>([]);
-  const [error,setError]=useState('');
+  const [error,setError]=useState<Error|null>(null);
   const [notice,setNotice]=useState('');
   const [checking,setChecking]=useState(false);
   const [busy,setBusy]=useState(false);
@@ -56,6 +60,7 @@ export function App(){
   useEffect(()=>{formRef.current=form;},[form]);
   const active=!!job&&!terminal(job.state);
   const dirty=!!form&&(!accepted||!validated||!sameSpec(validated.spec,accepted.spec)||baseId!==accepted.id);
+  const upToDate=!dirty&&!!accepted&&shown?.id===accepted.id&&manifest?.revision_id===accepted.id&&manifest?.validation.geometry==='passed';
   const unit:Unit=form?.spec.display.preferred_unit==='mm'?'mm':'in';
   const requestedPrecision=form?.spec.display.fraction_denominator;
   const precision=fractionDenominators.find(value=>value===requestedPrecision)||64;
@@ -68,20 +73,20 @@ export function App(){
     }
   },[findings]);
 
-  const failure=(value:unknown)=>{setError(value instanceof Error?value.message:'This operation could not be completed.');};
+  const failure=(value:unknown)=>{setError(value instanceof Error?value:new Error('This operation could not be completed.'));};
   function keepLocalDraft(id:string,raw:Form,base:string){const kept={base_revision_id:base,raw};localDrafts.current[id]=kept;cacheValue('woodwork-local-draft-'+id,JSON.stringify(kept));}
   function forgetLocalDraft(id:string){delete localDrafts.current[id];forgetCachedValue('woodwork-local-draft-'+id);}
   async function refreshProjects(){const response=await api<{projects:Project[]}>('/projects');setProjects(response.projects);}
   async function openProject(id:string,preserveDraft=false){
     const priorId=projectRef.current,priorForm=formRef.current,priorBase=baseId;
     const sequence=++navigation.current;projectRef.current=id;
-    setError('');setBusy(true);
+    setError(null);setBusy(true);
     try{
       if(!preserveDraft&&priorId&&priorForm&&priorBase){
         try{await api('/projects/'+encodeURIComponent(priorId)+'/draft',{base_revision_id:priorBase,raw:priorForm},'PUT');forgetLocalDraft(priorId);}
-        catch(value){if(!(value instanceof ApiError)||value.status!==409)throw value;keepLocalDraft(priorId,priorForm,priorBase);}
+        catch(value){keepLocalDraft(priorId,priorForm,priorBase);if(!(value instanceof ApiError)||![404,409].includes(value.status))throw value;}
       }
-      const container=await api<{project:Project;draft:SavedDraft|null}>('/projects/'+encodeURIComponent(id));
+      const container=await api<{project:Project;draft:SavedDraft|null}>('/projects/'+encodeURIComponent(id)).catch(value=>{if(value instanceof ApiError&&value.status===404)throw new MissingProjectError(id);throw value;});
       const revision=await api<{revision:Revision;jobs?:Job[]}>('/revisions/'+encodeURIComponent(container.project.latest_accepted_revision_id));
       let saved:Revision|null=null,scene:Manifest|null=null;
       if(container.project.latest_successful_revision_id){
@@ -114,17 +119,17 @@ export function App(){
     }catch(value){if(sequence===navigation.current){projectRef.current=priorId;failure(value);setJob(previous=>previous?{...previous}:previous);}}
     finally{if(sequence===navigation.current)setBusy(false);}
   }
-  async function connect(){setError('');setBusy(true);try{
+  async function connect(){setError(null);setBusy(true);try{
     const response=await api<{templates:Template[]}>('/templates');setTemplates(response.templates);
     await refreshProjects();
     const remembered=cachedValue('woodwork-last-project');
     if(remembered){await openProject(remembered);}
-    else if(response.templates.length){const next=formFrom(response.templates[0].default_spec);setForm(next);formRef.current=next;}
+    else if(response.templates.length){const next={...(formRef.current||formFrom(response.templates[0].default_spec))};setForm(next);formRef.current=next;}
   }catch(value){failure(value);}finally{setBusy(false);}}
   useEffect(()=>{void connect();},[]);
 
-  function newProject(){if(projectRef.current&&formRef.current&&baseId)keepLocalDraft(projectRef.current,formRef.current,baseId);navigation.current++;validation.current++;projectRef.current=null;forgetCachedValue('woodwork-last-project');setProject(null);setAdvancedOpen(false);setAccepted(null);setShown(null);setManifest(null);setBaseId(null);setJob(null);setSelected([]);setNotice('');setError('');setFindings([]);setValidated(null);setBusy(false);setUnsupportedDraft(false);if(templates[0]){const next=formFrom(templates[0].default_spec);setForm(next);formRef.current=next;}}
-  function edit(next:Form){validation.current++;setForm(next);formRef.current=next;setValidated(null);setFindings([]);setChecking(true);setDraftSaved(false);setUnsupportedDraft(false);setError('');setNotice('');}
+  function newProject(){if(projectRef.current&&formRef.current&&baseId)keepLocalDraft(projectRef.current,formRef.current,baseId);navigation.current++;validation.current++;projectRef.current=null;forgetCachedValue('woodwork-last-project');setProject(null);setAdvancedOpen(false);setAccepted(null);setShown(null);setManifest(null);setBaseId(null);setJob(null);setSelected([]);setNotice('');setError(null);setFindings([]);setValidated(null);setBusy(false);setUnsupportedDraft(false);if(templates[0]){const next=formFrom(templates[0].default_spec);setForm(next);formRef.current=next;}}
+  function edit(next:Form){validation.current++;setForm(next);formRef.current=next;setValidated(null);setFindings([]);setChecking(true);setDraftSaved(false);setUnsupportedDraft(false);setError(null);setNotice('');}
   useEffect(()=>{
     if(!form)return;
     const sequence=++validation.current;
@@ -137,14 +142,14 @@ export function App(){
   useEffect(()=>{
     if(!form||!project||!baseId||unsupportedDraft)return;
     const id=project.id,raw=form,base=baseId;
-    const timer=setTimeout(()=>{void api('/projects/'+encodeURIComponent(id)+'/draft',{base_revision_id:base,raw},'PUT').then(()=>{if(projectRef.current===id&&formRef.current===raw){forgetLocalDraft(id);setDraftSaved(true);}}).catch(value=>{if(projectRef.current===id&&formRef.current===raw){keepLocalDraft(id,raw,base);setNotice(value instanceof Error?'Draft could not be saved: '+value.message:'Draft could not be saved.');}});},700);
+    const timer=setTimeout(()=>{void api('/projects/'+encodeURIComponent(id)+'/draft',{base_revision_id:base,raw},'PUT').then(()=>{if(projectRef.current===id&&formRef.current===raw){forgetLocalDraft(id);setDraftSaved(true);}}).catch(value=>{if(projectRef.current===id&&formRef.current===raw){keepLocalDraft(id,raw,base);if(value instanceof ServiceUnavailableError){failure(value);setNotice('Draft kept here until the local service reconnects.');}else setNotice(value instanceof Error?'Draft could not be saved: '+value.message:'Draft could not be saved.');}});},700);
     return()=>clearTimeout(timer);
   },[form,project?.id,baseId,unsupportedDraft]);
   useEffect(()=>{setSelected(ids=>ids.filter(id=>manifest?.part_instances.some(i=>i.instance_id===id)));},[manifest]);
 
   async function generate(revision:Revision){
     if(generationRequest.current)return;
-    generationRequest.current=true;setSubmittingGeneration(true);setBusy(true);setError('');setNotice('');setGenerationConnectionIssue(false);
+    generationRequest.current=true;setSubmittingGeneration(true);setBusy(true);setError(null);setNotice('');setGenerationConnectionIssue(false);
     const id=revision.project_id;
     const request=unconfirmedGeneration.current?.revisionId===revision.id?unconfirmedGeneration.current:{revisionId:revision.id,key:requestKey()};
     unconfirmedGeneration.current=request;
@@ -171,8 +176,8 @@ export function App(){
     }finally{generationRequest.current=false;setSubmittingGeneration(false);setBusy(false);}
   }
   async function apply(){
-    if(!validated||checking||busy||active)return;
-    setBusy(true);setError('');setNotice('');
+    if(!validated||checking||busy||active||upToDate)return;
+    setBusy(true);setError(null);setNotice('');
     try{
       let revision:Revision;
       if(project&&baseId){
@@ -231,6 +236,11 @@ export function App(){
     const measurement=form!.measurements[field];const fieldErrors=findings.filter(e=>e.field===field);const id=field.replaceAll('.','-');
     return <div className="field" key={field}><label htmlFor={id}>{label}</label><input id={id} aria-invalid={fieldErrors.length>0} aria-describedby={fieldErrors.length?id+'-error':hint?id+'-hint':undefined} inputMode="decimal" value={measurement?.text||''} onChange={event=>edit({...form!,measurements:{...form!.measurements,[field]:{text:event.target.value,default_unit:measurement.default_unit}}})}/>{hint&&<small id={id+'-hint'}>{hint}</small>}{fieldErrors.length>0&&<small className="field-error" id={id+'-error'}>{fieldErrors.map(e=>e.message).join(' ')}</small>}</div>;
   };
+  const stockPrice=(stock:StockSheet,index:number)=>{
+    const field=`manufacturing.stock_sheets.${index}.unit_price`,id='price-'+index;
+    const fieldErrors=findings.filter(finding=>finding.field===field);
+    return <div className="field"><label htmlFor={id}>Sheet {index+1} price (USD)</label><input id={id} aria-invalid={fieldErrors.length>0} aria-describedby={fieldErrors.length?id+'-error':undefined} inputMode="decimal" placeholder="Unknown" value={form!.prices[stock.stock_id]||''} onChange={event=>edit({...form!,prices:{...form!.prices,[stock.stock_id]:event.target.value}})}/>{fieldErrors.length>0&&<small className="field-error" id={id+'-error'}>{fieldErrors.map(finding=>finding.message).join(' ')}</small>}</div>;
+  };
   function stockChange(index:number,key:'grain_axis'|'material_id',value:string){const next=structuredClone(form!);next.spec.manufacturing.stock_sheets[index][key]=value as 'length'|'none';edit(next);}
   function addStock(role:'main'|'back'){
     const next=structuredClone(form!);const stock:StockSheet={stock_id:'stock_'+requestKey().replaceAll('-','_'),material_id:next.spec.materials[role].material_id,length_mm:'2440',width_mm:'1220',grain_axis:'length',unit_price:null,currency:'USD'};
@@ -238,16 +248,20 @@ export function App(){
     const i=next.spec.manufacturing.stock_sheets.length-1;for(const axis of ['length_mm','width_mm'] as const)next.measurements[`manufacturing.stock_sheets.${i}.${axis}`]={text:stock[axis]+' mm',default_unit:'mm'};next.prices[stock.stock_id]='';edit(next);
   }
   function removeStock(index:number){const next=structuredClone(form!);next.spec.manufacturing.stock_sheets=next.spec.manufacturing.stock_sheets.filter((_,i)=>i!==index) as ProjectSpec['manufacturing']['stock_sheets'];const old=form!.spec.manufacturing.stock_sheets;next.spec.manufacturing.stock_sheets.forEach((stock,i)=>{const previous=old.findIndex(s=>s.stock_id===stock.stock_id);for(const axis of ['length_mm','width_mm'])next.measurements[`manufacturing.stock_sheets.${i}.${axis}`]=form!.measurements[`manufacturing.stock_sheets.${previous}.${axis}`];});edit(next);}
+  function chooseAssemblyMethod(){
+    setAdvancedOpen(true);
+    requestAnimationFrame(()=>document.getElementById('construction-recipe')?.focus());
+  }
   const selectedRecipe=templates[0]?.recipes.find(recipe=>recipe.id===form?.spec.construction.recipe?.id&&recipe.version===form.spec.construction.recipe.version);
-  const applyControls=<div className="apply-block"><AssemblyReadiness selected={!!form?.spec.construction.recipe} recipe={selectedRecipe} status={validated?.resolved.construction_status} checking={checking} dirty={dirty} unit={unit} precision={precision} downloadRevision={manifest?.artifacts.some(a=>a.relative_path==='design-packet.pdf')?shown?.number:undefined}/><button className="primary" type="submit" aria-describedby="assembly-guide-status" disabled={!validated||checking||busy||active}>{busy?'Saving…':active?'Updating design…':project?'Update design':'Create design'}</button>{project&&dirty&&accepted&&<button className="revert-draft" type="button" onClick={()=>{const next=formFrom(accepted.spec);keepLocalDraft(project.id,next,accepted.id);edit(next);setBaseId(accepted.id);document.getElementById('dimensions-outside_width_mm')?.focus();}}>Revert draft</button>}{accepted&&baseId!==accepted.id&&<button type="button" onClick={()=>{if(project&&form)keepLocalDraft(project.id,form,accepted.id);setBaseId(accepted.id);setNotice('Draft now uses accepted revision '+accepted.number+' as its base. Review the change summary before applying.');}}>Use latest revision as base</button>}<small>{checking?'Checking your measurements…':draftSaved?'Draft saved locally.':project?'Edits are saved as a recoverable draft.':'No API key is needed.'}</small></div>;
+  const applyControls=<div className="apply-block"><AssemblyReadiness selected={!!form?.spec.construction.recipe} recipe={selectedRecipe} status={validated?.resolved.construction_status} checking={checking} dirty={dirty} unit={unit} precision={precision} downloadRevision={manifest?.artifacts.some(a=>a.relative_path==='design-packet.pdf')?shown?.number:undefined}/>{!form?.spec.construction.recipe&&<button type="button" onClick={chooseAssemblyMethod}>Choose assembly method</button>}<button className="primary" type="submit" aria-describedby="assembly-guide-status" disabled={!validated||checking||busy||active||upToDate}>{busy?'Saving…':active?'Updating design…':upToDate?'Up to date':project?'Update design':'Create design'}</button>{project&&dirty&&accepted&&<button className="revert-draft" type="button" onClick={()=>{const next=formFrom(accepted.spec);keepLocalDraft(project.id,next,accepted.id);edit(next);setBaseId(accepted.id);document.getElementById('dimensions-outside_width_mm')?.focus();}}>Revert draft</button>}{accepted&&baseId!==accepted.id&&<button type="button" onClick={()=>{if(project&&form)keepLocalDraft(project.id,form,accepted.id);setBaseId(accepted.id);setNotice('Draft now uses accepted revision '+accepted.number+' as its base. Review the change summary before applying.');}}>Use latest revision as base</button>}<small>{checking?'Checking your measurements…':draftSaved?'Draft saved locally.':project?'Edits are saved as a recoverable draft.':'No API key is needed.'}</small></div>;
 
   return <><header><span className="wordmark">Woodworking Planner</span><span className="muted">Local workshop · manual design</span></header>
     <div className="project-bar"><button onClick={newProject} disabled={!templates.length||busy}>New bookcase</button><label>Saved projects <select aria-label="Saved projects" disabled={busy} value={project?.id||''} onChange={event=>{if(event.target.value)void openProject(event.target.value);}}><option value="">Choose a project</option>{projects.map(item=><option key={item.id} value={item.id}>{item.title}</option>)}</select></label>{project&&<button disabled={busy} onClick={()=>void openProject(project.id)}>Reopen saved project</button>}<span className="service-label">AI disabled</span></div>
     <ImportProject onImported={importedProject}/>
-    {shown&&<nav className="design-shortcuts" aria-label="Design sections"><a href="#measurements">Measurements</a><a href="#saved-model">3D view</a><a href="#cut-list">Cut list</a><a href="#plans">Plans</a></nav>}
+    {shown&&<nav className="design-shortcuts" aria-label="Design sections"><a href="#measurements">Measurements</a><a href="#model-viewer">3D view</a><a href="#cut-list">Cut list</a><a href="#plans">Plans</a></nav>}
     <main className="workspace">
-    {error&&<div className="error full-width" role="alert"><p>{error}</p>{!templates.length&&<button onClick={()=>void connect()}>Reconnect local service</button>}</div>}
-    {!form?<section className="empty full-width"><h1>Plan a plywood bookcase</h1><p>{busy?'Connecting to the local design service…':'Connect the local service to load the installed template and your saved projects.'}</p></section>:<>
+    {error&&<div className="error full-width" role="alert"><p>{error.message}</p><div className="button-row">{error instanceof MissingProjectError?<><button disabled={busy} onClick={()=>void openProject(error.projectId)}>Try opening project again</button><button disabled={busy||!templates.length} onClick={newProject}>Start a new bookcase</button></>:(error instanceof ServiceUnavailableError||!templates.length)&&<button disabled={busy} onClick={()=>void connect()}>Reconnect local service</button>}</div></div>}
+    {!form?<section className="empty full-width"><h1>Plan a plywood bookcase</h1><p>{busy?'Connecting to the local design service…':error instanceof MissingProjectError?'Choose another saved project or start a new bookcase.':'Connect the local service to load the installed template and your saved projects.'}</p></section>:<>
     <aside id="measurements" className="parameters" aria-label="Bookcase parameters"><div className="section-heading"><h1>{project?'Edit bookcase':'New bookcase'}</h1></div>
       <form onSubmit={event=>{event.preventDefault();void apply();}}><fieldset className="editing-lock" disabled={busy}>
       <div className="field"><label htmlFor="project-name">Project name</label><input id="project-name" maxLength={100} value={form.spec.project_name} onChange={event=>edit({...form,spec:{...form.spec,project_name:event.target.value}})}/></div>
@@ -269,7 +283,7 @@ export function App(){
       </div>)}</fieldset>
       <fieldset><legend>Construction method</legend><div className="field"><label htmlFor="construction-recipe">Installed recipe</label><select id="construction-recipe" value={form.spec.construction.recipe?form.spec.construction.recipe.id+'@'+form.spec.construction.recipe.version:''} onChange={event=>{const option=templates[0]?.recipes.find(r=>r.id+'@'+r.version===event.target.value);const next=structuredClone(form);next.spec.construction.recipe=option?{id:option.id,version:option.version}:null;edit(next);}}><option value="">Unselected · design packet only</option>{templates[0]?.recipes.map(recipe=><option key={recipe.id+'@'+recipe.version} value={recipe.id+'@'+recipe.version}>{recipe.title}</option>)}</select><small>Choosing a method does not change measured material or outside dimensions.</small></div></fieldset>
       <fieldset><legend>Manufacturing settings</legend>{measure('manufacturing.saw_kerf_mm','Saw kerf (mm)')}{measure('manufacturing.rough_allowance_per_edge_mm','Rough allowance per edge (mm)')}{measure('manufacturing.sheet_edge_trim_mm','Sheet edge trim (mm)')}<p className="help">Allowances enlarge rough blanks. Kerf consumes stock space. Finished panel sizes stay separate.</p></fieldset>
-      <fieldset><legend>Stock sheets and prices</legend>{form.spec.manufacturing.stock_sheets.map((stock,i)=><fieldset key={stock.stock_id} className="stock-row"><legend>Stock sheet {i+1}</legend><div className="field"><label htmlFor={'stock-material-'+i}>Sheet {i+1} material</label><select id={'stock-material-'+i} value={stock.material_id} onChange={event=>stockChange(i,'material_id',event.target.value)}>{(['main','back'] as const).map(role=><option key={role} value={form.spec.materials[role].material_id}>{role==='main'?'Main':'Back'} · {form.spec.materials[role].actual_thickness_mm} mm</option>)}</select></div>{measure(`manufacturing.stock_sheets.${i}.length_mm`,`Sheet ${i+1} length (mm)`)}{measure(`manufacturing.stock_sheets.${i}.width_mm`,`Sheet ${i+1} width (mm)`)}<div className="field"><label htmlFor={'stock-grain-'+i}>Sheet {i+1} grain</label><select id={'stock-grain-'+i} value={stock.grain_axis} onChange={event=>stockChange(i,'grain_axis',event.target.value)}><option value="length">Along sheet length</option><option value="none">No grain restriction</option></select></div><div className="field"><label htmlFor={'price-'+i}>Sheet {i+1} price (USD)</label><input id={'price-'+i} inputMode="decimal" placeholder="Unknown" value={form.prices[stock.stock_id]||''} onChange={event=>edit({...form,prices:{...form.prices,[stock.stock_id]:event.target.value}})}/></div><button type="button" onClick={()=>removeStock(i)}>Remove sheet {i+1}</button></fieldset>)}<div className="button-row"><button type="button" disabled={form.spec.manufacturing.stock_sheets.length>=12} onClick={()=>addStock('main')}>Add main stock</button><button type="button" disabled={form.spec.manufacturing.stock_sheets.length>=12} onClick={()=>addStock('back')}>Add back stock</button></div><p className="help">Empty prices remain unknown. Stock layout is generated separately from panel geometry.</p></fieldset>
+      <fieldset><legend>Stock sheets and prices</legend>{form.spec.manufacturing.stock_sheets.map((stock,i)=><fieldset key={stock.stock_id} className="stock-row"><legend>Stock sheet {i+1}</legend><div className="field"><label htmlFor={'stock-material-'+i}>Sheet {i+1} material</label><select id={'stock-material-'+i} value={stock.material_id} onChange={event=>stockChange(i,'material_id',event.target.value)}>{(['main','back'] as const).map(role=><option key={role} value={form.spec.materials[role].material_id}>{role==='main'?'Main':'Back'} · {form.spec.materials[role].actual_thickness_mm} mm</option>)}</select></div>{measure(`manufacturing.stock_sheets.${i}.length_mm`,`Sheet ${i+1} length (mm)`)}{measure(`manufacturing.stock_sheets.${i}.width_mm`,`Sheet ${i+1} width (mm)`)}<div className="field"><label htmlFor={'stock-grain-'+i}>Sheet {i+1} grain</label><select id={'stock-grain-'+i} value={stock.grain_axis} onChange={event=>stockChange(i,'grain_axis',event.target.value)}><option value="length">Along sheet length</option><option value="none">No grain restriction</option></select></div>{stockPrice(stock,i)}<button type="button" onClick={()=>removeStock(i)}>Remove sheet {i+1}</button></fieldset>)}<div className="button-row"><button type="button" disabled={form.spec.manufacturing.stock_sheets.length>=12} onClick={()=>addStock('main')}>Add main stock</button><button type="button" disabled={form.spec.manufacturing.stock_sheets.length>=12} onClick={()=>addStock('back')}>Add back stock</button></div><p className="help">Empty prices remain unknown. Stock layout is generated separately from panel geometry.</p></fieldset>
       <fieldset><legend>Output preferences</legend><div className="field"><label htmlFor="paper">Project paper size</label><select id="paper" value={form.spec.documents.paper_size} onChange={event=>{const next=structuredClone(form);next.spec.documents.paper_size=event.target.value as 'letter'|'a4';edit(next);}}><option value="letter">US Letter</option><option value="a4">A4</option></select></div><div className="field"><label htmlFor="schedule-units">Schedule units</label><select id="schedule-units" value={form.spec.documents.schedule_units} onChange={event=>{const next=structuredClone(form);next.spec.documents.schedule_units=event.target.value as 'dual'|'mm';edit(next);}}><option value="dual">Inches and millimeters</option><option value="mm">Millimeters</option></select><small>Native part drawings stay explicitly metric.</small></div></fieldset>
         </div></details>
       </fieldset>
@@ -278,12 +292,12 @@ export function App(){
     <section className="design-area" aria-label="Project design"><div className="design-heading"><div><h2>{project?.title||form.spec.project_name}</h2><div className="revision-strip">{accepted?<span>Accepted revision {accepted.number}</span>:<span>New project</span>}{dirty&&<strong>Changes not applied</strong>}{active&&<span>Building revision {accepted?.number}</span>}</div></div></div>
       {findings.length>0&&<div className="error" role="alert"><strong>Check the highlighted fields</strong><ul>{findings.map((item,i)=><li key={i}>{item.message}</li>)}</ul></div>}
       {notice&&<p className="notice" role="status">{notice}</p>}
-      <section className={'draft-summary '+(!dirty&&project?'summary-accepted':'')} data-testid="draft-summary" aria-label="Draft change summary"><h3>{dirty?'Draft preview':'Accepted design'}</h3>{validated?(dirty||!project?changeSummary(accepted?.resolved,validated.resolved,unit,precision):[`${validated.resolved.part_instance_count} panels · ${validated.resolved.openings.length} clear openings`]).map(line=><p key={line}>{line}</p>):<p>{checking?'Checking dimensions…':'Correct the measurements to see the resulting parts.'}</p>}</section>
+      <section className={'draft-summary '+(!dirty&&project?'summary-accepted':'')} data-testid="draft-summary" aria-label="Draft change summary"><h3>{dirty?'Draft preview':'Accepted design'}</h3>{validated?(dirty||!project?changeSummary(accepted?.resolved,validated.resolved,unit,precision):[`${validated.resolved.part_instance_count} panels · ${validated.resolved.openings.length} clear openings`]).map(line=><p key={line}>{line}</p>):<p>{checking?'Checking dimensions…':error instanceof ServiceUnavailableError?'Reconnect the local service to check these measurements.':'Correct the measurements to see the resulting parts.'}</p>}</section>
       {job&&accepted&&<GenerationStatus job={job} revision={accepted.number} submitting={submittingGeneration} connectionIssue={generationConnectionIssue} onCancel={()=>void cancelGeneration()} onRetry={()=>void generate(accepted).catch(failure)}/>}
       {shown&&manifest?<><div id="saved-model" className="model-label"><strong data-testid="model-revision">Last successful model · revision {shown.number}</strong><span className="model-size" data-testid="model-size"><span>{dimension(shown.spec.dimensions.outside_width_mm)} W × {dimension(shown.spec.dimensions.outside_height_mm)} H × {dimension(shown.spec.dimensions.outside_depth_mm)} D</span>{unit==='in'&&<small>{shown.spec.dimensions.outside_width_mm} × {shown.spec.dimensions.outside_height_mm} × {shown.spec.dimensions.outside_depth_mm} mm (W × H × D)</small>}</span></div>
         <div className="model-with-plans"><Plans key={shown.id} revision={shown} manifest={manifest} disabled={active||busy||outputActivity===shown.id} onDownloadsChange={files=>setPlanDownloads(previous=>files.length?{revisionId:shown.id,artifacts:files}:previous?.revisionId===shown.id?null:previous)} onActiveChange={value=>setPlansActivity(previous=>value?shown.id:previous===shown.id?null:previous)} onCompleted={async()=>{if(project)await openProject(project.id,true);}}/>
-        <div className="inspection"><div className="model-space">{manifest.part_definitions.every(d=>urls[d.definition_id])?<Viewer key={manifest.artifact_set_id} manifest={manifest} urls={urls} selected={selected} onSelect={setSelected}/>:<div className="error">The saved preview assets are incomplete. Generate this revision again.</div>}
-          <div className="part-picker" aria-label="Select a physical panel">{manifest.part_instances.map(instance=><button key={instance.instance_id} aria-label={'Select '+instance.instance_id} aria-pressed={selected.includes(instance.instance_id)} onClick={()=>setSelected([instance.instance_id])}><span>{partLabel[instance.instance_id]||instance.instance_id}</span><small>{instance.instance_id}</small></button>)}</div>
+        <div className="inspection"><div id="model-viewer" className="model-space" role="group" aria-label={'3D view · revision '+shown.number} aria-describedby="saved-model" tabIndex={-1}>{manifest.part_definitions.every(d=>urls[d.definition_id])?<Viewer key={manifest.artifact_set_id} manifest={manifest} urls={urls} selected={selected} onSelect={setSelected}/>:<div className="error">The saved preview assets are incomplete. Generate this revision again.</div>}
+          <div className="part-picker" aria-label="Select a physical panel">{manifest.part_instances.map(instance=><button key={instance.instance_id} aria-label={'Select '+(partLabel[instance.instance_id]||instance.instance_id)+' ('+instance.instance_id+')'} aria-pressed={selected.includes(instance.instance_id)} onClick={()=>setSelected([instance.instance_id])}><span>{partLabel[instance.instance_id]||instance.instance_id}</span><small>{instance.instance_id}</small></button>)}</div>
         </div><details className="revision-details"><summary>Measurement details</summary><dl><dt>Physical panels</dt><dd>{shown.resolved.part_instance_count}</dd><dt>Inside width</dt><dd>{dualDimension(shown.resolved.inside_width_mm)}</dd><dt>Carcass depth</dt><dd>{dualDimension(shown.resolved.carcass_depth_mm)}</dd><dt>Clear height target</dt><dd>{dualDimension(shown.resolved.rounded_clear_height_target_mm)}</dd></dl><h3>Openings</h3><ol>{shown.resolved.openings.map(opening=><li key={opening.opening_index}>{dualDimension(opening.resolved_clear_height_mm)} clear</li>)}</ol><p className="help">Dimensions checked. {manifest.construction.status==='recipe_unselected'?'Construction method needed.':manifest.construction.status==='complete'?'Technical fabrication instructions available; physical review and site installation pending.':'Construction method '+manifest.construction.status+'.'}</p><p className="help">Model, cut list, and downloads below describe revision {shown.number}. View controls only change the presentation.</p></details></div>
         </div>
         <section id="cut-list" className="cut-schedule"><div className="section-heading"><h2>Cut list <small>revision {shown.number}</small></h2>{csv&&<a className="download" href={artifactUrl(csv.artifact_id)} download>Download cut list · revision {shown.number}</a>}</div><div className="table-scroll" tabIndex={0} aria-label="Scrollable cut list"><table data-testid="cut-list"><caption>Finished panel sizes are length × width × thickness. Inch labels are approximate where marked; exact millimeters remain available. Rough blanks and grain are separate.</caption><thead><tr><th scope="col">Part group</th><th scope="col">Qty</th><th scope="col">Finished L × W × T</th><th scope="col">Rough L × W</th><th scope="col">Grain</th></tr></thead><tbody>{shown.resolved.cut_groups.map(group=>{const label=group.definition_ids.length>1?'Interchangeable panels':groupLabel(group.definition_id);return <tr key={group.group_id} className={group.member_instance_ids.some(id=>selected.includes(id))?'selected-row':''}><th scope="row"><button aria-label={'Select '+label} aria-pressed={group.member_instance_ids.every(id=>selected.includes(id))} onClick={()=>setSelected(group.member_instance_ids)}>{label}</button><small>{group.member_instance_ids.join(', ')}</small></th><td>{group.quantity}</td><td><span>{dimension(group.finished_mm.length_mm)} × {dimension(group.finished_mm.width_mm)} × {dimension(group.finished_mm.thickness_mm)}</span>{unit==='in'&&<small className="exact-measurement">{group.finished_mm.length_mm} × {group.finished_mm.width_mm} × {group.finished_mm.thickness_mm} mm</small>}</td><td><span>{dimension(group.rough_mm.length_mm)} × {dimension(group.rough_mm.width_mm)}</span>{unit==='in'&&<small className="exact-measurement">{group.rough_mm.length_mm} × {group.rough_mm.width_mm} mm</small>}</td><td>{group.grain_axis==='L'?'Along length':'Unrestricted'}</td></tr>;})}</tbody></table></div></section>
